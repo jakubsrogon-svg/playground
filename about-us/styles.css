@@ -233,3 +233,19 @@ a.stat:hover { background: var(--kr-background); }
 .c-footer__bottom { border-top: 1px solid var(--kr-footer-divider); }
 .c-footer__bottom .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--kr-space-4) var(--kr-space-6); padding-block: var(--kr-space-7); }
 .c-footer__bottom p:last-child { color: var(--kr-grey-60); }
+
+/* Variant B: word values ("Bootstrapped") need a smaller size than numbers */
+[data-variant="independent-B"] .stat__value { font-size: clamp(32px, 3.4vw, 48px); }
+
+/* Variant C: Privacy items as fact boxes, four per row */
+.c-privacy__grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--kr-space-5); }
+@media (max-width: 1023px) { .c-privacy__grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 419px) { .c-privacy__grid--4 { grid-template-columns: minmax(0, 1fr); } }
+.p-item__head--fact { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; padding: var(--kr-space-4); height: 100%; }
+
+/* Variant D: Content / Right v2 dark */
+.c-content--dark { background: var(--kr-blue-dark); color: var(--kr-white); }
+.c-content--dark .checks--stack { border-top-color: var(--kr-footer-divider); }
+
+/* Review-only label above each variant (remove with the variants) */
+.variant-tag { margin-block: var(--kr-space-6) 0; font: var(--kr-fw-semibold) 12px/18px var(--kr-font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--kr-blue); }

@@ -99,7 +99,8 @@
   </section>
 
   <!-- Company facts: Content / Right v2 -->
-  <section class="c-content c-content--text" data-figma="823:64 Content / Right v2" aria-labelledby="independent-title">
+  <p class="variant-tag wrap">Variant A · Content / Right v2 (current)</p>
+  <section class="c-content c-content--text" data-variant="independent-A" data-figma="823:64 Content / Right v2" aria-labelledby="independent-title">
     <div class="wrap">
       <div class="c-content__text">
         <h2 id="independent-title" class="t-h1">Since 2013. Still independent.</h2>
@@ -120,6 +121,75 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== Variants of "Since 2013. Still independent." for review — keep one, delete the rest ===== -->
+  <p class="variant-tag wrap">Variant B · Highlights (Variant2): key facts as big numbers</p>
+  <section class="c-highlights" data-variant="independent-B" data-figma="1836:196 Highlights / Variant2">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="t-h1">Since 2013. Still independent.</h2>
+        <p class="t-body-lg">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
+      </div>
+      <div class="c-highlights__row">
+        <div class="stat"><span class="stat__value">2013</span><span class="stat__label">Founded</span></div>
+        <div class="stat"><span class="stat__value">Bootstrapped</span><span class="stat__label">Funding</span></div>
+        <div class="stat"><span class="stat__value">None</span><span class="stat__label">Parent company</span></div>
+        <div class="stat"><span class="stat__value">None</span><span class="stat__label">Sister brands</span></div>
+      </div>
+      <ul class="checks checks--cols c-highlights__notes">
+          <li><span><strong>Legal name:</strong> Kickresume s.r.o.</span></li>
+          <li><span><strong>Company ID:</strong> 48 073 962</span></li>
+          <li><span><strong>Headquarters:</strong> Bratislava, Slovakia</span></li>
+          <li><span><strong>Founders:</strong> Peter Ďuriš, Tomáš Ondrejka</span></li>
+      </ul>
+      <div class="c-highlights__action"><a class="btn btn-coral" href="https://www.orsr.sk" target="_blank" rel="noopener">Verify Us in the Slovak Commercial Register</a></div>
+    </div>
+  </section>
+
+  <p class="variant-tag wrap">Variant C · Privacy: one tinted box per fact</p>
+  <section class="c-privacy" data-variant="independent-C" data-figma="57:11 Privacy">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="t-h1">Since 2013. Still independent.</h2>
+        <p class="t-body-lg">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
+      </div>
+      <div class="c-privacy__grid c-privacy__grid--4">
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Legal name</p><p class="t-h5">Kickresume s.r.o.</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Company ID</p><p class="t-h5">48 073 962</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Founded</p><p class="t-h5">2013</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Headquarters</p><p class="t-h5">Bratislava, Slovakia</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Founders</p><p class="t-h5">Peter Ďuriš, Tomáš Ondrejka</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Funding</p><p class="t-h5">Bootstrapped</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Parent company</p><p class="t-h5">None</p></div></div>
+        <div class="p-item"><div class="p-item__head p-item__head--fact"><p class="t-body-lg">Sister brands</p><p class="t-h5">None</p></div></div>
+      </div>
+      <div class="c-privacy__action"><a class="btn btn-coral" href="https://www.orsr.sk" target="_blank" rel="noopener">Verify Us in the Slovak Commercial Register</a></div>
+    </div>
+  </section>
+
+  <p class="variant-tag wrap">Variant D · Content / Right v2 dark: current layout on the dark band</p>
+  <section class="c-content c-content--text c-content--dark" data-variant="independent-D" data-figma="1041:139 Content / Right v2 dark">
+    <div class="wrap">
+      <div class="c-content__text">
+        <h2 class="t-h1">Since 2013. Still independent.</h2>
+        <p class="t-body-lg">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
+        <a class="btn btn-coral" href="https://www.orsr.sk" target="_blank" rel="noopener">Verify Us in the Slovak Commercial Register</a>
+      </div>
+      <div class="c-content__text">
+        <ul class="checks checks--stack">
+          <li><span><strong>Legal name:</strong> Kickresume s.r.o.</span></li>
+          <li><span><strong>Company ID:</strong> 48 073 962</span></li>
+          <li><span><strong>Founded:</strong> 2013</span></li>
+          <li><span><strong>Headquarters:</strong> Bratislava, Slovakia</span></li>
+          <li><span><strong>Founders:</strong> Peter Ďuriš, Tomáš Ondrejka</span></li>
+          <li><span><strong>Funding:</strong> Bootstrapped</span></li>
+          <li><span><strong>Parent company:</strong> None</span></li>
+          <li><span><strong>Sister brands:</strong> None</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- ===== end of variants ===== -->
 
   <!-- Reviews: Ratings only -->
   <section class="c-ratings" data-figma="5565:1356 Ratings only" aria-labelledby="reviews-title">
