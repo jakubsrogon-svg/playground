@@ -245,7 +245,6 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 
 /* Press (Landing pages 2.0 · Merge guides & blog) */
 .pg-press-section { position: relative; overflow: hidden; isolation: isolate; }
-.pg-press-section::before { content: ""; position: absolute; z-index: -1; left: -10%; right: -10%; top: 340px; height: 560px; background: rgba(244,247,248,.8); transform: rotate(-6deg); pointer-events: none; }
 .pg-press-section .kr-section-title .button-group { margin-top: 16px; }
 .pg-press-section .kr-section-title { margin-bottom: 64px; max-width: 1260px; }
 .pg-press-section .kr-section-title .kr-body { max-width: 900px; margin-left: auto; margin-right: auto; }
@@ -333,6 +332,31 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-price .pg-stat { margin: 0; }
 .pg-pricing__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0; }
 @media (max-width: 767px) { .pg-pricing__notes { grid-template-columns: minmax(0, 1fr); } }
+
+/* Pricing (Landing pages 2.0 · Pricing) */
+.pg-pricing-section { position: relative; isolation: isolate; overflow: hidden; }
+.pg-pricing-section::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 52%; width: 1100px; height: 640px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(156,62,255,.08), rgba(255,94,89,.04) 55%, rgba(255,255,255,0)); pointer-events: none; }
+.pg-pricing-section .kr-section-title { margin-bottom: 48px; }
+.pg-plans { display: flex; justify-content: center; align-items: stretch; gap: 48px; }
+.pg-plan { position: relative; width: 290px; display: flex; flex-direction: column; gap: 24px; padding: 32px 24px; background: #fff; border: 1px solid var(--kr-grey-60); border-radius: 16px; }
+.pg-plan.is-popular { box-shadow: -3px 5px 6.5px rgba(79,79,79,.05), -12px 21px 12.5px rgba(79,79,79,.04), -28px 48px 16.5px rgba(79,79,79,.03); }
+.pg-plan__badge { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border: 1px solid #5345ff; border-radius: 24px; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: #5345ff; }
+.pg-plan__badge svg { width: 16px; height: 16px; }
+.pg-plan__name { margin: 0; font-family: var(--kr-font-sans); font-size: 20px; line-height: 28px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-plan__price { margin: 0; display: flex; align-items: flex-start; gap: 4px; color: var(--kr-fg); }
+.pg-plan__amount { font-size: 48px; line-height: 48px; font-weight: var(--kr-fw-medium); }
+.pg-plan__per { font-size: 16px; line-height: 24px; font-weight: var(--kr-fw-medium); }
+.pg-plan__cta { display: flex; flex-direction: column; gap: 8px; min-height: 68px; }
+.pg-plan__cta .kr-btn { width: 100%; justify-content: center; }
+.pg-plan__note { margin: 0; font-size: 14px; line-height: 20px; color: var(--kr-grey-80); text-align: center; }
+.pg-plan__list { list-style: none; margin: 0; padding: 0 0 0 8px; display: flex; flex-direction: column; gap: 16px; }
+.pg-plan__list li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 20px; color: var(--kr-fg); }
+.pg-plan__list svg { width: 20px; height: 20px; flex: none; color: #ff5e59; stroke-width: 1.6; }
+.pg-plan.is-popular .pg-plan__list svg { color: #5345ff; }
+.pg-plan .pg-plan__list li.is-guarantee svg { color: #48ad43; }
+.pg-plans__notes li::before { content: "•"; margin-right: 8px; }
+.pg-plans__notes { list-style: none; margin: 48px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; text-align: center; font-size: 16px; line-height: 24px; color: var(--kr-fg); }
+@media (max-width: 991px) { .pg-plans { flex-direction: column; align-items: stretch; gap: 24px; max-width: 360px; margin: 0 auto; } .pg-plan { width: auto; } }
 </style>
 </head>
 <body>
@@ -562,7 +586,13 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
       ["A complete resume, on the free plan", "Build a full resume and download it as a PDF as many times as you want. Premium adds fancier templates and AI."],
       ["Every paid feature is clearly marked", "Look for a purple label that says \"Premium.\" It's hard to miss."]
     ];
-    var prices = [["Monthly", "$24", "per month"], ["Quarterly", "$54", "about $18/mo"], ["Yearly", "$96", "about $8/mo"]];
+    var basic = [["4 basic resume templates"], ["4 matching cover letter templates"], ["Unlimited downloads"], ["1 basic website template"]];
+    var plans = [
+      { name: "Monthly", price: "$24", cta: "Sign Up", href: "https://www.kickresume.com/register/", features: basic },
+      { name: "Quarterly", price: "$18", cta: "Select Plan", href: "https://www.kickresume.com/en/pricing/", note: "Pay $54 every 3 months", popular: true,
+        features: [["40+ templates"], ["Unlimited AI features"], ["ATS Resume Checker"], ["14-day money back guarantee", "guarantee"]] },
+      { name: "Yearly", price: "$8", cta: "Sign Up", href: "https://www.kickresume.com/register/", note: "Pay $96 every year", features: basic }
+    ];
     return html`
       <section className="pg-section" aria-labelledby="free-title">
         <div className="kr-container">
@@ -580,23 +610,33 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
           </div>
         </div>
       </section>
-      <section className="pg-section pg-section--grey" aria-labelledby="pricing-title">
+      <section className="pg-section pg-pricing-section" aria-labelledby="pricing-title">
         <div className="kr-container">
           <header className="kr-section-title">
             <h2 id="pricing-title" className="kr-h1">Transparent pricing.</h2>
             <p className="kr-body">Every Kickresume price is public. See what Premium costs before you create an account.</p>
           </header>
-          <div className="pg-pricing">
-            <div className="pg-grid pg-grid--3">
-              ${prices.map(function (p) { return html`<div className="ds-card pg-price" key=${p[0]}><span className="muted">${p[0]}</span><span className="pg-stat">${p[1]}</span><span className="muted">${p[2]}</span></div>`; })}
-            </div>
-            <ul className="k-checked pg-pricing__notes">
-              <${Check}><strong>Students and teachers get Premium free</strong><br />Verify with ISIC or ITIC for up to 180 days of Premium.<//>
-              <${Check}><strong>The yearly plan is the best deal</strong><br />About a third of the monthly price. We say so up front.<//>
-            </ul>
+          <div className="pg-plans">
+            ${plans.map(function (p) { return html`
+              <article className=${"pg-plan" + (p.popular ? " is-popular" : "")} key=${p.name}>
+                ${p.popular ? html`<span className="pg-plan__badge"><i data-lucide="flame" aria-hidden="true"></i>Popular</span>` : null}
+                <h3 className="pg-plan__name">${p.name}</h3>
+                <p className="pg-plan__price"><span className="pg-plan__amount">${p.price}</span><span className="pg-plan__per">/ month</span></p>
+                <div className="pg-plan__cta">
+                  <${Button} variant=${p.popular ? "gradient" : "coral-ol"} href=${p.href}>${p.cta}<//>
+                  ${p.note ? html`<p className="pg-plan__note">${p.note}</p>` : null}
+                </div>
+                <ul className="pg-plan__list">
+                  ${p.features.map(function (f) { return html`<li key=${f[0]} className=${f[1] ? "is-" + f[1] : ""}><i data-lucide=${f[1] === "guarantee" ? "badge-check" : "check"} aria-hidden="true"></i><span>${f[0]}</span></li>`; })}
+                </ul>
+              </article>`; })}
           </div>
+          <ul className="pg-plans__notes">
+            <li>Students and teachers get Premium free. Verify with ISIC or ITIC for up to 180 days of Premium.</li>
+            <li>The yearly plan is the best deal. About a third of the monthly price. We say so up front.</li>
+          </ul>
           <div className="kr-section-footer">
-            <${Button} variant="dark-ol" href="https://www.kickresume.com/en/pricing/" ...${ext}>See Full Pricing<//>
+            <a className="pg-textlink" href="https://www.kickresume.com/en/pricing/" ...${ext}>See Full Pricing<i data-lucide="arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </section>`;
