@@ -1107,6 +1107,15 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
    hero blurs sit low, behind the illustration only */
 .kr-feature.is-dark { background-image: none; }
 .kr-hero--center { background-position: center bottom; background-size: 100% 55%; }
+/* World-users map as a background pattern behind the hero, faded toward the
+   centre so it never sits strongly behind the text */
+.pg-hero { position: relative; isolation: isolate; padding-bottom: 80px; }
+.pg-hero > .kr-container { position: relative; z-index: 1; }
+.pg-hero__map { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .45;
+  background-repeat: no-repeat; background-position: center 55%; background-size: 1440px auto;
+  -webkit-mask-image: radial-gradient(ellipse 36% 62% at 50% 48%, transparent 70%, #000 100%);
+          mask-image: radial-gradient(ellipse 36% 62% at 50% 48%, transparent 70%, #000 100%); }
+@media (max-width: 767px) { .pg-hero__map { display: none; } }
 .kr-section-title .button-group { margin-top: 32px; }
 .kr-feature.is-reverse .kr-feature__col { justify-self: end; }
 .pg-placeholder { aspect-ratio: 16 / 9; }
@@ -2537,7 +2546,8 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
 
   function Intro() {
     return html`
-      <section className="kr-hero kr-hero--center" aria-labelledby="about-title">
+      <section className="kr-hero kr-hero--center pg-hero" aria-labelledby="about-title">
+        <div className="pg-hero__map" aria-hidden="true" style=${{ backgroundImage: "url(" + A.world + ")" }}></div>
         <div className="kr-container kr-container--wide">
           <${Eyebrow}>About Kickresume<//>
           <h1 id="about-title" className="kr-h1 kr-hero__title">Kickresume is a real company you can trust.</h1>
@@ -2552,7 +2562,6 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
               <div className="kr-proof__text"><strong>Forbes</strong><span>Best Resume Builder Overall</span></div>
             </div>
           </div>
-          <img className="pg-hero-art" src=${A.world} alt="Map with Kickresume users in the U.S., Brazil, Spain and India" />
         </div>
       </section>
       <section className="pg-section" style=${{ paddingTop: 48 }}>
