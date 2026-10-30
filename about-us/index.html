@@ -1295,6 +1295,13 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-plans__icon svg { width: 20px; height: 20px; }
 @media (max-width: 767px) { .pg-plans__notes { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 991px) { .pg-plans { flex-direction: column; align-items: stretch; gap: 24px; max-width: 360px; margin: 0 auto; } .pg-plan { width: auto; } }
+
+/* PARWCC row */
+.pg-parwcc-row { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.pg-parwcc-row p { flex: 1 1 320px; margin: 0; }
+.pg-parwcc-row strong { font-weight: var(--kr-fw-medium); }
+.pg-parwcc--lg { grid-template-columns: repeat(2, 20px); width: 41px; gap: 1px; flex: none; }
+.pg-parwcc--lg i { height: 16px; font-size: 11px; }
 </style>
 </head>
 <body>
@@ -3003,8 +3010,9 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
                 <p className="muted pg-mt-8">${s[2]}</p>
               </a>`; })}
           </div>
-          <div className="ds-card" style=${{ marginTop: 16, display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", justifyContent: "space-between" }}>
-            <p style=${{ flex: "1 1 320px" }}>We also did a joint research with <strong>PARWCC</strong>, the Professional Association of Resume Writers & Career Coaches.</p>
+          <div className="ds-card pg-parwcc-row">
+            <span className="pg-parwcc pg-parwcc--lg" role="img" aria-label="PARWCC logo">${["P", "A", "R", "W", "C", "C"].map(function (l, i) { return html`<i key=${i}>${l}</i>`; })}</span>
+            <p>We also did a <strong>joint research</strong> with <strong>PARWCC</strong>, the <strong>Professional Association of Resume Writers & Career Coaches</strong>.</p>
             <${Button} variant="dark-ol" size="sm" href="#" data-todo="STUDY-LINK">Read the Study<//>
           </div>
         </div>
