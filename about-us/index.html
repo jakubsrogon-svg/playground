@@ -13,11 +13,11 @@
 </head>
 <body>
 
-<!-- Every section uses one component from the Figma "Components (WEB)" library
-     (file tfOoqCFhpvNCQc5PZmqDtw); data-figma holds the component's node id.
+<!-- Sections use components from the Figma "Components (WEB)" library (tfOoqCFhpvNCQc5PZmqDtw),
+     restyled to match "Landing pages 2.0" (2ZFK5m5ELCUT1yiRvCg15q, v4); data-figma holds the node id.
      .asset-slot marks an image or logo from the library still to be added. -->
 
-<header class="c-header" data-figma="1070:519 Header - Content">
+<header class="c-header" data-figma="35176:66974 Header / Light">
   <div class="wrap">
     <a class="c-header__logo" href="https://www.kickresume.com/"><img src="assets/kickresume-icon.svg" alt="" width="28" height="28">kickresume</a>
     <nav class="c-header__nav" aria-label="Main">
@@ -36,15 +36,22 @@
 
 <main>
 
-  <!-- Intro: Content / Left v2 -->
-  <section class="c-content c-content--text" data-figma="823:34 Content / Left v2" aria-labelledby="about-title">
+  <!-- Intro: Hero section (Landing pages 2.0, 35176:66988) -->
+  <section class="lp-hero" data-figma="35176:66988 Hero section" aria-labelledby="about-title">
+    <div class="lp-hero__glow" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="c-content__text">
+      <div class="lp-hero__texts">
         <p class="t-label">About Kickresume</p>
         <h1 id="about-title" class="t-h1">Kickresume is a real company you can trust.</h1>
         <p class="t-body-lg">For over a decade, Kickresume has been the resume builder job seekers trust to tell their story. Named the #1 resume builder overall by Forbes, we’ve helped more than 9 million people worldwide land roles at the world’s most sought-after companies: from Google to Apple and SpaceX.</p>
       </div>
-      <div class="c-content__text">
+      <a class="btn btn-coral" href="#build">Build Your Resume</a>
+      <ul class="lp-proof" aria-label="Why people trust Kickresume">
+        <li class="lp-proof__chip"><span class="lp-proof__num">9M+</span><span><span class="lp-proof__stars" aria-hidden="true">★★★★★</span><span class="t-small t-muted">job seekers helped since 2013</span></span></li>
+        <li class="lp-proof__chip"><span class="lp-proof__logo asset-slot" role="img" aria-label="Forbes">F</span><span><span class="t-label-sm">Forbes</span><span class="t-small">Best Resume Builder Overall</span></span></li>
+        <li class="lp-proof__chip"><span class="lp-proof__logo asset-slot" role="img" aria-label="PARWCC">P</span><span><span class="t-label-sm">PARWCC</span><span class="t-small">Résumé Writers &amp; Career Coaches</span></span></li>
+      </ul>
+      <div class="lp-hero__showcase">
         <p class="t-body-lg">Today's Kickresume is a full AI-powered career toolkit, helping candidates write standout resumes and cover letters, pass ATS checks, prepare for interviews, and even plan their next career move.</p>
         <p class="t-body-lg">Our work has been recognized and cited by media such as The Wall Street Journal, CNBC, Fast Company, Business Insider, and the New York Post. We're also affiliated with the PARWCC (Professional Association of Resume Writers &amp; Career Coaches), with who we even did a joint research study.</p>
         <p class="t-body-lg">We’re a small, passionate team based in Bratislava, Slovakia. And every morning, we show up to do one thing: help people land the right jobs.</p>
@@ -98,26 +105,32 @@
     </div>
   </section>
 
-  <!-- Company facts: Content / Right v2 -->
-  <p class="variant-tag wrap">Variant A · Content / Right v2 (current)</p>
-  <section class="c-content c-content--text" data-variant="independent-A" data-figma="823:64 Content / Right v2" aria-labelledby="independent-title">
+  <!-- Company facts: feature block (Landing pages 2.0 / Build, 35176:67439) -->
+  <p class="variant-tag wrap">Variant A · feature block with blue panel (current)</p>
+  <section class="lp-feature" data-variant="independent-A" data-figma="35176:67439 Build" aria-labelledby="independent-title">
     <div class="wrap">
-      <div class="c-content__text">
-        <h2 id="independent-title" class="t-h1">Since 2013. Still independent.</h2>
-        <p class="t-body-lg">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
-        <a class="btn btn-coral" href="https://www.orsr.sk" target="_blank" rel="noopener">Verify Us in the Slovak Commercial Register</a>
+      <div class="lp-feature__text">
+        <p class="lp-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></svg>Kickresume s.r.o.</p>
+        <div class="lp-feature__content">
+          <h2 id="independent-title" class="t-h1">Since 2013. Still independent.</h2>
+          <p class="t-body-lg">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
+          <a class="btn btn-tint" href="https://www.orsr.sk" target="_blank" rel="noopener">Verify Us in the Slovak Commercial Register<svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </div>
-      <div class="c-content__text">
-        <ul class="checks checks--stack">
-          <li><span><strong>Legal name:</strong> Kickresume s.r.o.</span></li>
-          <li><span><strong>Company ID:</strong> 48 073 962</span></li>
-          <li><span><strong>Founded:</strong> 2013</span></li>
-          <li><span><strong>Headquarters:</strong> Bratislava, Slovakia</span></li>
-          <li><span><strong>Founders:</strong> Peter Ďuriš, Tomáš Ondrejka</span></li>
-          <li><span><strong>Funding:</strong> Bootstrapped</span></li>
-          <li><span><strong>Parent company:</strong> None</span></li>
-          <li><span><strong>Sister brands:</strong> None</span></li>
-        </ul>
+      <div class="lp-panel lp-panel--blue">
+        <div class="lp-window">
+          <div class="lp-window__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <dl class="lp-facts">
+              <div><dt>Legal name</dt><dd>Kickresume s.r.o.</dd></div>
+              <div><dt>Company ID</dt><dd>48 073 962</dd></div>
+              <div><dt>Founded</dt><dd>2013</dd></div>
+              <div><dt>Headquarters</dt><dd>Bratislava, Slovakia</dd></div>
+              <div><dt>Founders</dt><dd>Peter Ďuriš, Tomáš Ondrejka</dd></div>
+              <div><dt>Funding</dt><dd>Bootstrapped</dd></div>
+              <div><dt>Parent company</dt><dd>None</dd></div>
+              <div><dt>Sister brands</dt><dd>None</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -191,62 +204,50 @@
   </section>
   <!-- ===== end of variants ===== -->
 
-  <!-- Reviews: Ratings only -->
-  <section class="c-ratings" data-figma="5565:1356 Ratings only" aria-labelledby="reviews-title">
+  <!-- Reviews + Forbes: Reviews - beige (Landing pages 2.0, 35899:20980) -->
+  <section class="lp-reviews" data-figma="35899:20980 Reviews - beige" aria-labelledby="reviews-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="reviews-title" class="t-h1">Thousands of stellar reviews.</h2>
         <p class="t-body-lg">Independent ratings from some of the 9M+ job seekers who've used Kickresume.</p>
       </div>
-      <div class="c-ratings__row">
-        <div class="rating">
-          <div class="rating__top"><span class="rating__logo asset-slot">Trustpilot logo</span><span class="t-body-lg">3,600+ reviews</span></div>
-          <div class="rating__stars"><span aria-hidden="true">★★★★★</span><span class="rating__score">4.6 / 5</span></div>
-        </div>
-        <div class="rating">
-          <div class="rating__top"><span class="rating__logo asset-slot">App Store logo</span></div>
-          <div class="rating__stars"><span aria-hidden="true">★★★★★</span><span class="rating__score">4.7 / 5</span></div>
-        </div>
-        <div class="rating">
-          <div class="rating__top"><span class="rating__logo asset-slot">Google Play logo</span></div>
-          <div class="rating__stars"><span aria-hidden="true">★★★★★</span><span class="rating__score">4.7 / 5</span></div>
-        </div>
+      <div class="lp-reviews__grid">
+        <article class="lp-banner" aria-labelledby="forbes-title">
+          <div class="lp-banner__text">
+            <p class="t-label">Forbes Vetted</p>
+            <h3 id="forbes-title" class="t-h3">Best Resume Builder Overall</h3>
+            <p class="lp-banner__quote">Forbes Vetted picked Kickresume over five other builders, citing it as the one that makes starting a resume from scratch the quickest and easiest.</p>
+          </div>
+          <div class="lp-banner__source">
+            <span class="lp-banner__logo asset-slot" role="img" aria-label="Forbes">Forbes icon</span>
+            <a class="lp-banner__link" href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-resume-builders/" target="_blank" rel="noopener">Read the Forbes Vetted Review</a>
+          </div>
+        </article>
+        <article class="lp-review"><div><h3 class="t-h5">Trustpilot</h3><p class="t-body">out of 5 · 3,600+ reviews</p></div><p class="lp-review__foot"><span class="lp-review__stars" aria-hidden="true">★★★★★</span><span class="t-label">4.6 / 5</span></p></article>
+        <article class="lp-review"><div><h3 class="t-h5">App Store</h3><p class="t-body">out of 5</p></div><p class="lp-review__foot"><span class="lp-review__stars" aria-hidden="true">★★★★★</span><span class="t-label">4.7 / 5</span></p></article>
+        <article class="lp-review"><div><h3 class="t-h5">Google Play</h3><p class="t-body">out of 5</p></div><p class="lp-review__foot"><span class="lp-review__stars" aria-hidden="true">★★★★★</span><span class="t-label">4.7 / 5</span></p></article>
       </div>
       <a class="btn btn-outline-dark" href="https://www.trustpilot.com/review/kickresume.com" target="_blank" rel="noopener">Read every review. The 1-star ones too.</a>
     </div>
   </section>
 
-  <!-- Forbes: Content / Left v2 -->
-  <section class="c-content" data-figma="823:34 Content / Left v2" aria-labelledby="forbes-title">
+  <!-- Revolut: feature block (Landing pages 2.0 / Prepare, 35176:67515) -->
+  <section class="lp-feature lp-feature--flip" data-figma="35176:67515 Prepare" aria-labelledby="revolut-title">
     <div class="wrap">
-      <div class="c-content__text">
-        <p class="t-label">Forbes Vetted</p>
-        <h2 id="forbes-title" class="t-h1">Best Resume Builder Overall</h2>
-        <p class="t-body-lg">Forbes Vetted picked Kickresume over five other builders, citing it as the one that makes starting a resume from scratch the quickest and easiest.</p>
-        <a class="btn btn-coral" href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-resume-builders/" target="_blank" rel="noopener">Read the Forbes Vetted Review</a>
+      <div class="lp-feature__text">
+        <p class="lp-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>Chosen by partners</p>
+        <div class="lp-feature__content">
+          <h2 id="revolut-title" class="t-h1">Included in Revolut's student benefit</h2>
+          <p class="t-body-lg">Revolut is a global digital bank used by 70M+ people in 40+ countries. It includes Kickresume in its Student Benefits, next to ChatGPT, Canva, Superhuman and the Financial Times.</p>
+          <ul class="checks">
+            <li><span>Revolut</span></li>
+            <li><span>Also offered through ISIC</span></li>
+          </ul>
+          <a class="btn btn-tint" href="https://help.revolut.com/en-PT/help/plans-and-benefits/student-benefits/" target="_blank" rel="noopener">See Revolut's Student Benefits<svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </div>
-      <div class="c-content__media">
-        <div class="asset-slot" role="img" aria-label="Forbes">Logo: Forbes_mention (Figma 6542:1150)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Revolut: Content / Right v2 -->
-  <section class="c-content c-content--right" data-figma="823:64 Content / Right v2" aria-labelledby="revolut-title">
-    <div class="wrap">
-      <div class="c-content__text">
-        <p class="t-label">Chosen by partners</p>
-        <h2 id="revolut-title" class="t-h1">Included in Revolut's student benefit</h2>
-        <p class="t-body-lg">Revolut is a global digital bank used by 70M+ people in 40+ countries. It includes Kickresume in its Student Benefits, next to ChatGPT, Canva, Superhuman and the Financial Times.</p>
-        <hr class="c-content__rule">
-        <ul class="checks">
-          <li><span>Revolut</span></li>
-          <li><span>Also offered through ISIC</span></li>
-        </ul>
-        <a class="btn btn-coral" href="https://help.revolut.com/en-PT/help/plans-and-benefits/student-benefits/" target="_blank" rel="noopener">See Revolut's Student Benefits</a>
-      </div>
-      <div class="c-content__media">
-        <div class="asset-slot" role="img" aria-label="Revolut">Logo: Revolut</div>
+      <div class="lp-panel lp-panel--green">
+        <div class="lp-panel__logo asset-slot" role="img" aria-label="Revolut">Logo: Revolut</div>
       </div>
     </div>
   </section>
@@ -382,20 +383,20 @@
     </div>
   </section>
 
-  <!-- FAQ / v3 (2026) -->
-  <section class="c-faq" data-figma="8643:4022 FAQ / v3 (2026)" aria-labelledby="faq-title">
+  <!-- FAQ: FAQ / v1 - section (Landing pages 2.0, 35176:69386) -->
+  <section class="c-faq" data-figma="35176:69386 FAQ / v1 - section" aria-labelledby="faq-title">
     <div class="wrap">
       <div class="section-head">
         <h2 id="faq-title" class="t-h1">Got questions? Good.</h2>
         <p class="t-body-lg">Straight answers to what people actually ask about Kickresume.</p>
       </div>
       <div class="c-faq__list">
-        <div class="faq-card"><h3 class="t-label">Is Kickresume legit?</h3><p class="t-body">Yes. Kickresume is run by Kickresume s.r.o., a company registered in Slovakia (ID 48 073 962) and operating since 2013.</p></div>
-        <div class="faq-card"><h3 class="t-label">Who owns Kickresume?</h3><p class="t-body">Kickresume is owned by its founders, Peter Ďuriš and Tomáš Ondrejka. It's bootstrapped, with no parent company and no sister brands.</p></div>
-        <div class="faq-card"><h3 class="t-label">Where is Kickresume based?</h3><p class="t-body">Kickresume is headquartered in Bratislava, Slovakia, and operates under EU data protection law (GDPR).</p></div>
-        <div class="faq-card"><h3 class="t-label">Does Kickresume share my resume with recruiters?</h3><p class="t-body">Only if you opt in. Kickresume keeps your documents private by default and shares them with hiring partners only with your consent.</p></div>
-        <div class="faq-card"><h3 class="t-label">Is Kickresume really free?</h3><p class="t-body">Kickresume has a free plan with no time limit. Premium features need a paid subscription, which you can cancel in your account settings.</p></div>
-        <div class="faq-card"><h3 class="t-label">How do I delete my Kickresume data?</h3><p class="t-body">Close your account and Kickresume deletes your data after 30 days. For anything else, email gdpr@kickresume.com.</p></div>
+        <details class="faq-item"><summary>Is Kickresume legit?</summary><p class="t-body">Yes. Kickresume is run by Kickresume s.r.o., a company registered in Slovakia (ID 48 073 962) and operating since 2013.</p></details>
+        <details class="faq-item"><summary>Who owns Kickresume?</summary><p class="t-body">Kickresume is owned by its founders, Peter Ďuriš and Tomáš Ondrejka. It's bootstrapped, with no parent company and no sister brands.</p></details>
+        <details class="faq-item"><summary>Where is Kickresume based?</summary><p class="t-body">Kickresume is headquartered in Bratislava, Slovakia, and operates under EU data protection law (GDPR).</p></details>
+        <details class="faq-item"><summary>Does Kickresume share my resume with recruiters?</summary><p class="t-body">Only if you opt in. Kickresume keeps your documents private by default and shares them with hiring partners only with your consent.</p></details>
+        <details class="faq-item"><summary>Is Kickresume really free?</summary><p class="t-body">Kickresume has a free plan with no time limit. Premium features need a paid subscription, which you can cancel in your account settings.</p></details>
+        <details class="faq-item"><summary>How do I delete my Kickresume data?</summary><p class="t-body">Close your account and Kickresume deletes your data after 30 days. For anything else, email gdpr@kickresume.com.</p></details>
       </div>
     </div>
   </section>

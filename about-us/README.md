@@ -1,5 +1,11 @@
 # About Kickresume page
 
+Visual style follows the Figma design "Landing pages 2.0" (file
+`2ZFK5m5ELCUT1yiRvCg15q`, frame `v4`, node 35176:66973): 1260px layout,
+centred hero with glass proof chips, feature blocks with a gradient badge,
+dashed side line and tinted panels, beige reviews band with glass cards and a
+Forbes banner, and collapsed FAQ accordions. Those blocks use `lp-*` classes.
+
 Static build of the "About Us" draft, made only from components in the
 Figma library "Components (WEB)" (file `tfOoqCFhpvNCQc5PZmqDtw`). Each section
 has a `data-figma` attribute with the component's node id and name.
