@@ -1168,6 +1168,8 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-tp__score span { margin: 0 4px; }
 .pg-textlink { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 24px; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); text-decoration: underline; text-underline-offset: 3px; }
 .pg-textlink svg { width: 20px; height: 20px; }
+.pg-textlink { border-radius: 10px; transition: background-color .15s; }
+.pg-textlink:hover, .pg-textlink:focus-visible { background: var(--kr-grey-40); }
 @media (max-width: 991px) {
   .pg-proof__wrap { flex-direction: column; align-items: stretch; padding: 0; max-width: 400px; }
   .pg-proof__card--tp { width: auto; }
@@ -1219,8 +1221,12 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 600px) minmax(0, 550px); justify-content: space-between; }
 .pg-revolut .kr-feature__col { max-width: 550px; width: 100%; }
 .pg-revolut .pg-art-card { width: 100%; max-width: 600px; aspect-ratio: 3 / 2; height: auto; min-height: 0; }
-.pg-independent .pg-facts { align-content: center; }
-@media (max-width: 899px) { .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 1fr); } .pg-independent .pg-facts { aspect-ratio: auto; } }
+.pg-independent .pg-facts { padding: 32px; gap: 8px; grid-template-rows: repeat(4, minmax(0, 1fr)); align-content: stretch; }
+.pg-independent .pg-facts > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 16px; border-radius: 8px; background: #fff; text-align: center; }
+.pg-independent .pg-facts dt { font-size: 14px; line-height: 20px; }
+.pg-independent .pg-facts dd { margin: 0; font-size: 16px; line-height: 24px; }
+@media (max-width: 899px) { .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 1fr); } .pg-independent .pg-facts { aspect-ratio: auto; grid-template-rows: none; } }
+@media (max-width: 479px) { .pg-independent .pg-facts { padding: 16px; } }
 
 /* One card radius across the page */
 .ds-card, .pg-art-card, .pg-founder, .pg-founders__photo, .pg-pill, .pg-proof__card, .pg-press-card, .pg-author, .pg-howto__card, .kr-testi-card, .kr-sample-card { border-radius: 16px; }
