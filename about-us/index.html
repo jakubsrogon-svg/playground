@@ -1111,6 +1111,25 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .kr-feature.is-reverse .kr-feature__col { justify-self: end; }
 .pg-placeholder { aspect-ratio: 16 / 9; }
 @media (max-width: 899px) { .kr-feature.is-reverse .kr-feature__col { justify-self: stretch; } }
+
+/* Founders: Landing pages 2.0 "Hero v1" layout on navy (centered head, 2 photos 400px, 2 cards; 32px gaps) */
+.pg-founders { background: var(--kr-blue-dark); color: #fff; }
+.pg-founders .kr-eyebrow, .pg-founders .kr-h1, .pg-founders .kr-body { color: #fff; }
+.pg-founders__head { max-width: 900px; margin-bottom: 32px; }
+.pg-founders__photos, .pg-founders__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.pg-founders__photos { margin-bottom: 32px; }
+.pg-founders__photo { position: relative; margin: 0; height: 400px; border-radius: var(--kr-radius-lg); overflow: hidden; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); display: grid; place-items: center; }
+.pg-founders__slot { color: rgba(255, 255, 255, 0.6); font-size: 14px; }
+.pg-founders__photo figcaption { position: absolute; left: 24px; bottom: 16px; font-size: 16px; line-height: 24px; color: #fff; }
+.pg-founder { display: flex; gap: 16px; align-items: flex-start; padding: 16px; border-radius: var(--kr-radius-lg); }
+.pg-founder__avatar { width: 96px; height: 96px; border-radius: 50%; flex: none; display: grid; place-items: center; background: rgba(255, 255, 255, 0.12); color: #fff; font-size: 24px; font-weight: var(--kr-fw-medium); }
+.pg-founder h3 { margin: 0 0 8px; }
+.pg-founder .muted { margin: 0; }
+@media (max-width: 767px) {
+  .pg-founders__photos, .pg-founders__cards { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .pg-founders__photo { height: 240px; }
+  .pg-founder__avatar { width: 64px; height: 64px; font-size: 18px; }
+}
 </style>
 </head>
 <body>
@@ -2548,23 +2567,28 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
   }
 
   function Founders() {
+    // Layout from Landing pages 2.0 "Hero v1" (Figma 41718:65852), kept on the navy band
     return html`
-      <section className="kr-feature is-dark" aria-labelledby="founders-title">
-        <div className="kr-container kr-container--wide">
-          <div className="kr-feature__row">
-            <div className="kr-feature__art pg-photos">
-              <figure><div className="pg-photo" role="img" aria-label="Kickresume founders Peter Ďuriš and Tomáš Ondrejka working on a laptop in 2013">Photo: founders in 2013</div><figcaption>2013 · At university</figcaption></figure>
-              <figure><div className="pg-photo" role="img" aria-label="Kickresume founders Peter Ďuriš and Tomáš Ondrejka at the Kickresume office today">Photo: founders today</div><figcaption>Today · Bratislava</figcaption></figure>
-            </div>
-            <div className="kr-feature__col">
-              <${Eyebrow}>The founders<//>
-              <h2 id="founders-title" className="kr-h2">Run by the same two people since 2013.</h2>
-              <p className="kr-body">Peter and Tomáš built Kickresume at university to fix their own resumes. They still run it today.</p>
-            </div>
+      <section className="pg-section pg-founders" aria-labelledby="founders-title">
+        <div className="kr-container">
+          <header className="kr-section-title pg-founders__head">
+            <${Eyebrow}>The founders<//>
+            <h2 id="founders-title" className="kr-h1">Run by the same two people since 2013.</h2>
+            <p className="kr-body">Peter and Tomáš built Kickresume at university to fix their own resumes. They still run it today.</p>
+          </header>
+          <div className="pg-founders__photos">
+            <figure className="pg-founders__photo" role="img" aria-label="Kickresume founders Peter Ďuriš and Tomáš Ondrejka working on a laptop in 2013">
+              <span className="pg-founders__slot">Photo: founders in 2013</span>
+              <figcaption>2013 · At university</figcaption>
+            </figure>
+            <figure className="pg-founders__photo" role="img" aria-label="Kickresume founders Peter Ďuriš and Tomáš Ondrejka at the Kickresume office today">
+              <span className="pg-founders__slot">Photo: founders today</span>
+              <figcaption>Today · Bratislava</figcaption>
+            </figure>
           </div>
-          <div className="pg-team">
-            <article className="ds-card ds-card--on-dark pg-person">
-              <span className="pg-avatar" aria-hidden="true">PĎ</span>
+          <div className="pg-founders__cards">
+            <article className="ds-card ds-card--on-dark pg-founder">
+              <span className="pg-founder__avatar" aria-hidden="true">PĎ</span>
               <div>
                 <h3>Peter Ďuriš</h3>
                 <p className="muted">Co-founder & CEO</p>
@@ -2572,8 +2596,8 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
                 <a className="pg-link" href="https://kickresume.substack.com" ...${ext}>Read Peter's Newsletter</a>
               </div>
             </article>
-            <article className="ds-card ds-card--on-dark pg-person">
-              <span className="pg-avatar" aria-hidden="true">TO</span>
+            <article className="ds-card ds-card--on-dark pg-founder">
+              <span className="pg-founder__avatar" aria-hidden="true">TO</span>
               <div>
                 <h3>Tomáš Ondrejka</h3>
                 <p className="muted">Co-founder & CMO</p>
