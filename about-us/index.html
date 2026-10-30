@@ -1191,6 +1191,29 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-press-card__cta svg { width: 16px; height: 16px; }
 @media (max-width: 991px) { .pg-press { grid-template-columns: repeat(2, minmax(0, 300px)); } }
 @media (max-width: 639px) { .pg-press { grid-template-columns: minmax(0, 1fr); } }
+
+/* Team (Landing pages 2.0 · Team / authors update) */
+.pg-team-section { background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 100%), #f4f7f8; }
+.pg-team-section .kr-section-title { margin-bottom: 40px; }
+.pg-authors { display: grid; grid-template-columns: repeat(2, minmax(0, 554px)); justify-content: center; gap: 32px; }
+.pg-author { display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: #fff; border: 1px solid var(--kr-grey-40, #f2f2f2); border-radius: 24px; }
+.pg-author__photo { width: 100px; height: 100px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #e9e9e9; color: var(--kr-fg); font-size: 24px; font-weight: var(--kr-fw-medium); }
+.pg-author__body { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.pg-author__name { margin: 0; font-family: var(--kr-font-sans); font-size: 20px; line-height: 32px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-author__role { margin: 8px 0 0; font-size: 14px; line-height: 20px; color: rgba(63,63,63,.5); }
+.pg-author__bio { margin: 0; font-size: 14px; line-height: 20px; color: var(--kr-fg); }
+.pg-author__link { font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: var(--kr-coral, #ff5e59); text-decoration: underline; text-underline-offset: 3px; }
+.pg-author-cta { grid-column: 1 / -1; justify-self: center; max-width: 554px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.pg-author-cta .pg-author__bio { max-width: 425px; }
+.pg-howto { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
+.pg-howto__title { margin: 0; text-align: left; }
+.pg-howto__cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.pg-howto__card { display: flex; flex-direction: column; gap: 16px; padding: 16px; border-radius: 24px; border: 1px solid var(--kr-grey-40, #f2f2f2); background: rgba(255,255,255,.7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.pg-howto__badge { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f2fd; color: #514eea; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); }
+.pg-howto__card strong { display: block; font-size: 18px; line-height: 24px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-howto__card p { margin: 8px 0 0; font-size: 16px; line-height: 24px; color: var(--kr-fg); }
+@media (max-width: 991px) { .pg-authors { grid-template-columns: minmax(0, 1fr); } .pg-howto__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 559px) { .pg-howto__cards { grid-template-columns: minmax(0, 1fr); } .pg-author__photo { width: 72px; height: 72px; font-size: 20px; } }
 </style>
 </head>
 <body>
@@ -2888,33 +2911,40 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
     ];
     var steps = [["Written by a career writer", "Named on the byline"], ["Checked by a CPRW", "Against resume-writing standards"], ["Reviewed by a recruiter", "For how hiring really works"], ["Kept current", "Last-updated date on every page"]];
     return html`
-      <section className="pg-section pg-section--tint" aria-labelledby="team-title">
-        <div className="kr-container kr-container--wide">
+      <section className="pg-section pg-team-section" aria-labelledby="team-title">
+        <div className="kr-container">
           <header className="kr-section-title">
             <h2 id="team-title" className="kr-h1">Real experts. Years of know-how.</h2>
             <p className="kr-body">Every Kickresume guide is written and checked by people you can look up.</p>
           </header>
-          <div className="pg-grid pg-grid--3">
+          <div className="pg-authors">
             ${people.map(function (p) { return html`
-              <article className="ds-card pg-person" key=${p[1]}>
-                <span className="pg-avatar" aria-hidden="true">${p[0]}</span>
-                <div>
-                  <h3>${p[1]}</h3>
-                  <p className="muted">${p[2]}</p>
-                  <p className="pg-bio">${p[3]}</p>
-                  <a className="pg-link" href="#" data-todo="PROFILE-LINK">View Profile</a>
+              <article className="pg-author" key=${p[1]}>
+                <span className="pg-author__photo" aria-hidden="true">${p[0]}</span>
+                <div className="pg-author__body">
+                  <div>
+                    <h3 className="pg-author__name">${p[1]}</h3>
+                    <p className="pg-author__role">${p[2]}</p>
+                  </div>
+                  <p className="pg-author__bio">${p[3]}</p>
+                  <a className="pg-author__link" href="#" data-todo="PROFILE-LINK">View Profile</a>
                 </div>
               </article>`; })}
+            <div className="pg-author-cta">
+              <h3 className="pg-author__name">Think you'd fit in here?</h3>
+              <p className="pg-author__bio">We're a small team of collaborators in Central Europe, and we're always glad to hear from people who care about careers.</p>
+              <a className="pg-author__link" href="https://www.kickresume.com/en/contact/" ...${ext}>Get in Touch</a>
+            </div>
           </div>
-          <div className="ds-card ds-card--tinted" style=${{ marginTop: 16, background: "var(--kr-white)" }}>
-            <h3 style=${{ marginTop: 0 }}>How every guide is made</h3>
-            <ol className="pg-grid" style=${{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", listStyle: "none", padding: 0, margin: 0 }}>
-              ${steps.map(function (s, i) { return html`<li key=${s[0]}><span className="pg-step">${i + 1}</span><strong style=${{ fontWeight: 500 }}>${s[0]}</strong><p className="muted">${s[1]}</p></li>`; })}
+          <div className="pg-howto">
+            <h3 className="kr-h1 pg-howto__title">How every guide is made</h3>
+            <ol className="pg-howto__cards">
+              ${steps.map(function (st, i) { return html`
+                <li className="pg-howto__card" key=${st[0]}>
+                  <span className="pg-howto__badge">${i + 1}</span>
+                  <div><strong>${st[0]}</strong><p>${st[1]}</p></div>
+                </li>`; })}
             </ol>
-          </div>
-          <div className="kr-section-footer" style=${{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", alignItems: "center" }}>
-            <p className="kr-body" style=${{ margin: 0, maxWidth: 560 }}><strong style=${{ fontWeight: 500 }}>Think you'd fit in here?</strong> We're a small team of collaborators in Central Europe, and we're always glad to hear from people who care about careers.</p>
-            <${Button} variant="dark-ol" href="https://www.kickresume.com/en/contact/" ...${ext}>Get in Touch<//>
           </div>
         </div>
       </section>`;
