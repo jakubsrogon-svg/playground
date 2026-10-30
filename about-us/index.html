@@ -967,7 +967,7 @@ img { max-width: 100%; }
 /* Hero: centered, colored blurs on white (brand book: blurs only on white) */
 .kr-hero--center { background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU2MSIgaGVpZ2h0PSI4MTYiIHZpZXdCb3g9IjAgMCAxNTYxIDgxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZl8zOTMwNF81ODUzMykiPgo8Y2lyY2xlIGN4PSIxMjA4LjE2IiBjeT0iMzUyLjY2MiIgcj0iMTk1LjgwNSIgZmlsbD0iI0ZGRUFFNSI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjM3NS44NDUiIGN5PSI0NDAuMDE1IiByPSIyMTguOTg4IiBmaWxsPSIjRkZGQkVCIj48L2NpcmNsZT4KPGNpcmNsZSBjeD0iNjY0LjAyMSIgY3k9IjM4MC4wMTUiIHI9IjIxOC45ODgiIGZpbGw9IiNGNURGRTgiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSI5MjIuNTQ3IiBjeT0iMzYwLjU5IiByPSIxNjkuNDEyIiBmaWxsPSIjRUNDRUVFIj48L2NpcmNsZT4KPC9nPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9mXzM5MzA0XzU4NTMzIiB4PSItMC4wMDAzODE0NyIgeT0iLTIwLjAwMDQiIHdpZHRoPSIxNTcyLjcyIiBoZWlnaHQ9IjgzNS44NjIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiPjwvZmVGbG9vZD4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiPjwvZmVCbGVuZD4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNzguNDI4OSIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzM5MzA0XzU4NTMzIj48L2ZlR2F1c3NpYW5CbHVyPgo8L2ZpbHRlcj4KPC9kZWZzPgo8L3N2Zz4=") center 70% / 120% auto no-repeat; padding-bottom: 32px; }
 .kr-hero__title { text-wrap: balance; max-width: 900px; margin-left: auto; margin-right: auto; }
-@media (max-width: 767px) { .kr-hero__title { font-size: 44px; letter-spacing: -1.4px; } .kr-section-title .kr-h1 { font-size: 36px; } }
+
 .pg-hero-art { width: 100%; max-width: 600px; height: auto; margin: 0 auto; display: block; }
 .kr-btn { max-width: 100%; white-space: normal; text-align: center; }
 .pg-intro { columns: 3 280px; column-gap: 48px; }
@@ -1054,6 +1054,9 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 
 /* Henk-Work only for primary headings (hero h1, section h1/h2), regular weight only */
 .kr-h1, .kr-h2 { font-weight: var(--kr-fw-regular); }
+/* every Henk-Work heading: Heading/H1 48/56 */
+.kr-h1, .kr-h2, .kr-hero__title, .kr-section-title .kr-h1 { font-size: 48px; line-height: 56px; letter-spacing: 0; }
+@media (max-width: 559px) { .kr-h1, .kr-h2, .kr-hero__title, .kr-section-title .kr-h1 { font-size: 36px; line-height: 40px; } }
 .kr-testi-card__name, .kr-sample-card__title, .kr-forbes__quote, .pg-stat, .kr-h3 { font-family: var(--kr-font-sans); }
 .kr-testi-card__name { font-size: 18px; line-height: 24px; font-weight: var(--kr-fw-medium); letter-spacing: 0; }
 .kr-sample-card__title { font-size: 18px; line-height: 24px; font-weight: var(--kr-fw-medium); letter-spacing: 0; margin: 0 0 8px; }
