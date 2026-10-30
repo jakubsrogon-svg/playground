@@ -227,7 +227,7 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-proof__name { margin: 0; font-family: var(--kr-font-sans); font-size: 16px; line-height: 24px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
 .pg-proof__score { font-size: 14px; line-height: 20px; color: var(--kr-fg); padding: 0 2px; }
 .pg-proof__card--tp { flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; width: 284px; height: 132px; padding: 16px 24px; }
-.pg-tp__brand { display: flex; align-items: center; gap: 4px; font-weight: 700; font-size: 16px; line-height: 20px; color: var(--kr-fg); }
+.pg-tp__brand { margin: 0; font-family: var(--kr-font-sans); display: flex; align-items: center; gap: 4px; font-weight: 700; font-size: 16px; line-height: 20px; color: var(--kr-fg); }
 .pg-tp__stars { display: flex; gap: 6px; }
 .pg-tp__star { width: 32px; height: 32px; background: #00b67a; display: flex; align-items: center; justify-content: center; }
 .pg-tp__star.is-part { background: linear-gradient(90deg, #00b67a 60%, #dcdce6 60%); }
@@ -307,7 +307,7 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .ds-card, .pg-art-card, .pg-founder, .pg-founders__photo, .pg-pill, .pg-proof__card, .pg-press-card, .pg-author, .pg-howto__card, .kr-testi-card, .kr-sample-card { border-radius: 16px; }
 
 /* CTA (Landing pages 2.0 · Resume builder callout) */
-.pg-cta { padding: 80px 0; }
+.pg-cta { padding: 0 0 80px; }
 .pg-callout { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; gap: 32px; padding: 32px; border-radius: 16px; background: #fbefda; }
 .pg-callout::before, .pg-callout::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
 .pg-callout::before { width: 360px; height: 240px; left: -140px; top: -150px; background: radial-gradient(closest-side, rgba(255,214,102,.7), rgba(255,214,102,0)); }
@@ -341,7 +341,7 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-plans { display: flex; justify-content: center; align-items: stretch; gap: 48px; }
 .pg-plan { position: relative; width: 290px; display: flex; flex-direction: column; gap: 24px; padding: 32px 24px; background: #fff; border: 1px solid var(--kr-grey-60); border-radius: 16px; }
 .pg-plan.is-popular { box-shadow: -3px 5px 6.5px rgba(79,79,79,.05), -12px 21px 12.5px rgba(79,79,79,.04), -28px 48px 16.5px rgba(79,79,79,.03); }
-.pg-plan__badge { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border: 1px solid #5345ff; border-radius: 24px; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: #5345ff; }
+.pg-plan__badge { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border: 1px solid #5345ff; border-radius: 24px; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: #5345ff; }
 .pg-plan__badge svg { width: 16px; height: 16px; }
 .pg-plan__name { margin: 0; font-family: var(--kr-font-sans); font-size: 20px; line-height: 28px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
 .pg-plan__price { margin: 0; display: flex; align-items: flex-start; gap: 4px; color: var(--kr-fg); }
@@ -355,6 +355,7 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-plan__list svg { width: 20px; height: 20px; flex: none; color: #ff5e59; stroke-width: 1.6; }
 .pg-plan.is-popular .pg-plan__list svg { color: #5345ff; }
 .pg-plan .pg-plan__list li.is-guarantee svg { color: #48ad43; }
+.pg-plan__list strong { font-weight: var(--kr-fw-medium); }
 .pg-plans__notes { list-style: none; margin: 48px auto 0; padding: 0; max-width: 964px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .pg-plans__notes li { display: flex; gap: 16px; align-items: flex-start; padding: 16px 24px 16px 16px; border-radius: 16px; background: #fff; border: 1px solid var(--kr-grey-60); }
 .pg-plans__notes p { margin: 0; font-size: 14px; line-height: 20px; color: var(--kr-fg); }
@@ -362,7 +363,8 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-plans__icon { width: 40px; height: 40px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f2fd; color: #514eea; }
 .pg-plans__icon svg { width: 20px; height: 20px; }
 @media (max-width: 767px) { .pg-plans__notes { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 991px) { .pg-plans { flex-direction: column; align-items: stretch; gap: 24px; max-width: 360px; margin: 0 auto; } .pg-plan { width: auto; } }
+@media (max-width: 767px) { .pg-proofrow { flex-direction: column; align-items: flex-start; width: fit-content; margin-left: auto; margin-right: auto; } }
+@media (max-width: 991px) { .pg-plan__cta { min-height: 0; } .pg-plans { flex-direction: column; align-items: stretch; gap: 24px; max-width: 360px; margin: 0 auto; } .pg-plan { width: auto; } }
 
 /* PARWCC row */
 .pg-parwcc-row { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
@@ -528,10 +530,10 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
                 </div>
               </div>`; })}
             <div className="pg-proof__card pg-proof__card--tp">
-              <div className="pg-tp__brand">
+              <h3 className="pg-tp__brand">
                 <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="#00b67a" d=${TP_STAR} /></svg>
                 <span>Trustpilot</span>
-              </div>
+              </h3>
               <div className="pg-tp__stars" role="img" aria-label="4.6 out of 5 stars">
                 ${[0, 1, 2, 3, 4].map(function (i) { return html`
                   <span key=${i} className=${"pg-tp__star" + (i === 4 ? " is-part" : "")}><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d=${TP_STAR} /></svg></span>`; })}
@@ -599,12 +601,13 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
       ["A complete resume, on the free plan", "Build a full resume and download it as a PDF as many times as you want. Premium adds fancier templates and AI."],
       ["Every paid feature is clearly marked", "Look for a purple label that says \"Premium.\" It's hard to miss."]
     ];
-    var basic = [["4 basic resume templates"], ["4 matching cover letter templates"], ["Unlimited downloads"], ["1 basic website template"]];
     var plans = [
-      { name: "Monthly", price: "$24", cta: "Sign Up", href: "https://www.kickresume.com/register/", features: basic },
-      { name: "Quarterly", price: "$18", cta: "Select Plan", href: "https://www.kickresume.com/en/pricing/", note: "Pay $54 every 3 months", popular: true,
-        features: [["40+ templates"], ["Unlimited AI features"], ["ATS Resume Checker"], ["14-day money back guarantee", "guarantee"]] },
-      { name: "Yearly", price: "$8", cta: "Sign Up", href: "https://www.kickresume.com/register/", note: "Pay $96 every year", features: basic }
+      { name: "Monthly", price: "€24", cta: "Select Plan", href: "https://www.kickresume.com/en/pricing/",
+        features: [[html`40+ resume templates`], [html`AI Writer`], [html`ATS Resume Checker`], [html`14-day money back guarantee`, "guarantee"]] },
+      { name: "Quarterly", price: "€18", cta: "Select Plan", href: "https://www.kickresume.com/en/pricing/", note: "Pay €54 every 3 months", popular: true,
+        features: [[html`Everything from <strong>Monthly</strong>`], [html`<strong>€72</strong> in Premium gift vouchers for your friends`], [html`14-day money back guarantee`, "guarantee"]] },
+      { name: "Yearly", price: "€8", cta: "Select Plan", href: "https://www.kickresume.com/en/pricing/", note: "Pay €96 every 12 months",
+        features: [[html`Everything from <strong>Monthly</strong>`], [html`<strong>€120</strong> in Premium gift vouchers for your friends`], [html`14-day money back guarantee`, "guarantee"]] }
     ];
     return html`
       <section className="pg-section" aria-labelledby="free-title">
@@ -640,7 +643,7 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
                   ${p.note ? html`<p className="pg-plan__note">${p.note}</p>` : null}
                 </div>
                 <ul className="pg-plan__list">
-                  ${p.features.map(function (f) { return html`<li key=${f[0]} className=${f[1] ? "is-" + f[1] : ""}><i data-lucide=${f[1] === "guarantee" ? "badge-check" : "check"} aria-hidden="true"></i><span>${f[0]}</span></li>`; })}
+                  ${p.features.map(function (f, i) { return html`<li key=${i} className=${f[1] ? "is-" + f[1] : ""}><i data-lucide=${f[1] === "guarantee" ? "badge-check" : "check"} aria-hidden="true"></i><span>${f[0]}</span></li>`; })}
                 </ul>
               </article>`; })}
           </div>
