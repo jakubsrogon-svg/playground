@@ -1237,6 +1237,20 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 
 /* One card radius across the page */
 .ds-card, .pg-art-card, .pg-founder, .pg-founders__photo, .pg-pill, .pg-proof__card, .pg-press-card, .pg-author, .pg-howto__card, .kr-testi-card, .kr-sample-card { border-radius: 16px; }
+
+/* CTA (Landing pages 2.0 · Resume builder callout) */
+.pg-cta { padding: 80px 0; }
+.pg-callout { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; gap: 32px; padding: 32px; border-radius: 16px; background: #fbefda; }
+.pg-callout::before, .pg-callout::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; }
+.pg-callout::before { width: 360px; height: 240px; left: -140px; top: -150px; background: radial-gradient(closest-side, rgba(255,214,102,.7), rgba(255,214,102,0)); }
+.pg-callout::after { width: 360px; height: 240px; left: 62%; top: -130px; background: radial-gradient(closest-side, rgba(255,214,102,.6), rgba(255,214,102,0)); }
+.pg-callout__deco { position: absolute; z-index: -1; right: -162px; top: calc(50% + 104px); width: 270px; height: 270px; transform: translateY(-50%); border-radius: 50%; background: rgba(255,255,255,.25); pointer-events: none; }
+.pg-callout__deco::after { content: ""; position: absolute; right: 60px; top: 50%; width: 165px; height: 165px; transform: translateY(-50%); border-radius: 50%; background: rgba(255,255,255,.4); }
+.pg-callout__msg { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.pg-callout__msg .kr-h1, .pg-callout__msg .kr-body { margin: 0; color: var(--kr-fg); }
+.pg-callout__msg .kr-body a { font-weight: var(--kr-fw-medium); color: var(--kr-fg); text-decoration: underline; text-underline-offset: 3px; }
+.pg-callout .kr-btn { flex: none; }
+@media (max-width: 767px) { .pg-callout { flex-direction: column; align-items: flex-start; padding: 24px; gap: 24px; } }
 </style>
 </head>
 <body>
@@ -2998,16 +3012,16 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
 
   function Cta() {
     return html`
-      <section className="pg-section pg-section--coral" id="build" aria-labelledby="cta-title">
+      <section className="pg-section pg-cta" id="build" aria-labelledby="cta-title">
         <div className="kr-container">
-          <header className="kr-section-title" style=${{ marginBottom: 0 }}>
-            <h2 id="cta-title" className="kr-h1">That's our resume.<br />Now let's do yours.</h2>
-            <p className="kr-body">Start free. Upgrade only if you need more.</p>
-            <div className="button-group">
-              <${Button} variant="coral" href="https://www.kickresume.com/register/">Build Your Resume<//>
-              <${Button} variant="dark-ol" href="https://www.trustpilot.com/review/kickresume.com" ...${ext}>Check Us on Trustpilot<//>
+          <div className="pg-callout">
+            <span className="pg-callout__deco" aria-hidden="true"></span>
+            <div className="pg-callout__msg">
+              <h2 id="cta-title" className="kr-h1">That's our resume. Now let's do yours.</h2>
+              <p className="kr-body">Start free. Upgrade only if you need more. <a href="https://www.trustpilot.com/review/kickresume.com" ...${ext}>Check Us on Trustpilot</a></p>
             </div>
-          </header>
+            <${Button} variant="coral" href="https://www.kickresume.com/register/">Build Your Resume<//>
+          </div>
         </div>
       </section>`;
   }
