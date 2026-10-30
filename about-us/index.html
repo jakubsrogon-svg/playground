@@ -1130,6 +1130,64 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
   .pg-founders__photo { height: 240px; }
   .pg-founder__avatar { width: 64px; height: 64px; font-size: 18px; }
 }
+
+/* Hero proof row (Landing pages 2.0 · Combined proof) */
+.pg-proofrow { gap: 16px; }
+.pg-pill { display: flex; align-items: center; gap: 8px; height: 64px; padding: 12px 16px; border-radius: 16px; background: rgba(255,255,255,.2); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.pg-pill .kr-proof__text { gap: 4px; }
+.pg-pill .kr-proof__text > strong { font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-pill .kr-proof__text > span { font-size: 12px; line-height: 18px; color: var(--kr-fg); }
+.pg-pill:first-child .kr-proof__text > span { color: var(--kr-fg-muted); }
+.pg-pill .kr-proof__avatars { margin-right: 4px; }
+.pg-pill .kr-proof__av, .pg-pill .kr-proof__count { width: 48px; height: 48px; margin-right: -24px; }
+.pg-pill .kr-proof__count { margin-right: 0; background: rgba(255,255,255,.8); box-shadow: none; font-weight: var(--kr-fw-medium); }
+.pg-av--1 { background: #f3d9c9; } .pg-av--2 { background: #d9dcf5; } .pg-av--3 { background: #cfe8dd; }
+.pg-parwcc { display: grid; grid-template-columns: repeat(2, 14px); gap: 1px; width: 40px; justify-content: center; }
+.pg-parwcc i { display: flex; align-items: center; justify-content: center; height: 12px; font-style: normal; font-size: 8px; font-weight: var(--kr-fw-semibold, 600); color: #fff; background: #1d3f8f; }
+.pg-parwcc i:nth-child(n+3):nth-child(-n+4) { background: #fff; color: #1d3f8f; box-shadow: inset 0 0 0 1px #1d3f8f; }
+.pg-parwcc i:nth-child(n+5) { background: #3a9ad9; }
+
+/* Reviews (Landing pages 2.0 · Proof - light) */
+.pg-proof .kr-section-title { margin-bottom: 40px; }
+.pg-proof__wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; max-width: 1010px; margin: 0 auto; padding: 0 32px; }
+.pg-proof__card { display: flex; align-items: center; gap: 8px; padding: 16px; border-radius: 16px; background: var(--kr-grey-20, #fafafa); }
+.pg-proof__icon { width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; flex: none; }
+.pg-proof__content { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding-right: 16px; }
+.pg-proof__name { margin: 0; font-family: var(--kr-font-sans); font-size: 16px; line-height: 24px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-proof__score { font-size: 14px; line-height: 20px; color: var(--kr-fg); padding: 0 2px; }
+.pg-proof__card--tp { flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; width: 284px; height: 132px; padding: 16px 24px; }
+.pg-tp__brand { display: flex; align-items: center; gap: 4px; font-weight: 700; font-size: 16px; line-height: 20px; color: var(--kr-fg); }
+.pg-tp__stars { display: flex; gap: 6px; }
+.pg-tp__star { width: 32px; height: 32px; background: #00b67a; display: flex; align-items: center; justify-content: center; }
+.pg-tp__star.is-part { background: linear-gradient(90deg, #00b67a 60%, #dcdce6 60%); }
+.pg-tp__star svg { width: 24px; height: 24px; }
+.pg-tp__score { margin: 0; font-size: 15px; line-height: 24px; color: var(--kr-fg); }
+.pg-tp__score span { margin: 0 4px; }
+.pg-textlink { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 24px; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); text-decoration: underline; text-underline-offset: 3px; }
+.pg-textlink svg { width: 20px; height: 20px; }
+@media (max-width: 991px) {
+  .pg-proof__wrap { flex-direction: column; align-items: stretch; padding: 0; max-width: 400px; }
+  .pg-proof__card--tp { width: auto; }
+}
+
+/* Press (Landing pages 2.0 · Merge guides & blog) */
+.pg-press-section { position: relative; overflow: hidden; isolation: isolate; }
+.pg-press-section::before { content: ""; position: absolute; z-index: -1; left: -10%; right: -10%; top: 340px; height: 560px; background: rgba(244,247,248,.8); transform: rotate(-6deg); pointer-events: none; }
+.pg-press-section .kr-section-title .button-group { margin-top: 16px; }
+.pg-press-section .kr-section-title { margin-bottom: 64px; max-width: 1260px; }
+.pg-press-section .kr-section-title .kr-body { max-width: 900px; margin-left: auto; margin-right: auto; }
+.pg-press { grid-template-columns: repeat(3, minmax(0, 300px)); justify-content: center; gap: 24px; }
+.pg-press-card { display: flex; flex-direction: column; border: 1px solid var(--kr-grey-60, #e9e9e9); border-radius: 24px; overflow: hidden; background: #fff; color: inherit; text-decoration: none; transition: box-shadow .2s; }
+.pg-press-card:hover { box-shadow: var(--kr-shadow-dropdown); }
+.pg-press-card__media { height: 150px; display: flex; align-items: center; justify-content: center; padding: 16px; background: linear-gradient(135deg, #e8edfb, #f6e9ef); }
+.pg-press-card__media span { font-family: Georgia, "Times New Roman", serif; font-size: 22px; line-height: 28px; color: #081430; text-align: center; }
+.pg-press-card__body { display: flex; flex-direction: column; gap: 8px; padding: 16px 24px 24px; flex: 1; }
+.pg-press-card__pre { font-size: 14px; color: var(--kr-grey-80, #8c8c8c); }
+.pg-press-card__title { margin: 0; font-family: var(--kr-font-sans); font-size: 18px; line-height: 24px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-press-card__cta { margin-top: auto; padding-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: var(--kr-fw-medium); color: var(--kr-fg); }
+.pg-press-card__cta svg { width: 16px; height: 16px; }
+@media (max-width: 991px) { .pg-press { grid-template-columns: repeat(2, minmax(0, 300px)); } }
+@media (max-width: 639px) { .pg-press { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -2542,14 +2600,23 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
           <${Eyebrow}>About Kickresume<//>
           <h1 id="about-title" className="kr-h1 kr-hero__title">Kickresume is a real company you can trust.</h1>
           <p className="kr-hero__sub">For over a decade, Kickresume has been the resume builder job seekers trust to tell their story. Named the #1 resume builder overall by Forbes, we’ve helped more than 9 million people worldwide land roles at the world’s most sought-after companies: from Google to Apple and SpaceX.</p>
-          <div className="kr-hero__proof">
-            <div className="kr-proof__group">
-              <span className="kr-proof__count">9M+</span>
+          <div className="kr-hero__proof pg-proofrow">
+            <div className="pg-pill">
+              <div className="kr-proof__avatars" aria-hidden="true">
+                <span className="kr-proof__av pg-av pg-av--1"></span>
+                <span className="kr-proof__av pg-av pg-av--2"></span>
+                <span className="kr-proof__av pg-av pg-av--3"></span>
+                <span className="kr-proof__count">9M+</span>
+              </div>
               <div className="kr-proof__text"><${StarRow} value=${4.6} /><span>job seekers helped since 2013</span></div>
             </div>
-            <div className="kr-proof__forbes">
+            <div className="pg-pill">
               <img className="pg-forbes-mark" src=${A.forbesWhite} alt="" width="40" height="40" />
               <div className="kr-proof__text"><strong>Forbes</strong><span>Best Resume Builder Overall</span></div>
+            </div>
+            <div className="pg-pill">
+              <span className="pg-parwcc" aria-hidden="true">${["P", "A", "R", "W", "C", "C"].map(function (l, i) { return html`<i key=${i}>${l}</i>`; })}</span>
+              <div className="kr-proof__text"><strong>Trusted by PARWCC</strong><span>Résumé Writers & Career Coaches</span></div>
             </div>
           </div>
           <img className="pg-hero-art" src=${A.world} alt="Map with Kickresume users in the U.S., Brazil, Spain and India" />
@@ -2629,40 +2696,46 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
       </section>`;
   }
 
+  var GOOGLE_G = html`<svg viewBox="0 0 48 48" width="60" height="60" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>`;
+  var APPLE = html`<svg viewBox="0 0 22 28" width="48" height="60" aria-hidden="true"><path fill="#3f3f3f" d="M17.7527 14.8302c-.0307-3.3009 2.7022-4.90524 2.8275-4.97944-1.548-2.25433-3.9457-2.56395-4.7875-2.58698-2.0138-.21238-3.9688 1.20521-4.9949 1.20521-1.02604 0-2.62787-1.18474-4.32949-1.14891-2.19036.03326-4.24254 1.30244-5.36586 3.27272-2.32086 4.0174-.5911 9.918 1.63253 13.1652 1.11309 1.5916 2.41297 3.3649 4.11203 3.3034 1.66324-.0665 2.28504-1.0593 4.29369-1.0593 2.0087 0 2.5742 1.0593 4.3091 1.021 1.7861-.0282 2.9094-1.5968 3.9841-3.2011 1.2845-1.8219 1.8014-3.6182 1.8219-3.7103-.041-.0154-3.4672-1.323-3.5031-5.2763v-.0052Zm-3.2778-9.70304c.8956-1.11821 1.5071-2.64071 1.3382-4.18624-1.2947.0563-2.9145.89559-3.8484 1.99077-.8265.96467-1.5635 2.54603-1.3716 4.03271 1.456.10747 2.9504-.73438 3.8843-1.83468l-.0025-.00256Z"/></svg>`;
+  var TP_STAR = "M12 3.5l2.47 5.6 6.03.55-4.56 4 1.35 5.95L12 16.5l-5.29 3.1 1.35-5.95-4.56-4 6.03-.55z";
+
   function Reviews() {
-    var ratings = [
-      { name: "Trustpilot", value: 4.6, note: "out of 5 · 3,600+ reviews" },
-      { name: "App Store", value: 4.7, note: "out of 5", logo: A.appStore },
-      { name: "Google Play", value: 4.7, note: "out of 5" }
+    var stores = [
+      { name: "Google Play", value: 4.7, icon: GOOGLE_G },
+      { name: "App Store", value: 4.7, icon: APPLE }
     ];
     return html`
-      <section className="kr-testi" aria-labelledby="reviews-title">
-        <div className="kr-container kr-container--wide">
+      <section className="pg-section pg-proof" aria-labelledby="reviews-title">
+        <div className="kr-container">
           <header className="kr-section-title">
             <h2 id="reviews-title" className="kr-h1">Thousands of stellar reviews.</h2>
             <p className="kr-body">Independent ratings from some of the 9M+ job seekers who've used Kickresume.</p>
           </header>
-          <div className="kr-forbes">
-            <div className="kr-forbes__quote">
-              <div className="kr-eyebrow">Forbes Vetted</div>
-              <h3 className="pg-h4">Best Resume Builder Overall</h3>
-              <p className="kr-forbes__body">Forbes Vetted picked Kickresume over five other builders, citing it as the one that makes starting a resume from scratch the quickest and easiest.</p>
-            </div>
-            <div className="kr-forbes__byline">
-              <img src=${A.forbesWhite} alt="Forbes" width="64" height="64" />
-              <a className="kr-forbes__link" href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-resume-builders/" ...${ext}>Read the Forbes Vetted Review</a>
-            </div>
-          </div>
-          <div className="kr-testi__grid">
-            ${ratings.map(function (r) { return html`
-              <div className="kr-testi-card" key=${r.name}>
-                <h3 className="kr-testi-card__name">${r.name}</h3>
-                <p className="kr-testi-card__body">${r.note}</p>
-                <div className="kr-testi-card__footer"><${StarRow} value=${r.value} /><span className="kr-testi-card__source">${r.value} / 5</span></div>
+          <div className="pg-proof__wrap">
+            ${stores.map(function (r) { return html`
+              <div className="pg-proof__card" key=${r.name}>
+                <div className="pg-proof__icon">${r.icon}</div>
+                <div className="pg-proof__content">
+                  <h3 className="pg-proof__name">${r.name}</h3>
+                  <${StarRow} value=${r.value} />
+                  <span className="pg-proof__score">${r.value} / 5</span>
+                </div>
               </div>`; })}
+            <div className="pg-proof__card pg-proof__card--tp">
+              <div className="pg-tp__brand">
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="#00b67a" d=${TP_STAR} /></svg>
+                <span>Trustpilot</span>
+              </div>
+              <div className="pg-tp__stars" role="img" aria-label="4.6 out of 5 stars">
+                ${[0, 1, 2, 3, 4].map(function (i) { return html`
+                  <span key=${i} className=${"pg-tp__star" + (i === 4 ? " is-part" : "")}><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d=${TP_STAR} /></svg></span>`; })}
+              </div>
+              <p className="pg-tp__score">TrustScore <strong>4.6</strong> <span aria-hidden="true">|</span> <strong>3,600+</strong> reviews</p>
+            </div>
           </div>
           <div className="kr-section-footer">
-            <${Button} variant="dark-ol" href="https://www.trustpilot.com/review/kickresume.com" ...${ext}>Read every review. The 1-star ones too.<//>
+            <a className="pg-textlink" href="https://www.trustpilot.com/review/kickresume.com" ...${ext}>Read every review. The 1-star ones too.<i data-lucide="arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </section>`;
@@ -2762,24 +2835,23 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
       ["200+", "real job applications sent to test what gets a reply", "July 2026", "https://www.kickresume.com/en/press/job-application-experiment/"]
     ];
     return html`
-      <section className="kr-samples" aria-labelledby="press-title">
+      <section className="kr-samples pg-press-section" aria-labelledby="press-title">
         <div className="kr-container kr-container--wide">
           <header className="kr-section-title">
             <h2 id="press-title" className="kr-h1">Recognized as expert voice in serious media outlets.</h2>
             <p className="kr-body">Journalists come to Kickresume for hiring data and career advice. Every card opens the original article.</p>
+            <div className="button-group"><${Button} variant="dark-ol" href="https://www.kickresume.com/en/press/" ...${ext}>All Press & Research<//></div>
           </header>
           <div className="pg-press">
             ${arts.map(function (a) { return html`
-              <a className="kr-sample-card" href=${a[2]} key=${a[2]} ...${ext}>
-                <div className="kr-sample-card__body">
-                  <span className="kr-sample-card__pre">${a[0]}</span>
-                  <h3 className="kr-sample-card__title">${a[1]}</h3>
-                  <span className="kr-sample-card__cta">Read the Article <span className="arrow">→</span></span>
+              <a className="pg-press-card" href=${a[2]} key=${a[2]} ...${ext}>
+                <div className="pg-press-card__media" aria-hidden="true"><span>${a[0]}</span></div>
+                <div className="pg-press-card__body">
+                  <span className="pg-press-card__pre">${a[0]}</span>
+                  <h3 className="pg-press-card__title">${a[1]}</h3>
+                  <span className="pg-press-card__cta">Read the Article <i data-lucide="arrow-right" aria-hidden="true"></i></span>
                 </div>
               </a>`; })}
-          </div>
-          <div className="kr-section-footer">
-            <${Button} variant="dark-ol" href="https://www.kickresume.com/en/press/" ...${ext}>All Press & Research<//>
           </div>
 
           <header className="kr-section-title" style=${{ marginTop: 96 }}>
