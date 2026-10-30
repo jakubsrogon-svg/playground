@@ -35,3 +35,10 @@ Files:
   there. Star ratings use ★ text until the star icons are exported.
 - Links marked `data-todo` (LinkedIn, PARWCC study, team profiles), footer link
   targets, and the `[DATE]` placeholders.
+
+## Preview fonts
+
+The brand fonts (Graphik, Henk-Work) load from `ui.kickresume.com`, which the
+claude.ai artifact preview can't reach. The preview build therefore adds Inter
+and Literata from Google Fonts as fallbacks. The files in this folder use only
+the brand fonts.
