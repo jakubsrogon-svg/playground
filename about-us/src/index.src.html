@@ -283,11 +283,12 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 @media (max-width: 991px) { .pg-authors { grid-template-columns: minmax(0, 1fr); } .pg-howto__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 559px) { .pg-howto__cards { grid-template-columns: minmax(0, 1fr); } .pg-author__photo { width: 72px; height: 72px; font-size: 20px; } }
 
-/* Revolut row: 600x400 image, 550px text column */
+/* Independent + Revolut rows: 600x400 image, 550px text column */
 .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 600px) minmax(0, 550px); justify-content: space-between; }
 .pg-revolut .kr-feature__col { max-width: 550px; width: 100%; }
 .pg-revolut .pg-art-card { width: 100%; max-width: 600px; aspect-ratio: 3 / 2; height: auto; min-height: 0; }
-@media (max-width: 899px) { .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 1fr); } }
+.pg-independent .pg-facts { align-content: center; }
+@media (max-width: 899px) { .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 1fr); } .pg-independent .pg-facts { aspect-ratio: auto; } }
 </style>
 </head>
 <body>
@@ -403,7 +404,7 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
   function Independent() {
     var facts = [["Legal name", "Kickresume s.r.o."], ["Company ID", "48 073 962"], ["Founded", "2013"], ["Headquarters", "Bratislava, Slovakia"], ["Founders", "Peter Ďuriš, Tomáš Ondrejka"], ["Funding", "Bootstrapped"], ["Parent company", "None"], ["Sister brands", "None"]];
     return html`
-      <section className="kr-feature" aria-labelledby="independent-title">
+      <section className="kr-feature is-reverse pg-revolut pg-independent" aria-labelledby="independent-title">
         <div className="kr-container kr-container--wide kr-feature__row">
           <div className="kr-feature__art">
             <dl className="ds-card ds-card--tinted pg-art-card pg-facts">
