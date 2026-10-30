@@ -7,9 +7,9 @@ has a `data-figma` attribute with the component's node id and name.
 | Section | Figma component |
 | --- | --- |
 | Nav | Header – Content (1070:519) |
-| Intro, Forbes | Content / Left v2 (823:34) |
-| Company facts, Revolut | Content / Right v2 (823:64) |
-| Founders, expert team | Team / authors update (7221:1166) |
+| Intro (text in both columns), Forbes | Content / Left v2 (823:34) |
+| Company facts (text in both columns), Revolut | Content / Right v2 (823:64) |
+| Founders (both founder photos + bios), expert team | Team / authors update (7221:1166) |
 | "How every guide is made" steps | Statistics (1349:435) |
 | Reviews | Ratings only (5565:1356) |
 | Data privacy, free plan | Privacy (57:11) |

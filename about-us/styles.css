@@ -99,7 +99,9 @@ a { color: inherit; }
 .c-content__text .btn { align-self: flex-start; }
 .c-content__media { display: flex; flex-direction: column; gap: var(--kr-space-3); min-width: 0; }
 .c-content__media .asset-slot { aspect-ratio: 3 / 2; border-radius: var(--kr-radius-lg); width: 100%; max-width: 100%; }
-.c-content__media figcaption { font-size: 14px; line-height: 20px; color: var(--kr-grey-80); }
+/* Text-only blocks (intro, company facts): same grid, text in both columns */
+.c-content--text .wrap { align-items: start; }
+.checks--stack { flex-direction: column; border-top: 1px solid var(--kr-grey-60); padding-top: var(--kr-space-5); }
 
 /* Check list used in Content blocks */
 .checks { display: flex; flex-wrap: wrap; gap: var(--kr-space-4) var(--kr-space-5); }
@@ -120,6 +122,12 @@ a { color: inherit; }
 .c-team .section-head { max-width: 674px; }
 .c-team__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--kr-space-6); width: 100%; }
 @media (max-width: 899px) { .c-team__cards { grid-template-columns: minmax(0, 1fr); } }
+/* Photo card (team member variant): image on top, name + role below */
+.c-team__photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--kr-space-6); width: 100%; }
+@media (max-width: 639px) { .c-team__photos { grid-template-columns: minmax(0, 1fr); } }
+.photo-card { background: var(--kr-white); color: var(--kr-grey-100); border-radius: var(--kr-radius-lg); overflow: hidden; display: flex; flex-direction: column; gap: var(--kr-space-4); padding-bottom: var(--kr-space-4); min-width: 0; }
+.photo-card__img { aspect-ratio: 16 / 9; width: 100%; max-width: 100%; border-radius: 5px 5px 0 0; }
+.photo-card figcaption { display: flex; flex-direction: column; gap: var(--kr-space-2); padding-inline: var(--kr-space-4); }
 .bio-card { background: var(--kr-white); color: var(--kr-grey-100); border-radius: var(--kr-radius-lg); padding: var(--kr-space-4); display: flex; gap: var(--kr-space-4); align-items: flex-start; min-width: 0; }
 @media (max-width: 419px) { .bio-card { flex-direction: column; } }
 .bio-card__photo { width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0; padding: 0; font-size: 28px; line-height: 1; font-family: var(--kr-font-display); }
