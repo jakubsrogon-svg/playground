@@ -1251,6 +1251,12 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-callout__msg .kr-body a { font-weight: var(--kr-fw-medium); color: var(--kr-fg); text-decoration: underline; text-underline-offset: 3px; }
 .pg-callout .kr-btn { flex: none; }
 @media (max-width: 767px) { .pg-callout { flex-direction: column; align-items: flex-start; padding: 24px; gap: 24px; } }
+
+/* Privacy: dark version (same navy band as the founders section) */
+.pg-privacy { background: var(--kr-blue-dark); color: #fff; }
+.pg-privacy .kr-h1, .pg-privacy .kr-body, .pg-privacy .ds-card h3, .pg-privacy .ds-card p { color: #fff; }
+.pg-privacy .ds-card p { color: rgba(255,255,255,.7); }
+.pg-privacy .ds-card i[data-lucide], .pg-privacy .ds-card svg.lucide { color: #fff; }
 </style>
 </head>
 <body>
@@ -2830,7 +2836,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
       ["list", "Every subprocessor, listed", "Kickresume publishes the full list of companies that touch your data, and why."]
     ];
     return html`
-      <section className="pg-section pg-section--grey" aria-labelledby="privacy-title">
+      <section className="pg-section pg-privacy" aria-labelledby="privacy-title">
         <div className="kr-container kr-container--wide">
           <header className="kr-section-title">
             <h2 id="privacy-title" className="kr-h1">Your resume. Your business.</h2>
@@ -2838,14 +2844,14 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
           </header>
           <div className="pg-grid pg-grid--3">
             ${items.map(function (it) { return html`
-              <div className="ds-card" key=${it[1]}>
+              <div className="ds-card ds-card--on-dark" key=${it[1]}>
                 <i data-lucide=${it[0]}></i>
                 <h3>${it[1]}</h3>
                 ${it[2] ? html`<p>${it[2]}</p>` : html`<p>A named data protection officer answers at <a className="pg-link" href="mailto:gdpr@kickresume.com">gdpr@kickresume.com</a>.</p>`}
               </div>`; })}
           </div>
           <div className="kr-section-footer">
-            <${Button} variant="dark-ol" href="https://www.kickresume.com/privacy/" ...${ext}>Read the Full Privacy Policy<//>
+            <${Button} variant="white-ol" href="https://www.kickresume.com/privacy/" ...${ext}>Read the Full Privacy Policy<//>
           </div>
         </div>
       </section>`;
