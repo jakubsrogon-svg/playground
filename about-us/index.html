@@ -1011,7 +1011,6 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 
 /* Reviews section (TestimonialGrid layout: Forbes card + review cards) */
 .kr-forbes__quote .kr-eyebrow { color: #fff; margin-bottom: 4px; font-family: var(--kr-font-sans); }
-.kr-forbes__quote .kr-h3 { color: #fff; font-size: 28px; margin-bottom: 12px; }
 .kr-forbes__body { font-family: var(--kr-font-sans); font-size: 16px; line-height: 24px; }
 .kr-forbes__byline { flex-shrink: 0; }
 .kr-testi__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1046,6 +1045,72 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .kr-footer { margin-top: 0; }
 .kr-footer__rating-label { font-size: 14px; font-weight: 500; }
 .pg-updated { font-size: 13px; opacity: .7; margin: 16px 0 0; }
+
+/* ================= Polish: buttons, type, 8px grid ================= */
+/* Buttons: one size everywhere, 40px tall, 14px medium (1px border + 9px + 20px line + 9px + 1px) */
+.kr-btn, .kr-btn--sm, .kr-btn--md, .kr-btn--lg { min-height: 40px; padding: 9px 24px; font-size: 14px; line-height: 20px; font-weight: var(--kr-fw-medium); white-space: nowrap; }
+@media (max-width: 479px) { .kr-btn, .kr-btn--sm, .kr-btn--md, .kr-btn--lg { white-space: normal; } }
+.button-group { gap: 16px; }
+
+/* Henk-Work only for primary headings (hero h1, section h1/h2), regular weight only */
+.kr-h1, .kr-h2 { font-weight: var(--kr-fw-regular); }
+.kr-testi-card__name, .kr-sample-card__title, .kr-forbes__quote, .pg-stat, .kr-h3 { font-family: var(--kr-font-sans); }
+.kr-testi-card__name { font-size: 18px; line-height: 24px; font-weight: var(--kr-fw-medium); letter-spacing: 0; }
+.kr-sample-card__title { font-size: 18px; line-height: 24px; font-weight: var(--kr-fw-medium); letter-spacing: 0; margin: 0 0 8px; }
+.pg-h4 { font: var(--kr-fw-medium) 24px/32px var(--kr-font-sans); letter-spacing: -0.4px; color: #fff; margin: 0 0 8px; }
+.pg-stat { font-size: 32px; line-height: 40px; font-weight: var(--kr-fw-medium); letter-spacing: -0.4px; }
+.pg-step { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--kr-blue-very-light); color: var(--kr-blue); font-weight: var(--kr-fw-medium); font-size: 14px; margin-bottom: 8px; }
+.pg-forbes-mark { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 0 0 1px var(--kr-grey-60); }
+
+/* 8px grid: spacing from the bundle that was off-grid */
+.kr-nav { padding: 16px 0; }
+.kr-nav__row { gap: 32px; }
+.kr-nav__list { gap: 24px; }
+.kr-nav__link { padding: 8px 0; }
+.kr-nav__cta { gap: 8px; }
+.kr-hero__title { margin: 8px auto 24px; }
+.kr-hero__sub { font-size: 18px; line-height: 28px; margin: 0 auto 32px; }
+.kr-hero__proof { gap: 48px; margin-bottom: 40px; }
+.kr-proof__group, .kr-proof__forbes { gap: 16px; }
+.kr-proof__text { gap: 4px; }
+.kr-section-title { margin-bottom: 48px; }
+.kr-section-title .kr-body { margin-bottom: 0; }
+.kr-section-footer { margin-top: 32px; }
+.kr-h2 { margin-bottom: 16px; }
+.kr-feature { padding: 80px 0; }
+.kr-feature__col .kr-body { margin-bottom: 24px; }
+.kr-forbes { padding: 40px; gap: 40px; margin-bottom: 16px; }
+.kr-forbes__byline { gap: 8px; }
+.kr-testi-card { padding: 24px; gap: 16px; border-radius: var(--kr-radius); }
+.kr-sample-card__body { padding: 24px; gap: 8px; }
+.kr-footer__nav li { margin-bottom: 8px; }
+.kr-footer__ratings { gap: 16px; }
+.kr-footer__rating-row { gap: 8px; margin-top: 8px; }
+.kr-footer__socials { gap: 16px; }
+.ds-card { padding: 24px; }
+.ds-card h3 { margin: 16px 0 8px; }
+.pg-person h3 { margin: 0 0 4px; }
+.ds-card .pg-bio { margin: 8px 0 16px; }
+.ds-card .pg-mt-8 { margin-top: 8px; }
+.pg-intro p { margin: 0 0 24px; }
+.k-checked li { padding: 4px 0; }
+.pg-facts dd { margin: 4px 0 0; }
+@media (max-width: 767px) { .kr-forbes { padding: 32px 24px; gap: 24px; } }
+
+/* Cards on navy: subtle fill, white text */
+.ds-card--on-dark { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.12); color: #fff; }
+.ds-card--on-dark .muted { color: rgba(255, 255, 255, 0.7); }
+.ds-card--on-dark .pg-link { color: #fff; }
+.ds-card--on-dark .pg-avatar { background: rgba(255, 255, 255, 0.12); color: #fff; }
+
+/* Decorations stay out from under text: no line motif on the navy band,
+   hero blurs sit low, behind the illustration only */
+.kr-feature.is-dark { background-image: none; }
+.kr-hero--center { background-position: center bottom; background-size: 100% 55%; }
+.kr-section-title .button-group { margin-top: 32px; }
+.kr-feature.is-reverse .kr-feature__col { justify-self: end; }
+.pg-placeholder { aspect-ratio: 16 / 9; }
+@media (max-width: 899px) { .kr-feature.is-reverse .kr-feature__col { justify-self: stretch; } }
 </style>
 </head>
 <body>
@@ -2464,7 +2529,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
               <div className="kr-proof__text"><${StarRow} value=${4.6} /><span>job seekers helped since 2013</span></div>
             </div>
             <div className="kr-proof__forbes">
-              <span className="kr-proof__forbes-mark">F</span>
+              <img className="pg-forbes-mark" src=${A.forbesWhite} alt="" width="40" height="40" />
               <div className="kr-proof__text"><strong>Forbes</strong><span>Best Resume Builder Overall</span></div>
             </div>
           </div>
@@ -2498,21 +2563,21 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
             </div>
           </div>
           <div className="pg-team">
-            <article className="ds-card pg-person">
+            <article className="ds-card ds-card--on-dark pg-person">
               <span className="pg-avatar" aria-hidden="true">PĎ</span>
               <div>
                 <h3>Peter Ďuriš</h3>
                 <p className="muted">Co-founder & CEO</p>
-                <p style=${{ margin: "8px 0 12px" }}>Writes a bi-weekly career newsletter with 600k+ subscribers. Cited as an expert voice by Fortune, The Wall Street Journal, and others.</p>
+                <p className="pg-bio">Writes a bi-weekly career newsletter with 600k+ subscribers. Cited as an expert voice by Fortune, The Wall Street Journal, and others.</p>
                 <a className="pg-link" href="https://kickresume.substack.com" ...${ext}>Read Peter's Newsletter</a>
               </div>
             </article>
-            <article className="ds-card pg-person">
+            <article className="ds-card ds-card--on-dark pg-person">
               <span className="pg-avatar" aria-hidden="true">TO</span>
               <div>
                 <h3>Tomáš Ondrejka</h3>
                 <p className="muted">Co-founder & CMO</p>
-                <p style=${{ margin: "8px 0 12px" }}>Regularly contributes to SaaS industry panels on marketing, and has been featured in publications such as Inc., Ladders, CzechCrunch, and Forbes Slovakia.</p>
+                <p className="pg-bio">Regularly contributes to SaaS industry panels on marketing, and has been featured in publications such as Inc., Ladders, CzechCrunch, and Forbes Slovakia.</p>
                 <a className="pg-link" href="#" data-todo="LINKEDIN-LINK">Connect on LinkedIn</a>
               </div>
             </article>
@@ -2534,7 +2599,6 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
           <div className="kr-feature__col">
             <h2 id="independent-title" className="kr-h2">Since 2013. Still independent.</h2>
             <p className="kr-body">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
-            <hr />
             <${Button} variant="coral" href="https://www.orsr.sk" ...${ext}>Verify Us in the Slovak Commercial Register<//>
           </div>
         </div>
@@ -2557,7 +2621,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
           <div className="kr-forbes">
             <div className="kr-forbes__quote">
               <div className="kr-eyebrow">Forbes Vetted</div>
-              <h3 className="kr-h3">Best Resume Builder Overall</h3>
+              <h3 className="pg-h4">Best Resume Builder Overall</h3>
               <p className="kr-forbes__body">Forbes Vetted picked Kickresume over five other builders, citing it as the one that makes starting a resume from scratch the quickest and easiest.</p>
             </div>
             <div className="kr-forbes__byline">
@@ -2589,7 +2653,6 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
             <${Eyebrow}>Chosen by partners<//>
             <h2 id="revolut-title" className="kr-h2">Included in Revolut's student benefit</h2>
             <p className="kr-body">Revolut is a global digital bank used by 70M+ people in 40+ countries. It includes Kickresume in its Student Benefits, next to ChatGPT, Canva, Superhuman and the Financial Times.</p>
-            <hr />
             <ul className="k-checked" style=${{ marginBottom: 24 }}><${Check}>Revolut<//><${Check}>Also offered through ISIC<//></ul>
             <${Button} variant="coral" href="https://help.revolut.com/en-PT/help/plans-and-benefits/student-benefits/" ...${ext}>See Revolut's Student Benefits<//>
           </div>
@@ -2704,7 +2767,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
               <a className="ds-card ds-card--tinted" href=${s[3]} key=${s[0]} ...${ext}>
                 <span className="pg-stat">${s[0]}</span>
                 <p>${s[1]}</p>
-                <p className="muted" style=${{ marginTop: 8 }}>${s[2]}</p>
+                <p className="muted pg-mt-8">${s[2]}</p>
               </a>`; })}
           </div>
           <div className="ds-card" style=${{ marginTop: 16, display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", justifyContent: "space-between" }}>
@@ -2739,7 +2802,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
                 <div>
                   <h3>${p[1]}</h3>
                   <p className="muted">${p[2]}</p>
-                  <p style=${{ margin: "8px 0 12px" }}>${p[3]}</p>
+                  <p className="pg-bio">${p[3]}</p>
                   <a className="pg-link" href="#" data-todo="PROFILE-LINK">View Profile</a>
                 </div>
               </article>`; })}
@@ -2747,7 +2810,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
           <div className="ds-card ds-card--tinted" style=${{ marginTop: 16, background: "var(--kr-white)" }}>
             <h3 style=${{ marginTop: 0 }}>How every guide is made</h3>
             <ol className="pg-grid" style=${{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", listStyle: "none", padding: 0, margin: 0 }}>
-              ${steps.map(function (s, i) { return html`<li key=${s[0]}><span className="pg-stat" style=${{ fontSize: 28, lineHeight: "32px" }}>${i + 1}</span><strong style=${{ fontWeight: 500 }}>${s[0]}</strong><p className="muted">${s[1]}</p></li>`; })}
+              ${steps.map(function (s, i) { return html`<li key=${s[0]}><span className="pg-step">${i + 1}</span><strong style=${{ fontWeight: 500 }}>${s[0]}</strong><p className="muted">${s[1]}</p></li>`; })}
             </ol>
           </div>
           <div className="kr-section-footer" style=${{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", alignItems: "center" }}>
