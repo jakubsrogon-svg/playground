@@ -1,0 +1,191 @@
+/* Kickresume Design System — generated from tokens.json */
+
+:root, [data-theme="light"] {
+  --kr-primary: #ff5e59;
+  --kr-primary-hover: #ff736e;
+  --kr-primary-active: #cd2927;
+  --kr-primary-light: #f8aca7;
+  --kr-primary-tint-10: rgba(255, 94, 89, 0.1);
+  --kr-primary-tint: #fff4f3;
+  --kr-primary-tint-2: #fbe0de;
+  --kr-btn-white-hover: #f2f2f2;
+  --kr-btn-white-press: var(--kr-grey-60);
+  --kr-btn-white-border: var(--kr-grey-60);
+  --kr-btn-dark: #081430;
+  --kr-btn-dark-hover: #29405c;
+  --kr-btn-dark-press: #3a4c63;
+  --kr-btn-dark-disabled: #7e8a99;
+  --kr-btn-grad-disabled: #b9b6f5;
+  --kr-btn-grad-tint: #f3f2fd;
+  --kr-btn-grad-solid: #5b53e6;
+  --kr-hover: var(--kr-grey-100);
+  --kr-blue: #514eea;
+  --kr-blue-darker: #3249bf;
+  --kr-blue-light: #9795f2;
+  --kr-blue-very-light: #f3f2fd;
+  --kr-blue-dark: #081430;
+  --kr-light-royal-blue: #9795f2;
+  --kr-nautilius: #29405c;
+  --kr-blue-sky: var(--kr-blue-darker);
+  --kr-blue-linkedin: var(--kr-blue-dark);
+  --kr-blue-forbes: var(--kr-blue-dark);
+  --kr-premium-violet: #a066ff;
+  --kr-premium-indigo: #666cff;
+  --kr-premium-purple: #9c3eff;
+  --kr-premium-blue: #5345ff;
+  --kr-premium-dark-blue: #4034d7;
+  --kr-premium-dark-purp: #7011ba;
+  --kr-grey-100: #3f3f3f;
+  --kr-grey-80: #8c8c8c;
+  --kr-grey-60: #e9e9e9;
+  --kr-grey-40: #f2f2f2;
+  --kr-grey-20: #fafafa;
+  --kr-grey-0: #fff;
+  --kr-background: #f4f7f8;
+  --kr-black: #000;
+  --kr-white: #fff;
+  --kr-gray-900: var(--kr-grey-100);
+  --kr-gray-500: var(--kr-grey-80);
+  --kr-gray-200: var(--kr-grey-60);
+  --kr-gray-100: var(--kr-grey-40);
+  --kr-gray-50: var(--kr-grey-20);
+  --kr-gray-cool: var(--kr-background);
+  --kr-charcoal: var(--kr-grey-100);
+  --kr-gray: var(--kr-grey-80);
+  --kr-gray-medium: var(--kr-grey-80);
+  --kr-gray-light: var(--kr-grey-60);
+  --kr-concrete-gray: var(--kr-grey-40);
+  --kr-gray-x-light: var(--kr-grey-40);
+  --kr-gray-444: var(--kr-grey-40);
+  --kr-white-smoke: var(--kr-grey-20);
+  --kr-violet-water: var(--kr-background);
+  --kr-footer-divider: #3b5473;
+  --kr-green: #056640;
+  --kr-light-green: #ecfef4;
+  --kr-light-mint: #edf8f4;
+  --kr-red: var(--kr-primary);
+  --kr-light-red-orange: var(--kr-primary-tint);
+  --kr-lighter-coral: var(--kr-primary-tint);
+  --kr-beige: #fbefda;
+  --kr-alice-blue: #f4f7f8;
+  --kr-pink: var(--kr-primary-tint);
+  --kr-light-pink: var(--kr-blue-very-light);
+  --kr-aqua-white: var(--kr-background);
+  --kr-light-brown: var(--kr-beige);
+  --kr-light-yellow: var(--kr-beige);
+  --kr-green-mint: #1da36e;
+  --kr-green-apple: #48ad43;
+  --kr-yellow: #ffc107;
+  --kr-marketplace-orange: var(--kr-yellow);
+  --kr-marketplace-green: var(--kr-green-mint);
+  --kr-marketplace-petrol: var(--kr-green-mint);
+  --kr-tools-yellow: var(--kr-yellow);
+  --kr-tools-blue: var(--kr-blue);
+  --kr-tools-orange: var(--kr-yellow);
+  --kr-tools-green: var(--kr-green-apple);
+  --kr-fg: var(--kr-gray-900);
+  --kr-fg-muted: var(--kr-charcoal);
+  --kr-fg-subtle: var(--kr-gray-medium);
+  --kr-fg-inverse: var(--kr-white);
+  --kr-fg-link: var(--kr-grey-100);
+  --kr-fg-on-dark: var(--kr-white);
+  --kr-bg: var(--kr-white);
+  --kr-bg-subtle: var(--kr-concrete-gray);
+  --kr-bg-muted: var(--kr-white-smoke);
+  --kr-bg-dark: var(--kr-blue-dark);
+  --kr-bg-card: var(--kr-white);
+  --kr-bg-card-soft: var(--kr-violet-water);
+  --kr-border: var(--kr-gray-200);
+  --kr-border-strong: var(--kr-gray-light);
+  --kr-border-focus: var(--kr-blue);
+  --kr-focus-ring-dark: 0 0 0 3px rgba(63, 63, 63, 0.35);
+  --kr-focus-ring-coral: 0 0 0 3px rgba(63, 63, 63, 0.35);
+  --kr-focus-ring-gray: 0 0 0 3px rgba(63, 63, 63, 0.35);
+  --kr-shadow-dropdown: 1px 2px 10px 0 rgba(0, 0, 0, 0.1);
+  --kr-shadow-modal: 1px 2px 20px 0 rgba(0, 0, 0, 0.1);
+  --kr-shadow-search-cv: 0 8px 20px 0 rgba(140, 140, 140, 0.18);
+  --kr-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 14px rgba(0, 0, 0, 0.06);
+  --kr-shadow-premium-light: 1px 2px 6px 0 rgba(160, 102, 255, 0.3), 1px 2px 16px 0 rgba(102, 108, 255, 0.3);
+  --kr-shadow-premium-heavy: 1px 2px 6px 0 rgba(160, 102, 255, 0.3), 1px 2px 16px 0 rgba(102, 108, 255, 1);
+}
+
+:root {
+  --kr-space-1: 4px;
+  --kr-space-2: 8px;
+  --kr-space-3: 12px;
+  --kr-space-4: 16px;
+  --kr-space-5: 24px;
+  --kr-space-6: 32px;
+  --kr-space-7: 48px;
+  --kr-space-8: 64px;
+  --kr-space-9: 96px;
+  --kr-space-10: 128px;
+  --kr-radius-sm: 2px;
+  --kr-radius: 6px;
+  --kr-radius-md: 16px;
+  --kr-radius-lg: 24px;
+  --kr-radius-xl: 32px;
+  --kr-radius-btn: 10px;
+  --kr-radius-pill: 999px;
+  --kr-fs-base: 16px;
+  --kr-fs-small: 14px;
+  --kr-fs-xs: 12px;
+  --kr-fs-h1: 48px;
+  --kr-fs-h2: 32px;
+  --kr-fs-h3: 28px;
+  --kr-fs-h4: 24px;
+  --kr-fs-h5: 18px;
+  --kr-fs-ai-headline: 64px;
+  --kr-fs-stat: 36px;
+  --kr-fs-mini-headline: 16px;
+  --kr-fw-regular: 400;
+  --kr-fw-medium: 500;
+  --kr-fw-semibold: 600;
+  --kr-fw-bold: 700;
+  --kr-lh-tight: 1.05;
+  --kr-lh-snug: 1.2;
+  --kr-lh-normal: 1.5;
+  --kr-tracking-display: -1.4px;
+  --kr-tracking-h2: -1px;
+  --kr-tracking-body: 0.06px;
+  --kr-tracking-small: 0.16px;
+  --kr-btn-padding-y: 11px;
+  --kr-btn-padding-x: 31px;
+  --kr-btn-font-size: 16px;
+  --kr-btn-line-height: 24px;
+  --kr-btn-padding-y-sm: 9px;
+  --kr-btn-padding-x-sm: 23px;
+  --kr-btn-padding-y-lg: 13px;
+  --kr-btn-padding-x-lg: 31px;
+  --kr-input-padding-y: 13px;
+  --kr-input-padding-x: 20px;
+  --kr-navbar-height: 77px;
+  --kr-navbar-height-mobile: 74px;
+  --kr-container-xxl: 1366px;
+  --kr-container-xl: 1140px;
+  --font-sans: "Graphik Web", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Henk-Work", "Graphik Web", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+.h1 { font-family: var(--font-display); font-size: 48px; line-height: 56px; font-weight: 400; letter-spacing: -1.4px; }
+.h2 { font-family: var(--font-display); font-size: 32px; line-height: 40px; font-weight: 400; letter-spacing: -1px; }
+.h3 { font-family: var(--font-display); font-size: 28px; line-height: 32px; font-weight: 400; letter-spacing: -1px; }
+.stat { font-family: var(--font-display); font-size: 36px; line-height: 40px; font-weight: 400; }
+.blockquote { font-family: var(--font-display); font-size: 24px; line-height: 32px; font-weight: 400; letter-spacing: -0.04rem; }
+.h4 { font-family: var(--font-sans); font-size: 24px; line-height: 28px; font-weight: 500; letter-spacing: -0.4px; }
+.h5 { font-family: var(--font-sans); font-size: 18px; line-height: 24px; font-weight: 500; }
+.body { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0.06px; }
+.body-medium { font-family: var(--font-sans); font-size: 14px; font-weight: 400; letter-spacing: 0.16px; }
+.body-small { font-family: var(--font-sans); font-size: 12px; font-weight: 400; }
+.eyebrow { font-family: var(--font-sans); font-size: 16px; line-height: 21px; font-weight: 500; }
+.label-14 { font-family: var(--font-sans); font-size: 14px; font-weight: 500; }
+
+@font-face { font-family: "Graphik Web"; src: url("fonts/Graphik-Regular-Web.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Graphik Web"; src: url("fonts/Graphik-Medium-Web.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Graphik Web"; src: url("fonts/Graphik-Semibold-Web.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Graphik Web"; src: url("fonts/Graphik-Bold-Web.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Henk-Work"; src: url("fonts/Henk-Work-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Henk-Work"; src: url("fonts/Henk-Work-Regular.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Henk-Work"; src: url("fonts/Henk-Work-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Henk-Work"; src: url("fonts/Henk-Work-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }

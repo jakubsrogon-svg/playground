@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About Kickresume</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Kickresume is a real company you can trust. An independent, bootstrapped company in Bratislava, Slovakia, helping 9M+ job seekers since 2013.">
+<!-- Kickresume Design System: tokens, fonts and component styles (inlined by build.py) -->
+<style>{{css:tokens.css}}</style>
+<style>{{css:components/bundle.css}}</style>
+<style>
+/* Page layout only. Everything visual comes from the design system:
+   tokens (--kr-*), the bundle's kr-* component classes, and the Card / List
+   patterns from its component guidelines. */
+body { margin: 0; background: var(--kr-bg); color: var(--kr-fg); font-family: var(--kr-font-sans); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; }
+.kr-container { padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 559px) { .kr-container { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); } }
+:focus-visible { outline: none; box-shadow: var(--kr-focus-ring-dark); border-radius: var(--kr-radius); }
+
+/* Navbar component has no mobile layout: keep logo + CTAs on small screens */
+@media (max-width: 991px) { .kr-nav__list { display: none; } }
+@media (max-width: 479px) { .kr-nav__cta .kr-btn--coral-ol { display: none; } .kr-nav__row { gap: 12px; } }
+
+/* Section rhythm: pt-5 pb-5 (80px) per the brand book */
+.pg-section { padding: 80px 0; }
+.pg-section--tint { background: linear-gradient(180deg, var(--kr-blue-very-light) 0%, var(--kr-white) 100%); }
+.pg-section--coral { background: linear-gradient(180deg, var(--kr-primary-tint) 0%, var(--kr-white) 100%); }
+.pg-section--grey { background: var(--kr-background); }
+.pg-sub { font-size: 18px; line-height: 28px; margin: 0 auto; max-width: 640px; }
+.kr-section-title .kr-h1 { text-wrap: balance; }
+.button-group { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+/* Hero: centered, colored blurs on white (brand book: blurs only on white) */
+.kr-hero--center { background: url("{{asset:backgrounds/bg-blurs.svg}}") center 70% / 120% auto no-repeat; padding-bottom: 32px; }
+.kr-hero__title { text-wrap: balance; max-width: 900px; margin-left: auto; margin-right: auto; }
+@media (max-width: 767px) { .kr-hero__title { font-size: 44px; letter-spacing: -1.4px; } .kr-section-title .kr-h1 { font-size: 36px; } }
+.pg-hero-art { width: 100%; max-width: 600px; height: auto; margin: 0 auto; display: block; }
+.kr-btn { max-width: 100%; white-space: normal; text-align: center; }
+.pg-intro { columns: 3 280px; column-gap: 48px; }
+.pg-intro p { break-inside: avoid; margin: 0 0 20px; }
+
+/* Card (components/Card): default / hover / tinted */
+.ds-card { color: var(--kr-fg); background: var(--kr-white); border: 1px solid var(--kr-grey-60); border-radius: var(--kr-radius); padding: 20px 24px; transition: box-shadow .25s, border-color .25s; min-width: 0; }
+a.ds-card { display: block; color: inherit; text-decoration: none; }
+a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transparent; }
+.ds-card--tinted { background: var(--kr-background); border-color: transparent; }
+.ds-card h3 { font: var(--kr-fw-medium) 18px/24px var(--kr-font-sans); margin: 12px 0 6px; }
+.ds-card p { font-size: 16px; line-height: 24px; letter-spacing: var(--kr-tracking-body); margin: 0; }
+.ds-card .muted { color: var(--kr-grey-80); font-size: 14px; letter-spacing: var(--kr-tracking-small); }
+.ds-card i[data-lucide], .ds-card svg.lucide { width: 24px; height: 24px; color: var(--kr-fg); }
+.pg-grid { display: grid; gap: 16px; }
+.pg-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pg-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 991px) { .pg-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639px) { .pg-grid--3, .pg-grid--2 { grid-template-columns: minmax(0, 1fr); } }
+
+/* List (components/List): checked list, Lucide check in kr-green, 8px gap */
+.k-checked { list-style: none; padding: 0; margin: 0; }
+.k-checked li { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; font-size: 16px; line-height: 24px; }
+.k-checked li svg.lucide, .k-checked li i { width: 20px; height: 20px; flex: none; color: var(--kr-green); margin-top: 2px; }
+.k-checked strong { font-weight: var(--kr-fw-medium); }
+
+/* FeatureRow layout (bundle kr-feature) with an art column we fill ourselves */
+.kr-feature__col .button-group { justify-content: flex-start; }
+.pg-art-card { border-radius: var(--kr-radius-md); padding: 32px; }
+.pg-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; margin: 0; }
+.pg-facts dt { font-size: 14px; color: var(--kr-grey-80); letter-spacing: var(--kr-tracking-small); }
+.pg-facts dd { margin: 2px 0 0; font-weight: var(--kr-fw-medium); }
+.pg-photo { aspect-ratio: 4 / 3; border-radius: var(--kr-radius-md); background: rgba(255,255,255,.08); border: 1px dashed rgba(255,255,255,.35); display: grid; place-items: center; text-align: center; color: rgba(255,255,255,.8); font-size: 14px; padding: 16px; }
+.pg-photo figcaption { color: #fff; }
+.pg-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pg-photos figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.pg-photos figcaption { font-size: 14px; color: #fff; opacity: .85; }
+.pg-placeholder { aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center; color: var(--kr-grey-80); font-size: 14px; }
+@media (max-width: 899px) { .kr-feature__row { grid-template-columns: minmax(0, 1fr); gap: 32px; } .kr-feature.is-reverse .kr-feature__row { direction: ltr; } .kr-feature__col { max-width: none; } }
+@media (max-width: 479px) { .pg-facts, .pg-photos { grid-template-columns: minmax(0, 1fr); } }
+
+/* Reviews section (TestimonialGrid layout: Forbes card + review cards) */
+.kr-forbes__quote .kr-eyebrow { color: #fff; margin-bottom: 4px; font-family: var(--kr-font-sans); }
+.kr-forbes__quote .kr-h3 { color: #fff; font-size: 28px; margin-bottom: 12px; }
+.kr-forbes__body { font-family: var(--kr-font-sans); font-size: 16px; line-height: 24px; }
+.kr-forbes__byline { flex-shrink: 0; }
+.kr-testi__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 767px) { .kr-forbes { flex-direction: column; align-items: flex-start; padding: 28px 24px; } .kr-testi__grid { grid-template-columns: minmax(0, 1fr); } }
+.kr-testi-card__logo { height: 24px; width: auto; align-self: flex-start; }
+
+/* Founders / team cards on navy (FeatureRow dark band) */
+.pg-team { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 48px; }
+@media (max-width: 767px) { .pg-team { grid-template-columns: minmax(0, 1fr); } }
+.pg-person { display: flex; gap: 16px; align-items: flex-start; }
+.pg-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--kr-blue-very-light); color: var(--kr-blue); display: grid; place-items: center; font-weight: var(--kr-fw-medium); flex: none; }
+.pg-person h3 { margin-top: 0; }
+.pg-link { color: var(--kr-fg-link); font-weight: var(--kr-fw-medium); text-decoration: underline; text-underline-offset: 3px; }
+.pg-link:hover { color: var(--kr-hover); }
+
+/* Stats (type style .stat: Henk-Work 36/40) */
+.pg-stat { font-family: var(--kr-font-display); font-size: 36px; line-height: 40px; display: block; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+
+/* Press cards (SampleCarousel kr-sample-card) */
+.pg-press { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 991px) { .pg-press { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 559px) { .pg-press { grid-template-columns: minmax(0, 1fr); } }
+.kr-sample-card__body { height: 100%; }
+.kr-sample-card__cta { margin-top: auto; }
+
+/* FAQ */
+.pg-faq { display: flex; flex-direction: column; gap: 16px; }
+
+/* Footer (bundle kr-footer), ratings column with our numbers */
+.kr-footer__top { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 899px) { .kr-footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.kr-footer { margin-top: 0; }
+.kr-footer__rating-label { font-size: 14px; font-weight: 500; }
+.pg-updated { font-size: 13px; opacity: .7; margin: 16px 0 0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<!-- Kickresume Design System component bundle (window.KickresumeDesignSystem_6ee106) -->
+<script>{{js:components/bundle.js}}</script>
+<script>
+(function () {
+  var DS = window.KickresumeDesignSystem_6ee106;
+  var Navbar = DS.Navbar, Button = DS.Button, Eyebrow = DS.Eyebrow, StarRow = DS.StarRow;
+  var html = htm.bind(React.createElement);
+  var A = {
+    logoWhite: "{{asset:logos/kickresume-white.svg}}",
+    forbes: "{{asset:logos/logo-forbes.svg}}",
+    forbesWhite: "{{asset:logos/logo-forbes-symbol-white.svg}}",
+    appStore: "{{asset:logos/logo-app-store.svg}}",
+    world: "{{asset:illustrations/scene-world-users.png}}",
+    fb: "{{asset:icons/icon-facebook.svg}}", tw: "{{asset:icons/icon-twitter.svg}}", ig: "{{asset:icons/icon-instagram.svg}}", li: "{{asset:icons/icon-linkedin.svg}}", yt: "{{asset:icons/icon-youtube.svg}}"
+  };
+  var ext = { target: "_blank", rel: "noopener" };
+
+  function Check(props) { return html`<li><i data-lucide="check"></i><span>${props.children}</span></li>`; }
+
+  function Intro() {
+    return html`
+      <section className="kr-hero kr-hero--center" aria-labelledby="about-title">
+        <div className="kr-container kr-container--wide">
+          <${Eyebrow}>About Kickresume<//>
+          <h1 id="about-title" className="kr-h1 kr-hero__title">Kickresume is a real company you can trust.</h1>
+          <p className="kr-hero__sub">For over a decade, Kickresume has been the resume builder job seekers trust to tell their story. Named the #1 resume builder overall by Forbes, we’ve helped more than 9 million people worldwide land roles at the world’s most sought-after companies: from Google to Apple and SpaceX.</p>
+          <div className="kr-hero__proof">
+            <div className="kr-proof__group">
+              <span className="kr-proof__count">9M+</span>
+              <div className="kr-proof__text"><${StarRow} value=${4.6} /><span>job seekers helped since 2013</span></div>
+            </div>
+            <div className="kr-proof__forbes">
+              <span className="kr-proof__forbes-mark">F</span>
+              <div className="kr-proof__text"><strong>Forbes</strong><span>Best Resume Builder Overall</span></div>
+            </div>
+          </div>
+          <img className="pg-hero-art" src=${A.world} alt="Map with Kickresume users in the U.S., Brazil, Spain and India" />
+        </div>
+      </section>
+      <section className="pg-section" style=${{ paddingTop: 48 }}>
+        <div className="kr-container">
+          <div className="pg-intro kr-body">
+            <p>Today's Kickresume is a full AI-powered career toolkit, helping candidates write standout resumes and cover letters, pass ATS checks, prepare for interviews, and even plan their next career move.</p>
+            <p>Our work has been recognized and cited by media such as The Wall Street Journal, CNBC, Fast Company, Business Insider, and the New York Post. We're also affiliated with the PARWCC (Professional Association of Resume Writers & Career Coaches), with who we even did a joint research study.</p>
+            <p>We’re a small, passionate team based in Bratislava, Slovakia. And every morning, we show up to do one thing: help people land the right jobs.</p>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Founders() {
+    return html`
+      <section className="kr-feature is-dark" aria-labelledby="founders-title">
+        <div className="kr-container kr-container--wide">
+          <div className="kr-feature__row">
+            <div className="kr-feature__art pg-photos">
+              <figure><div className="pg-photo" role="img" aria-label="Kickresume founders Peter Ďuriš and Tomáš Ondrejka working on a laptop in 2013">Photo: founders in 2013</div><figcaption>2013 · At university</figcaption></figure>
+              <figure><div className="pg-photo" role="img" aria-label="Kickresume founders Peter Ďuriš and Tomáš Ondrejka at the Kickresume office today">Photo: founders today</div><figcaption>Today · Bratislava</figcaption></figure>
+            </div>
+            <div className="kr-feature__col">
+              <${Eyebrow}>The founders<//>
+              <h2 id="founders-title" className="kr-h2">Run by the same two people since 2013.</h2>
+              <p className="kr-body">Peter and Tomáš built Kickresume at university to fix their own resumes. They still run it today.</p>
+            </div>
+          </div>
+          <div className="pg-team">
+            <article className="ds-card pg-person">
+              <span className="pg-avatar" aria-hidden="true">PĎ</span>
+              <div>
+                <h3>Peter Ďuriš</h3>
+                <p className="muted">Co-founder & CEO</p>
+                <p style=${{ margin: "8px 0 12px" }}>Writes a bi-weekly career newsletter with 600k+ subscribers. Cited as an expert voice by Fortune, The Wall Street Journal, and others.</p>
+                <a className="pg-link" href="https://kickresume.substack.com" ...${ext}>Read Peter's Newsletter</a>
+              </div>
+            </article>
+            <article className="ds-card pg-person">
+              <span className="pg-avatar" aria-hidden="true">TO</span>
+              <div>
+                <h3>Tomáš Ondrejka</h3>
+                <p className="muted">Co-founder & CMO</p>
+                <p style=${{ margin: "8px 0 12px" }}>Regularly contributes to SaaS industry panels on marketing, and has been featured in publications such as Inc., Ladders, CzechCrunch, and Forbes Slovakia.</p>
+                <a className="pg-link" href="#" data-todo="LINKEDIN-LINK">Connect on LinkedIn</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Independent() {
+    var facts = [["Legal name", "Kickresume s.r.o."], ["Company ID", "48 073 962"], ["Founded", "2013"], ["Headquarters", "Bratislava, Slovakia"], ["Founders", "Peter Ďuriš, Tomáš Ondrejka"], ["Funding", "Bootstrapped"], ["Parent company", "None"], ["Sister brands", "None"]];
+    return html`
+      <section className="kr-feature" aria-labelledby="independent-title">
+        <div className="kr-container kr-container--wide kr-feature__row">
+          <div className="kr-feature__art">
+            <dl className="ds-card ds-card--tinted pg-art-card pg-facts">
+              ${facts.map(function (f) { return html`<div key=${f[0]}><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`; })}
+            </dl>
+          </div>
+          <div className="kr-feature__col">
+            <h2 id="independent-title" className="kr-h2">Since 2013. Still independent.</h2>
+            <p className="kr-body">Kickresume is built and run by Kickresume s.r.o., an independent company in Bratislava, Slovakia. No parent company. No sister brands pretending to be competitors.</p>
+            <hr />
+            <${Button} variant="coral" href="https://www.orsr.sk" ...${ext}>Verify Us in the Slovak Commercial Register<//>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Reviews() {
+    var ratings = [
+      { name: "Trustpilot", value: 4.6, note: "out of 5 · 3,600+ reviews" },
+      { name: "App Store", value: 4.7, note: "out of 5", logo: A.appStore },
+      { name: "Google Play", value: 4.7, note: "out of 5" }
+    ];
+    return html`
+      <section className="kr-testi" aria-labelledby="reviews-title">
+        <div className="kr-container kr-container--wide">
+          <header className="kr-section-title">
+            <h2 id="reviews-title" className="kr-h1">Thousands of stellar reviews.</h2>
+            <p className="kr-body">Independent ratings from some of the 9M+ job seekers who've used Kickresume.</p>
+          </header>
+          <div className="kr-forbes">
+            <div className="kr-forbes__quote">
+              <div className="kr-eyebrow">Forbes Vetted</div>
+              <h3 className="kr-h3">Best Resume Builder Overall</h3>
+              <p className="kr-forbes__body">Forbes Vetted picked Kickresume over five other builders, citing it as the one that makes starting a resume from scratch the quickest and easiest.</p>
+            </div>
+            <div className="kr-forbes__byline">
+              <img src=${A.forbesWhite} alt="Forbes" width="64" height="64" />
+              <a className="kr-forbes__link" href="https://www.forbes.com/sites/forbes-personal-shopper/article/best-resume-builders/" ...${ext}>Read the Forbes Vetted Review</a>
+            </div>
+          </div>
+          <div className="kr-testi__grid">
+            ${ratings.map(function (r) { return html`
+              <div className="kr-testi-card" key=${r.name}>
+                <h3 className="kr-testi-card__name">${r.name}</h3>
+                <p className="kr-testi-card__body">${r.note}</p>
+                <div className="kr-testi-card__footer"><${StarRow} value=${r.value} /><span className="kr-testi-card__source">${r.value} / 5</span></div>
+              </div>`; })}
+          </div>
+          <div className="kr-section-footer">
+            <${Button} variant="dark-ol" href="https://www.trustpilot.com/review/kickresume.com" ...${ext}>Read every review. The 1-star ones too.<//>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Revolut() {
+    return html`
+      <section className="kr-feature is-reverse" aria-labelledby="revolut-title">
+        <div className="kr-container kr-container--wide kr-feature__row">
+          <div className="kr-feature__art"><div className="ds-card ds-card--tinted pg-art-card pg-placeholder">Revolut logo (not in the design system yet)</div></div>
+          <div className="kr-feature__col">
+            <${Eyebrow}>Chosen by partners<//>
+            <h2 id="revolut-title" className="kr-h2">Included in Revolut's student benefit</h2>
+            <p className="kr-body">Revolut is a global digital bank used by 70M+ people in 40+ countries. It includes Kickresume in its Student Benefits, next to ChatGPT, Canva, Superhuman and the Financial Times.</p>
+            <hr />
+            <ul className="k-checked" style=${{ marginBottom: 24 }}><${Check}>Revolut<//><${Check}>Also offered through ISIC<//></ul>
+            <${Button} variant="coral" href="https://help.revolut.com/en-PT/help/plans-and-benefits/student-benefits/" ...${ext}>See Revolut's Student Benefits<//>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Privacy() {
+    var items = [
+      ["lock", "Private by default", "Your documents are visible only to you until you choose to share them."],
+      ["square-check", "Employers only if you say so", "Kickresume shares your resume with hiring partners only when you tick the box."],
+      ["trash-2", "Gone 30 days after you leave", "Close your account and Kickresume deletes your data after a 30-day grace period."],
+      ["cpu", "Safer than your ChatGPT", "While we use a third-party AI provider, our business API makes your data exempt from being used in training."],
+      ["mail", "A real person to ask", null],
+      ["list", "Every subprocessor, listed", "Kickresume publishes the full list of companies that touch your data, and why."]
+    ];
+    return html`
+      <section className="pg-section pg-section--grey" aria-labelledby="privacy-title">
+        <div className="kr-container kr-container--wide">
+          <header className="kr-section-title">
+            <h2 id="privacy-title" className="kr-h1">Your resume. Your business.</h2>
+            <p className="kr-body">Kickresume is an EU company operating under GDPR. Here's exactly what happens to your data.</p>
+          </header>
+          <div className="pg-grid pg-grid--3">
+            ${items.map(function (it) { return html`
+              <div className="ds-card" key=${it[1]}>
+                <i data-lucide=${it[0]}></i>
+                <h3>${it[1]}</h3>
+                ${it[2] ? html`<p>${it[2]}</p>` : html`<p>A named data protection officer answers at <a className="pg-link" href="mailto:gdpr@kickresume.com">gdpr@kickresume.com</a>.</p>`}
+              </div>`; })}
+          </div>
+          <div className="kr-section-footer">
+            <${Button} variant="dark-ol" href="https://www.kickresume.com/privacy/" ...${ext}>Read the Full Privacy Policy<//>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function FreeAndPricing() {
+    var prices = [["Monthly", "$24", "per month"], ["Quarterly", "$54", "about $18/mo"], ["Yearly", "$96", "about $8/mo"]];
+    return html`
+      <section className="pg-section" aria-labelledby="free-title">
+        <div className="kr-container kr-container--wide">
+          <div className="pg-grid pg-grid--2" style=${{ gap: 48, alignItems: "start" }}>
+            <div>
+              <h2 id="free-title" className="kr-h2">Free means free.</h2>
+              <p className="kr-body">No countdown on the free plan. No trial that quietly turns into a subscription.</p>
+              <ul className="k-checked">
+                <${Check}><strong>The free plan is a plan, not a trial</strong><br />Use it for as long as you like. Upgrade only if you want more.<//>
+                <${Check}><strong>A complete resume, on the free plan</strong><br />Build a full resume and download it as a PDF as many times as you want. Premium adds fancier templates and AI.<//>
+                <${Check}><strong>Every paid feature is clearly marked</strong><br />Look for a purple label that says "Premium." It's hard to miss.<//>
+              </ul>
+            </div>
+            <div>
+              <h2 id="pricing-title" className="kr-h2">Transparent pricing.</h2>
+              <p className="kr-body">Every Kickresume price is public. See what Premium costs before you create an account.</p>
+              <div className="pg-grid pg-grid--3" style=${{ marginBottom: 16 }}>
+                ${prices.map(function (p) { return html`<div className="ds-card ds-card--tinted" key=${p[0]}><span className="muted">${p[0]}</span><span className="pg-stat" style=${{ marginTop: 4 }}>${p[1]}</span><span className="muted">${p[2]}</span></div>`; })}
+              </div>
+              <ul className="k-checked" style=${{ marginBottom: 24 }}>
+                <${Check}><strong>Students and teachers get Premium free</strong><br />Verify with ISIC or ITIC for up to 180 days of Premium.<//>
+                <${Check}><strong>The yearly plan is the best deal</strong><br />About a third of the monthly price. We say so up front.<//>
+              </ul>
+              <${Button} variant="dark-ol" href="https://www.kickresume.com/en/pricing/" ...${ext}>See Full Pricing<//>
+            </div>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Press() {
+    var arts = [
+      ["The Wall Street Journal", "Fake Job Postings Are Becoming a Real Problem", "https://www.wsj.com/lifestyle/careers/ghost-jobs-2c0dcd4e"],
+      ["Forbes", "7 Secrets To Calm 2024 Election Jitters", "https://www.forbes.com/sites/bryanrobinson/2024/11/01/how-to-calm-2024-election-jitters/"],
+      ["Statista", "The Most Popular AI Tools for Job Applications", "https://www.statista.com/chart/35815/most-popular-ai-tools-for-job-applications/"],
+      ["Entrepreneur", "This Buzzy Retirement Strategy Is Helping Young People Escape the 9-5", "https://www.entrepreneur.com/money-finance/micro-retirement-quit-your-job-before-youre-a-millionaire/492835"],
+      ["New York Post", "The role you're applying for might be a 'ghost job'", "https://nypost.com/2024/10/03/lifestyle/whats-a-ghost-job-listing-these-are-the-warning-signs/"],
+      ["Vice", "Are You Vacation Hoarding? Here's Why You Should Stop.", "https://www.vice.com/en/article/are-you-vacation-hoarding-heres-why-you-should-stop/"]
+    ];
+    var studies = [
+      ["756", "US jobs scored for AI risk", "Sept 2026", "https://www.kickresume.com/en/press/ai-risk-across-jobs/"],
+      ["1.4M", "US and UK job postings analyzed for the most in-demand skills", "Sept 2026", "https://www.kickresume.com/en/press/in-demand-skills-2026/"],
+      ["200+", "real job applications sent to test what gets a reply", "July 2026", "https://www.kickresume.com/en/press/job-application-experiment/"]
+    ];
+    return html`
+      <section className="kr-samples" aria-labelledby="press-title">
+        <div className="kr-container kr-container--wide">
+          <header className="kr-section-title">
+            <h2 id="press-title" className="kr-h1">Recognized as expert voice in serious media outlets.</h2>
+            <p className="kr-body">Journalists come to Kickresume for hiring data and career advice. Every card opens the original article.</p>
+          </header>
+          <div className="pg-press">
+            ${arts.map(function (a) { return html`
+              <a className="kr-sample-card" href=${a[2]} key=${a[2]} ...${ext}>
+                <div className="kr-sample-card__body">
+                  <span className="kr-sample-card__pre">${a[0]}</span>
+                  <h3 className="kr-sample-card__title">${a[1]}</h3>
+                  <span className="kr-sample-card__cta">Read the Article <span className="arrow">→</span></span>
+                </div>
+              </a>`; })}
+          </div>
+          <div className="kr-section-footer">
+            <${Button} variant="dark-ol" href="https://www.kickresume.com/en/press/" ...${ext}>All Press & Research<//>
+          </div>
+
+          <header className="kr-section-title" style=${{ marginTop: 96 }}>
+            <h2 className="kr-h1">Original career research. Not recycled tips.</h2>
+            <p className="kr-body">Kickresume publishes its own hiring studies every few weeks. The latest:</p>
+          </header>
+          <div className="pg-grid pg-grid--3">
+            ${studies.map(function (s) { return html`
+              <a className="ds-card ds-card--tinted" href=${s[3]} key=${s[0]} ...${ext}>
+                <span className="pg-stat">${s[0]}</span>
+                <p>${s[1]}</p>
+                <p className="muted" style=${{ marginTop: 8 }}>${s[2]}</p>
+              </a>`; })}
+          </div>
+          <div className="ds-card" style=${{ marginTop: 16, display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", justifyContent: "space-between" }}>
+            <p style=${{ flex: "1 1 320px" }}>We also did a joint research with <strong>PARWCC</strong>, the Professional Association of Resume Writers & Career Coaches.</p>
+            <${Button} variant="dark-ol" size="sm" href="#" data-todo="STUDY-LINK">Read the Study<//>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Experts() {
+    var people = [
+      ["MP", "Martin Poduška", "Chief Editor & Lead Writer", "Quoted by Fast Company, AdWeek, and others. Hundreds of guides written and edited since 2016."],
+      ["JB", "Julia Belak", "Certified Professional Résumé Writer (CPRW)", "Checks guides against CPRW standards. Conducts user surveys and produces research reports."],
+      ["MŘ", "Marta Říhová", "Resident Recruiter", "Recruited for SAP Signavio and other tech companies. 10+ years in IT recruitment."],
+      ["KČ", "Klára Červeňanská", "Content Manager & Career Writer", "Research-backed articles featured by CNBC. Edits Peter's newsletter, read by 600k+ people."],
+      ["NK", "Nikoleta Kuhejda", "PR & Content Manager", "PR campaigns covered by Forbes, CNBC, Fast Company and Business Insider."],
+      ["JM", "Júlia Mlčúchová", "Career Writer", "Keeps all guides up to date. Writes scripts for YouTube videos."]
+    ];
+    var steps = [["Written by a career writer", "Named on the byline"], ["Checked by a CPRW", "Against resume-writing standards"], ["Reviewed by a recruiter", "For how hiring really works"], ["Kept current", "Last-updated date on every page"]];
+    return html`
+      <section className="pg-section pg-section--tint" aria-labelledby="team-title">
+        <div className="kr-container kr-container--wide">
+          <header className="kr-section-title">
+            <h2 id="team-title" className="kr-h1">Real experts. Years of know-how.</h2>
+            <p className="kr-body">Every Kickresume guide is written and checked by people you can look up.</p>
+          </header>
+          <div className="pg-grid pg-grid--3">
+            ${people.map(function (p) { return html`
+              <article className="ds-card pg-person" key=${p[1]}>
+                <span className="pg-avatar" aria-hidden="true">${p[0]}</span>
+                <div>
+                  <h3>${p[1]}</h3>
+                  <p className="muted">${p[2]}</p>
+                  <p style=${{ margin: "8px 0 12px" }}>${p[3]}</p>
+                  <a className="pg-link" href="#" data-todo="PROFILE-LINK">View Profile</a>
+                </div>
+              </article>`; })}
+          </div>
+          <div className="ds-card ds-card--tinted" style=${{ marginTop: 16, background: "var(--kr-white)" }}>
+            <h3 style=${{ marginTop: 0 }}>How every guide is made</h3>
+            <ol className="pg-grid" style=${{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", listStyle: "none", padding: 0, margin: 0 }}>
+              ${steps.map(function (s, i) { return html`<li key=${s[0]}><span className="pg-stat" style=${{ fontSize: 28, lineHeight: "32px" }}>${i + 1}</span><strong style=${{ fontWeight: 500 }}>${s[0]}</strong><p className="muted">${s[1]}</p></li>`; })}
+            </ol>
+          </div>
+          <div className="kr-section-footer" style=${{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", alignItems: "center" }}>
+            <p className="kr-body" style=${{ margin: 0, maxWidth: 560 }}><strong style=${{ fontWeight: 500 }}>Think you'd fit in here?</strong> We're a small team of collaborators in Central Europe, and we're always glad to hear from people who care about careers.</p>
+            <${Button} variant="dark-ol" href="https://www.kickresume.com/en/contact/" ...${ext}>Get in Touch<//>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Faq() {
+    var qa = [
+      ["Is Kickresume legit?", "Yes. Kickresume is run by Kickresume s.r.o., a company registered in Slovakia (ID 48 073 962) and operating since 2013."],
+      ["Who owns Kickresume?", "Kickresume is owned by its founders, Peter Ďuriš and Tomáš Ondrejka. It's bootstrapped, with no parent company and no sister brands."],
+      ["Where is Kickresume based?", "Kickresume is headquartered in Bratislava, Slovakia, and operates under EU data protection law (GDPR)."],
+      ["Does Kickresume share my resume with recruiters?", "Only if you opt in. Kickresume keeps your documents private by default and shares them with hiring partners only with your consent."],
+      ["Is Kickresume really free?", "Kickresume has a free plan with no time limit. Premium features need a paid subscription, which you can cancel in your account settings."],
+      ["How do I delete my Kickresume data?", "Close your account and Kickresume deletes your data after 30 days. For anything else, email gdpr@kickresume.com."]
+    ];
+    return html`
+      <section className="pg-section" aria-labelledby="faq-title">
+        <div className="kr-container">
+          <header className="kr-section-title">
+            <h2 id="faq-title" className="kr-h1">Got questions? Good.</h2>
+            <p className="kr-body">Straight answers to what people actually ask about Kickresume.</p>
+          </header>
+          <div className="pg-faq">
+            ${qa.map(function (q) { return html`<div className="ds-card" key=${q[0]}><h3 style=${{ marginTop: 0 }}>${q[0]}</h3><p>${q[1]}</p></div>`; })}
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function Cta() {
+    return html`
+      <section className="pg-section pg-section--coral" id="build" aria-labelledby="cta-title">
+        <div className="kr-container">
+          <header className="kr-section-title" style=${{ marginBottom: 0 }}>
+            <h2 id="cta-title" className="kr-h1">That's our resume.<br />Now let's do yours.</h2>
+            <p className="kr-body">Start free. Upgrade only if you need more.</p>
+            <div className="button-group">
+              <${Button} variant="coral" href="https://www.kickresume.com/register/">Build Your Resume<//>
+              <${Button} variant="dark-ol" href="https://www.trustpilot.com/review/kickresume.com" ...${ext}>Check Us on Trustpilot<//>
+            </div>
+          </header>
+        </div>
+      </section>`;
+  }
+
+  function Footer() {
+    var nav = [
+      { group: "Product", items: ["Resume Builder", "Cover Letter Builder", "Website Builder", "Career Map", "Job Tracker", "ATS Checker"] },
+      { group: "Resources", items: ["Resume Examples", "Cover Letter Examples", "Career Center", "Blog", "Career Guides", "Help Center"] },
+      { group: "Company", items: ["About Us", "Press", "Contact", "Affiliate", "For Schools", "Privacy"] }
+    ];
+    return html`
+      <footer className="kr-footer">
+        <div className="kr-container kr-container--wide">
+          <div className="kr-footer__top">
+            ${nav.map(function (g) { return html`
+              <nav className="kr-footer__nav" key=${g.group} aria-label=${g.group}>
+                <h5>${g.group}</h5>
+                <ul>${g.items.map(function (it) { return html`<li key=${it}><a href="#">${it}</a></li>`; })}</ul>
+              </nav>`; })}
+            <div className="kr-footer__nav">
+              <h5>Ratings</h5>
+              <div className="kr-footer__ratings">
+                <div><span className="kr-footer__rating-label">Trustpilot</span><div className="kr-footer__rating-row"><${StarRow} value=${4.6} /><span>4.6 / 5</span></div></div>
+                <div><span className="kr-footer__rating-label">Google Play</span><div className="kr-footer__rating-row"><${StarRow} value=${4.7} /><span>4.7 / 5</span></div></div>
+                <div><span className="kr-footer__rating-label">App Store</span><div className="kr-footer__rating-row"><${StarRow} value=${4.7} /><span>4.7 / 5</span></div></div>
+              </div>
+              <p className="pg-updated">Last updated [DATE] · Ratings pulled [DATE] from Trustpilot, the App Store and Google Play.</p>
+            </div>
+          </div>
+          <div className="kr-footer__bottom">
+            <img src=${A.logoWhite} height="22" alt="Kickresume" />
+            <span className="kr-footer__copy">© 2026 Kickresume. Made with ♥ in Bratislava.</span>
+            <div className="kr-footer__socials">
+              <a href="#" aria-label="Facebook"><img src=${A.fb} alt="" width="20" height="20" /></a>
+              <a href="#" aria-label="Twitter"><img src=${A.tw} alt="" width="20" height="20" /></a>
+              <a href="#" aria-label="Instagram"><img src=${A.ig} alt="" width="20" height="20" /></a>
+              <a href="#" aria-label="LinkedIn"><img src=${A.li} alt="" width="20" height="20" /></a>
+              <a href="#" aria-label="YouTube"><img src=${A.yt} alt="" width="20" height="20" /></a>
+            </div>
+          </div>
+        </div>
+      </footer>`;
+  }
+
+  function Page() {
+    React.useEffect(function () { if (window.lucide) window.lucide.createIcons(); }, []);
+    return html`
+      <${Navbar} />
+      <main>
+        <${Intro} />
+        <${Founders} />
+        <${Independent} />
+        <${Reviews} />
+        <${Revolut} />
+        <${Privacy} />
+        <${FreeAndPricing} />
+        <${Press} />
+        <${Experts} />
+        <${Faq} />
+        <${Cta} />
+      </main>
+      <${Footer} />`;
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(html`<${Page} />`);
+})();
+</script>
+</body>
+</html>

@@ -1,44 +1,44 @@
 # About Kickresume page
 
-Static build of the "About Us" draft, made 1:1 from components in the Figma
-library "Components (WEB)" (file `tfOoqCFhpvNCQc5PZmqDtw`) and filled with the
-draft's text unchanged. Each section has a `data-figma` attribute with the
-component's node id and name.
+The "About Us" draft built with the **Kickresume Design System**
+(claude.ai artifact `GWHC3KRhzUiFiHREre3wQ4`): its tokens, fonts, logos, icons,
+illustrations and React component bundle (`window.KickresumeDesignSystem_6ee106`).
+The draft's text is used unchanged.
 
-| Section | Figma component |
+## Files
+
+- `src/index.src.html`: the page source (React via htm, no build-time JSX).
+- `vendor/kickresume-ds/`: the parts of the design system the page uses, copied
+  unchanged: `tokens.css`, `components/bundle.css`, `components/bundle.js`,
+  `fonts/`, and the logos, icons, backgrounds and illustrations under `assets/`.
+- `build.py`: inlines the design system into one self-contained `index.html`
+  (fonts and images as data URIs). `python3 build.py --artifact` writes the
+  claude.ai artifact version to `build/artifact.html`.
+- `index.html`: the built page. Rebuild after editing the source.
+
+React 18.3.1, htm 3.1.1 and Lucide 0.544.0 (the design system's icon set) load
+from cdnjs / jsDelivr at pinned versions.
+
+## What each section uses
+
+| Section | Design-system parts |
 | --- | --- |
-| Nav | Header – Content (1070:519) |
-| Intro, Forbes | Content / Left v2 (823:34) |
-| Company facts, Revolut | Content / Right v2 (823:64) |
-| Founders (photos + bios), expert team | Team / authors update (7221:1166) |
-| Ratings, data privacy | Privacy (57:11) |
-| Free plan, pricing, research, "How every guide is made" | Dos/don'ts (57:17) |
-| Press | Articles, Dark=false (2758:662) |
-| FAQ | FAQ / v3 (2026) (8643:4022) |
-| Closing CTA | CTA v2 / Light (535:44) |
-| Footer | Footer / Rating update (950:187) |
-| Trust strip (`trust-short.html`) | Media, Extended (4799:946) |
+| Nav | `Navbar` component |
+| Intro | `Hero` layout classes (`kr-hero--center`, `kr-hero__proof`), `Eyebrow`, `StarRow`, colored-blurs background, world-users illustration |
+| Founders | `FeatureRow` dark layout (`kr-feature is-dark`), `Eyebrow`, Card |
+| Company facts, Revolut | `FeatureRow` layout, `Button` (coral), Card (tinted), List (checked) |
+| Reviews + Forbes | `TestimonialGrid` layout: `kr-forbes` card, `kr-testi-card`, `StarRow`, `Button` (dark outline) |
+| Privacy, pricing, research, experts, FAQ | Card (default / tinted), List, Lucide icons, `.stat` type style, `Button` |
+| Press | `SampleCarousel` card (`kr-sample-card`) |
+| Closing CTA | section title + `Button` group (coral + dark outline) on a coral tint gradient |
+| Footer | `Footer` layout (`kr-footer`) with the page's own ratings, `StarRow`, brand logo and social icons |
 
-Where the draft has no text for a component element (e.g. a check list or
-button), that element is left out. Where the draft has a link with no button
-slot, it's an inline link in the body text, as the Content components do.
-
-Files:
-- `index.html`, `trust-short.html`
-- `styles.css`: component styles; every value uses the `--kr-*` tokens.
-- `kickresume-theme.css`, `kickresume-fonts.css`: copied verbatim from `@kickresume/theme`. Don't edit.
+`Navbar` is used as-is. `Hero`, `SocialRating`, `TestimonialGrid` and `Footer`
+are fixed-copy components with no props, so the page uses their markup and
+classes with this page's content instead of rendering them directly.
 
 ## Still to fill in
 
-- **Images, logos and icons** (`.asset-slot` elements): the library's assets
-  couldn't be downloaded from the build environment. Each slot names what goes
-  there. Star ratings use ★ text until the star icons are exported.
-- Links marked `data-todo` (LinkedIn, PARWCC study, team profiles), footer link
-  targets, and the `[DATE]` placeholders.
-
-## Preview fonts
-
-The brand fonts (Graphik, Henk-Work) load from `ui.kickresume.com`, which the
-claude.ai artifact preview can't reach. The preview build therefore adds Inter
-and Literata from Google Fonts as fallbacks. The files in this folder use only
-the brand fonts.
+- Founder photos and a Revolut logo: neither is in the design system.
+- Links marked `data-todo` (LinkedIn, PARWCC study, team profiles) and the
+  `[DATE]` placeholders in the footer.
