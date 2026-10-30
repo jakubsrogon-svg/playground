@@ -372,6 +372,11 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-parwcc-row strong { font-weight: var(--kr-fw-medium); }
 .pg-parwcc--lg { grid-template-columns: repeat(2, 20px); width: 41px; gap: 1px; flex: none; }
 .pg-parwcc--lg i { height: 16px; font-size: 11px; }
+
+/* Layout: 1440px page, every section's content max 1140px */
+#root { max-width: 1440px; margin: 0 auto; }
+.kr-container, .kr-container--wide { max-width: 1188px; }
+.pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 48px; }
 </style>
 </head>
 <body>
