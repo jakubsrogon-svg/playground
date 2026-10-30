@@ -1286,8 +1286,13 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-plan__list svg { width: 20px; height: 20px; flex: none; color: #ff5e59; stroke-width: 1.6; }
 .pg-plan.is-popular .pg-plan__list svg { color: #5345ff; }
 .pg-plan .pg-plan__list li.is-guarantee svg { color: #48ad43; }
-.pg-plans__notes li::before { content: "•"; margin-right: 8px; }
-.pg-plans__notes { list-style: none; margin: 48px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; text-align: center; font-size: 16px; line-height: 24px; color: var(--kr-fg); }
+.pg-plans__notes { list-style: none; margin: 48px auto 0; padding: 0; max-width: 964px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.pg-plans__notes li { display: flex; gap: 16px; align-items: flex-start; padding: 16px 24px 16px 16px; border-radius: 16px; background: #fff; border: 1px solid var(--kr-grey-60); }
+.pg-plans__notes p { margin: 0; font-size: 14px; line-height: 20px; color: var(--kr-fg); }
+.pg-plans__notes strong { display: block; margin-bottom: 4px; font-size: 16px; line-height: 24px; font-weight: var(--kr-fw-medium); }
+.pg-plans__icon { width: 40px; height: 40px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f3f2fd; color: #514eea; }
+.pg-plans__icon svg { width: 20px; height: 20px; }
+@media (max-width: 767px) { .pg-plans__notes { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 991px) { .pg-plans { flex-direction: column; align-items: stretch; gap: 24px; max-width: 360px; margin: 0 auto; } .pg-plan { width: auto; } }
 </style>
 </head>
@@ -2941,8 +2946,8 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
               </article>`; })}
           </div>
           <ul className="pg-plans__notes">
-            <li>Students and teachers get Premium free. Verify with ISIC or ITIC for up to 180 days of Premium.</li>
-            <li>The yearly plan is the best deal. About a third of the monthly price. We say so up front.</li>
+            <li><span className="pg-plans__icon" aria-hidden="true"><i data-lucide="graduation-cap"></i></span><p><strong>Students and teachers get Premium free.</strong> Verify with ISIC or ITIC for up to 180 days of Premium.</p></li>
+            <li><span className="pg-plans__icon" aria-hidden="true"><i data-lucide="piggy-bank"></i></span><p><strong>The yearly plan is the best deal.</strong> About a third of the monthly price. We say so up front.</p></li>
           </ul>
           <div className="kr-section-footer">
             <a className="pg-textlink" href="https://www.kickresume.com/en/pricing/" ...${ext}>See Full Pricing<i data-lucide="arrow-right" aria-hidden="true"></i></a>
