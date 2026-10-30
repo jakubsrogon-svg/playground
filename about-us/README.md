@@ -1,21 +1,36 @@
 # About Kickresume page
 
-Static build of the "About Us" draft (Claude Design artboards "About Us — desktop"
-and "About Us — short version"), styled with the Kickresume design system.
+Static build of the "About Us" draft, made only from components in the
+Figma library "Components (WEB)" (file `tfOoqCFhpvNCQc5PZmqDtw`). Each section
+has a `data-figma` attribute with the component's node id and name.
 
-- `index.html`: the full About page.
-- `trust-short.html`: the short trust strip for use on other pages.
-- `styles.css`: page styles. Every color, radius, shadow, font and spacing value
-  comes from `--kr-*` tokens.
-- `kickresume-theme.css` and `kickresume-fonts.css`: copied verbatim from the
-  `@kickresume/theme` registry item. Don't edit them; update them from the registry.
-  Fonts load from `ui.kickresume.com`.
+| Section | Figma component |
+| --- | --- |
+| Nav | Header – Content (1070:519) |
+| Intro, Forbes | Content / Left v2 (823:34) |
+| Company facts, Revolut | Content / Right v2 (823:64) |
+| Founders, expert team | Team / authors update (7221:1166) |
+| "How every guide is made" steps | Statistics (1349:435) |
+| Reviews | Ratings only (5565:1356) |
+| Data privacy, free plan | Privacy (57:11) |
+| Pricing, research, trust strip | Highlights, Variant2 (1836:196) |
+| Press | Articles, light (2758:661) |
+| FAQ | FAQ / v3 (2026) (8643:4022) |
+| Closing CTA | CTA v2 / Light (535:44) |
+| Footer | Footer / Rating update (950:187) |
+
+Files:
+- `index.html`: the full About page. `trust-short.html`: the short trust strip.
+- `styles.css`: component styles; every value uses the `--kr-*` tokens.
+- `kickresume-theme.css`, `kickresume-fonts.css`: copied verbatim from `@kickresume/theme`. Don't edit.
 
 ## Still to fill in
 
-- Founder photos: add `assets/founders-2013.jpg` and `assets/founders-today.jpg`
-  and swap the `.photo-ph` placeholders for `<img class="photo">` (see TODO comments).
-- Forbes and Revolut logos are text stand-ins (`.logo-forbes`, `.logo-tile`).
-  Replace them with the official logo files.
-- Links marked `data-todo` (LinkedIn, PARWCC study, team profiles) and the `[DATE]`
-  placeholders in the footer note.
+- **Images, logos and icons** (`.asset-slot` elements): the library's assets
+  couldn't be downloaded from the build environment. Each slot names what goes
+  there (e.g. `Forbes_mention (6542:1150)`, `PARWCC logo (5410:1111)`, the
+  Privacy shield icons, Trustpilot / Google Play / App Store logos, founder and
+  team photos, the CTA image). Star ratings use a ★ text stand-in for the
+  library's star icons.
+- Links marked `data-todo` (LinkedIn, PARWCC study, team profiles) and the
+  `[DATE]` placeholders in the footer.
