@@ -1214,6 +1214,12 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-howto__card p { margin: 8px 0 0; font-size: 16px; line-height: 24px; color: var(--kr-fg); }
 @media (max-width: 991px) { .pg-authors { grid-template-columns: minmax(0, 1fr); } .pg-howto__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 559px) { .pg-howto__cards { grid-template-columns: minmax(0, 1fr); } .pg-author__photo { width: 72px; height: 72px; font-size: 20px; } }
+
+/* Revolut row: 600x400 image, 550px text column */
+.pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 600px) minmax(0, 550px); justify-content: space-between; }
+.pg-revolut .kr-feature__col { max-width: 550px; width: 100%; }
+.pg-revolut .pg-art-card { width: 100%; max-width: 600px; aspect-ratio: 3 / 2; height: auto; min-height: 0; }
+@media (max-width: 899px) { .pg-revolut .kr-feature__row { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -2769,7 +2775,7 @@ __ds_ns.TestimonialGrid = __ds_scope.TestimonialGrid;
 
   function Revolut() {
     return html`
-      <section className="kr-feature is-reverse" aria-labelledby="revolut-title">
+      <section className="kr-feature is-reverse pg-revolut" aria-labelledby="revolut-title">
         <div className="kr-container kr-container--wide kr-feature__row">
           <div className="kr-feature__art"><div className="ds-card ds-card--tinted pg-art-card pg-placeholder">Revolut logo (not in the design system yet)</div></div>
           <div className="kr-feature__col">
