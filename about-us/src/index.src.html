@@ -326,6 +326,13 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
 .pg-privacy .kr-h1, .pg-privacy .kr-body, .pg-privacy .ds-card h3, .pg-privacy .ds-card p { color: #fff; }
 .pg-privacy .ds-card p { color: rgba(255,255,255,.7); }
 .pg-privacy .ds-card i[data-lucide], .pg-privacy .ds-card svg.lucide { color: #fff; }
+
+/* Pricing section */
+.pg-pricing { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+.pg-price { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; background: #fff; }
+.pg-price .pg-stat { margin: 0; }
+.pg-pricing__notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0; }
+@media (max-width: 767px) { .pg-pricing__notes { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -550,32 +557,46 @@ a.ds-card:hover { box-shadow: var(--kr-shadow-dropdown); border-color: transpare
   }
 
   function FreeAndPricing() {
+    var free = [
+      ["The free plan is a plan, not a trial", "Use it for as long as you like. Upgrade only if you want more."],
+      ["A complete resume, on the free plan", "Build a full resume and download it as a PDF as many times as you want. Premium adds fancier templates and AI."],
+      ["Every paid feature is clearly marked", "Look for a purple label that says \"Premium.\" It's hard to miss."]
+    ];
     var prices = [["Monthly", "$24", "per month"], ["Quarterly", "$54", "about $18/mo"], ["Yearly", "$96", "about $8/mo"]];
     return html`
       <section className="pg-section" aria-labelledby="free-title">
-        <div className="kr-container kr-container--wide">
-          <div className="pg-grid pg-grid--2" style=${{ gap: 48, alignItems: "start" }}>
-            <div>
-              <h2 id="free-title" className="kr-h2">Free means free.</h2>
-              <p className="kr-body">No countdown on the free plan. No trial that quietly turns into a subscription.</p>
-              <ul className="k-checked">
-                <${Check}><strong>The free plan is a plan, not a trial</strong><br />Use it for as long as you like. Upgrade only if you want more.<//>
-                <${Check}><strong>A complete resume, on the free plan</strong><br />Build a full resume and download it as a PDF as many times as you want. Premium adds fancier templates and AI.<//>
-                <${Check}><strong>Every paid feature is clearly marked</strong><br />Look for a purple label that says "Premium." It's hard to miss.<//>
-              </ul>
+        <div className="kr-container">
+          <header className="kr-section-title">
+            <h2 id="free-title" className="kr-h1">Free means free.</h2>
+            <p className="kr-body">No countdown on the free plan. No trial that quietly turns into a subscription.</p>
+          </header>
+          <div className="pg-grid pg-grid--3">
+            ${free.map(function (f) { return html`
+              <div className="ds-card" key=${f[0]}>
+                <i data-lucide="check"></i>
+                <h3>${f[0]}</h3>
+                <p>${f[1]}</p>
+              </div>`; })}
+          </div>
+        </div>
+      </section>
+      <section className="pg-section pg-section--grey" aria-labelledby="pricing-title">
+        <div className="kr-container">
+          <header className="kr-section-title">
+            <h2 id="pricing-title" className="kr-h1">Transparent pricing.</h2>
+            <p className="kr-body">Every Kickresume price is public. See what Premium costs before you create an account.</p>
+          </header>
+          <div className="pg-pricing">
+            <div className="pg-grid pg-grid--3">
+              ${prices.map(function (p) { return html`<div className="ds-card pg-price" key=${p[0]}><span className="muted">${p[0]}</span><span className="pg-stat">${p[1]}</span><span className="muted">${p[2]}</span></div>`; })}
             </div>
-            <div>
-              <h2 id="pricing-title" className="kr-h2">Transparent pricing.</h2>
-              <p className="kr-body">Every Kickresume price is public. See what Premium costs before you create an account.</p>
-              <div className="pg-grid pg-grid--3" style=${{ marginBottom: 16 }}>
-                ${prices.map(function (p) { return html`<div className="ds-card ds-card--tinted" key=${p[0]}><span className="muted">${p[0]}</span><span className="pg-stat" style=${{ marginTop: 4 }}>${p[1]}</span><span className="muted">${p[2]}</span></div>`; })}
-              </div>
-              <ul className="k-checked" style=${{ marginBottom: 24 }}>
-                <${Check}><strong>Students and teachers get Premium free</strong><br />Verify with ISIC or ITIC for up to 180 days of Premium.<//>
-                <${Check}><strong>The yearly plan is the best deal</strong><br />About a third of the monthly price. We say so up front.<//>
-              </ul>
-              <${Button} variant="dark-ol" href="https://www.kickresume.com/en/pricing/" ...${ext}>See Full Pricing<//>
-            </div>
+            <ul className="k-checked pg-pricing__notes">
+              <${Check}><strong>Students and teachers get Premium free</strong><br />Verify with ISIC or ITIC for up to 180 days of Premium.<//>
+              <${Check}><strong>The yearly plan is the best deal</strong><br />About a third of the monthly price. We say so up front.<//>
+            </ul>
+          </div>
+          <div className="kr-section-footer">
+            <${Button} variant="dark-ol" href="https://www.kickresume.com/en/pricing/" ...${ext}>See Full Pricing<//>
           </div>
         </div>
       </section>`;
