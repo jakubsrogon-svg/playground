@@ -1,0 +1,391 @@
+/* Kickresume Design System — generated from tokens.json */
+:root, [data-theme="light"] {
+  --kr-primary: #ff5e59; /* Palette · Coral / Primary (text on it: White). Fill of the primary CTA (Coral button), of destructive actions (delete, remove) and the color of error messages only; never links, badges, active or selected states, decoration or hover. White on it is 3.0:1 — passes only for 24px+ or bold 19px+ text. */
+  --kr-primary-hover: #f74c4a; /* Palette · Coral / Hover (text on it: White). The Coral CTA's own :hover fill only. */
+  --kr-primary-active: #cd2927; /* Palette · Coral / Pressed (text on it: White). The Coral CTA's :pressed fill — deep brick red. The palette sheet labels this swatch #F74C4A (same as Hover); the swatch itself is this brick red. */
+  --kr-primary-light: #f8aca7; /* Palette · Coral / Inactive (text on it: White). The Coral CTA's :disabled fill; border and label of a disabled Coral outline. */
+  --kr-primary-tint: #fff4f3; /* Palette · Coral / Light (text on it: Coral). Soft brand backgrounds (coral tint→white gradient or flat tint). Body text on it: kr-grey-100 (9.77:1). */
+  --kr-btn-white-hover: var(--kr-grey-40); /* White button :hover fill (alias of kr-grey-40, Light Grey / Inactive). */
+  --kr-btn-white-press: var(--kr-grey-60); /* White button :pressed fill (alias of kr-grey-60). */
+  --kr-btn-white-border: var(--kr-grey-60); /* White button border (alias of kr-grey-60). */
+  --kr-btn-dark: var(--kr-grey-100); /* Fill of the dark button (`.kr-btn--dark`); border and label of its outline. Charcoal (kr-grey-100) — Dark Blue is out of use in components for now. White label 10.53:1. */
+  --kr-btn-dark-hover: var(--kr-grey-100); /* Dark button :hover fill — stays Charcoal (no hover shade in the palette). */
+  --kr-btn-dark-press: var(--kr-grey-100); /* Dark button :pressed fill — stays Charcoal (no pressed shade in the palette). */
+  --kr-btn-dark-blue: var(--kr-blue-dark); /* Fill of the Dark Blue button (`.kr-btn--dark-blue`). Hover and pressed keep the fill (no Dark Blue shades in the palette). White label. */
+  --kr-btn-dark-disabled: var(--kr-grey-80); /* Dark Blue button :disabled fill (alias of kr-grey-80, Charcoal / Inactive). */
+  --kr-btn-grad-disabled: var(--kr-blue-light); /* Gradient button :disabled fill (flat); border and label of a disabled gradient outline (alias of kr-blue-light, Royal Blue / Inactive). */
+  --kr-btn-grad-tint: var(--kr-blue-very-light); /* Gradient-outline :hover and :pressed fill (alias of kr-blue-very-light, Royal Blue / Light). As an icon box, its icon is kr-blue. */
+  --kr-btn-grad-solid: var(--kr-blue); /* Gradient-outline border and label; PREMIUM sticker text (alias of kr-blue, Royal Blue / Primary). */
+  --kr-hover: var(--kr-grey-100); /* The only hover-accent color for non-CTA elements — links, nav, outline fills, arrows (alias of kr-grey-100). No coral hovers. */
+  --kr-blue: #514eea; /* Palette · Royal Blue / Primary (text on it: White). Contextual only: AI features, info messages, "new" highlights; the icon in a Royal Blue / Light box. Never for active, selected, current or focus states (those are Charcoal, kr-grey-100). 5.79:1 on kr-white. */
+  --kr-blue-darker: #3249bf; /* Palette · Royal Blue / Pressed (text on it: White). */
+  --kr-blue-light: #9795f2; /* Palette · Royal Blue / Inactive (text on it: White). Not for text (2.66:1 on kr-white). */
+  --kr-blue-very-light: #f3f2fd; /* Palette · Royal Blue / Light (text on it: Royal Blue) — the violet tint surface; as an icon box, its icon is kr-blue. */
+  --kr-sky: #eaf4ff; /* Palette · Sky / Primary (text on it: Charcoal) — an Azure tint for soft page surfaces: the Sky wash (tools: ATS, job search) and the stronger stop of the Light wash. Never a card, button or text color. */
+  --kr-sky-light: #f5f9ff; /* Palette · Sky / Light (text on it: Charcoal) — the lighter Azure tint: the default page wash (Light · Sky). Never a card, button or text color. */
+  --kr-blue-dark: #081430; /* Palette · Dark Blue / Primary (text on it: White) — full-bleed dark sections, the Forbes card, the footer, Dark Blue buttons. */
+  --kr-light-royal-blue: var(--kr-blue-light); /* Alias of kr-blue-light. */
+  --kr-blue-sky: var(--kr-blue-darker); /* Off-palette name, aliased to kr-blue-darker. */
+  --kr-blue-linkedin: var(--kr-blue-dark); /* Off-palette name, aliased to kr-blue-dark. */
+  --kr-blue-forbes: var(--kr-blue-dark); /* Off-palette name, aliased to kr-blue-dark. */
+  --kr-premium-purple: #9c3eff; /* Palette · Premium Gradient end stop (--kr-premium-gradient-alt) — gradient buttons only. Not a flat color. */
+  --kr-premium-blue: #5345ff; /* Palette · Premium Gradient start stop (--kr-premium-gradient-alt) — gradient buttons only. Not a flat color. */
+  --kr-premium-dark-blue: #4034d7; /* Palette · Premium Background Gradient start stop (--kr-future-dark-premium) — backgrounds only, when Kubo asks. Not a flat color. */
+  --kr-premium-dark-purp: #7011ba; /* Palette · Premium Background Gradient end stop (--kr-future-dark-premium) — backgrounds only, when Kubo asks. Not a flat color. */
+  --kr-grey-100: #3f3f3f; /* Palette · Charcoal / Primary (text on it: White) — body text, headings, icons; the hover accent. 10.53:1 on kr-white. */
+  --kr-grey-80: #8c8c8c; /* Palette · Charcoal / Inactive (text on it: White) — muted text, placeholders, disabled fills. 3.36:1 on kr-white: below 4.5:1 for text under 24px. */
+  --kr-grey-60: #e9e9e9; /* Palette · Light Grey / Primary (text on it: Charcoal) — every border and divider; light fills. */
+  --kr-grey-40: #f2f2f2; /* Palette · Light Grey / Inactive (text on it: Charcoal) — subtle fills; outline-button :hover; disabled input fill. */
+  --kr-grey-20: #fafafa; /* Palette · White Smoke / Primary (text on it: Charcoal or Coral) — the background of every web app screen (kr-bg-app), so white cards, tables and panels stand out on it. */
+  --kr-grey-0: var(--kr-white); /* Alias of kr-white. */
+  --kr-background: #f4f7f8; /* Palette · Background (text on it: Charcoal or Coral) — tinted cards and marketing sections (web app screens use kr-bg-app, White Smoke). As an icon box, its icon is kr-grey-100. */
+  --kr-white: #fff; /* Palette · White / Primary (text on it: Charcoal or Coral) — surfaces; label on Coral, Dark Blue, Royal Blue, green and gradient fills. */
+  --kr-glass: rgba(255, 255, 255, 0.65); /* Glass surface fill: White at 65% over a 16px background blur (kr-glass-blur), with the kr-glass-line hairline. For a card, badge or status that floats on a tint, wash, gradient or image (glass badge, glass live status). Never on plain White or White Smoke (Rule 10). */
+  --kr-glass-line: rgba(63, 63, 63, 0.08); /* Glass hairline: Charcoal at 8%, drawn inside the edge (inset 0 0 0 1px) of every glass surface on a light background. */
+  --kr-glass-on-color: rgba(255, 255, 255, 0.2); /* Glass on a colored fill: White at 20% over an 8px blur, with the kr-glass-on-color-line hairline — the icon tile on a Coral, Premium or Charcoal action hero (Rule 10). */
+  --kr-glass-on-color-line: rgba(255, 255, 255, 0.35); /* Glass-on-color hairline: White at 35%, the edge of a glass tile on a colored fill. */
+  --kr-shape-faint: rgba(255, 255, 255, 0.06); /* Decorative shape on a colored fill: the big, faint one (White 6%) — action hero shapes, off the top-right corner. */
+  --kr-shape-soft: rgba(255, 255, 255, 0.1); /* Decorative shape on a colored fill: the small, brighter one (White 10%) — action hero shapes, bottom-right. */
+  --kr-light-glow: rgba(255, 255, 255, 0.95); /* White light on a Light wash: the strong glow falling in from the top-left (radial, fading to nothing). Decoration only. */
+  --kr-light-glow-soft: rgba(255, 255, 255, 0.7); /* White light on a Light wash: the second, softer glow. */
+  --kr-light-beam: rgba(255, 255, 255, 0.6); /* White light on a Light wash: the brighter blurred beam; also the brighter band of the wash shapes. */
+  --kr-light-beam-soft: rgba(255, 255, 255, 0.45); /* White light on a Light wash: the fainter blurred beam. */
+  --kr-pattern-ink: var(--kr-grey-60); /* Ink of a background pattern (.kr-pattern) — Light Grey, a flat palette color; the pattern fades through a mask, never through opacity (Rule 27). */
+  --kr-pattern-ink-soft: var(--kr-grey-40); /* Softer pattern ink (.kr-pattern--soft) — Light Grey Inactive, for busier areas or White Smoke pages (Rule 27). */
+  --kr-scrim: rgba(63, 63, 63, 0.48); /* Charcoal at 48% — the backdrop behind a modal. The one translucent fill in the system; never a tint for anything else. */
+  --kr-gray-900: var(--kr-grey-100); /* Legacy alias of kr-grey-100, kept for back-compat; prefer kr-grey-100. */
+  --kr-gray-500: var(--kr-grey-80); /* Legacy alias of kr-grey-80, kept for back-compat; prefer kr-grey-80. */
+  --kr-gray-200: var(--kr-grey-60); /* Legacy alias of kr-grey-60, kept for back-compat; prefer kr-grey-60. */
+  --kr-gray-100: var(--kr-grey-40); /* Legacy alias of kr-grey-40, kept for back-compat; prefer kr-grey-40. */
+  --kr-gray-50: var(--kr-grey-20); /* Legacy alias of kr-grey-20, kept for back-compat; prefer kr-grey-20. */
+  --kr-gray-cool: var(--kr-background); /* Legacy alias of kr-background, kept for back-compat; prefer kr-background. */
+  --kr-charcoal: var(--kr-grey-100); /* Legacy alias of kr-grey-100, kept for back-compat; prefer kr-grey-100. */
+  --kr-gray: var(--kr-grey-80); /* Legacy alias of kr-grey-80, kept for back-compat; prefer kr-grey-80. */
+  --kr-gray-medium: var(--kr-grey-80); /* Legacy alias of kr-grey-80, kept for back-compat; prefer kr-grey-80. */
+  --kr-gray-light: var(--kr-grey-60); /* Legacy alias of kr-grey-60, kept for back-compat; prefer kr-grey-60. */
+  --kr-concrete-gray: var(--kr-grey-40); /* Legacy alias of kr-grey-40, kept for back-compat; prefer kr-grey-40. */
+  --kr-gray-x-light: var(--kr-grey-40); /* Legacy alias of kr-grey-40, kept for back-compat; prefer kr-grey-40. */
+  --kr-gray-444: var(--kr-grey-40); /* Legacy alias of kr-grey-40, kept for back-compat; prefer kr-grey-40. */
+  --kr-white-smoke: var(--kr-grey-20); /* Legacy alias of kr-grey-20, kept for back-compat; prefer kr-grey-20. */
+  --kr-violet-water: var(--kr-background); /* Legacy alias of kr-background, kept for back-compat; prefer kr-background. */
+  --kr-footer-divider: var(--kr-grey-100); /* Divider line above the footer's bottom row, on kr-blue-dark (alias of kr-grey-100). */
+  --kr-green: #1b7450; /* Palette · Brand Green (text on it: White) — not used in components: when green is needed, use Apple Green (kr-green-apple). */
+  --kr-red: var(--kr-primary); /* Error color — alias of kr-primary (errors use coral). */
+  --kr-light-red-orange: var(--kr-primary-tint); /* Alias of kr-primary-tint. */
+  --kr-lighter-coral: var(--kr-primary-tint); /* Alias of kr-primary-tint. */
+  --kr-beige: #fbefda; /* Palette · Beige / Primary (text on it: Charcoal or Coral) — soft tint background (the beige→white gradient behind testimonials); as an icon box, its icon is kr-grey-100. */
+  --kr-alice-blue: var(--kr-background); /* Alias of kr-background. */
+  --kr-pink: var(--kr-primary-tint); /* Alias of kr-primary-tint. */
+  --kr-light-pink: var(--kr-blue-very-light); /* Alias of kr-blue-very-light. */
+  --kr-aqua-white: var(--kr-background); /* Alias of kr-background. */
+  --kr-light-brown: var(--kr-beige); /* Alias of kr-beige. */
+  --kr-light-yellow: var(--kr-beige); /* Alias of kr-beige. */
+  --kr-green-mint: #1da36e; /* Palette · Mint Green (text on it: White) — the builder's language-check badge. White on it: 3.22:1. */
+  --kr-green-apple: #48ad43; /* Palette · Apple Green (text on it: White) — THE green: success badges, alerts and progress, the ATS flag, Accepted status, the green feature color. White on it: 2.86:1, below 3:1 — keep white text on it 12px+ medium or larger. */
+  --kr-yellow: #ffc107; /* Palette · Star Yellow (text on it: Charcoal or Coral) — star-rating fill; the builder's score badge. */
+  --kr-orange: #ff881a; /* Flag · Orange — the Updated feature flag only (text on it: White). */
+  --kr-beta-light: #5bb5ff; /* Flag · Beta gradient light end (left) — the Beta feature flag only. */
+  --kr-beta-blue: #0066ff; /* Flag · Beta gradient dark end (right) — the Beta feature flag only (text on the gradient: White). */
+  --kr-azure: #3190ff; /* Palette · Azure (from the Figma status design) — the Interviewing status and the Beta flag's glow only. */
+  --kr-gold: #e6b353; /* Palette · Gold (from the Figma status design) — the Offer status only. */
+  --kr-beta-glow: var(--kr-azure); /* Flag · Beta glow — the shadow color of the glowing Beta flag only (alias of kr-azure). */
+  --kr-status-saved: var(--kr-primary); /* Application status · Saved: the icon, the 8% hover and open tint and the open border of `.kr-status--saved` (alias of kr-primary). */
+  --kr-status-applied: var(--kr-blue); /* Application status · Applied: the icon, the 8% hover and open tint and the open border of `.kr-status--applied` (alias of kr-blue). */
+  --kr-status-interviewing: var(--kr-azure); /* Application status · Interviewing: the icon, the 8% hover and open tint and the open border of `.kr-status--interviewing` (alias of kr-azure). */
+  --kr-status-offer: var(--kr-gold); /* Application status · Offer: the icon, the 8% hover and open tint and the open border of `.kr-status--offer` (alias of kr-gold). */
+  --kr-status-accepted: var(--kr-green-apple); /* Application status · Accepted: the icon, the 8% hover and open tint and the open border of `.kr-status--accepted` (alias of kr-green-apple). */
+  --kr-status-closed: var(--kr-grey-80); /* Application status · Closed: the icon, the 8% hover and open tint and the open border of `.kr-status--closed` (alias of kr-grey-80). */
+  --kr-marketplace-orange: var(--kr-yellow); /* Off-palette name, aliased to kr-yellow. */
+  --kr-marketplace-green: var(--kr-green-mint); /* Off-palette name, aliased to kr-green-mint. */
+  --kr-marketplace-petrol: var(--kr-green-mint); /* Off-palette name, aliased to kr-green-mint. */
+  --kr-tools-yellow: var(--kr-yellow); /* Off-palette name, aliased to kr-yellow. */
+  --kr-tools-blue: var(--kr-blue); /* Off-palette name, aliased to kr-blue. */
+  --kr-tools-orange: var(--kr-yellow); /* Off-palette name, aliased to kr-yellow. */
+  --kr-tools-green: var(--kr-green-apple); /* Off-palette name, aliased to kr-green-apple. */
+  --kr-fg: var(--kr-gray-900); /* Body text (→ kr-grey-100), on kr-white, kr-background and the tints. */
+  --kr-fg-muted: var(--kr-charcoal); /* Secondary body text (→ kr-grey-100), on kr-white and kr-background. */
+  --kr-fg-subtle: var(--kr-gray-medium); /* Subtle labels (→ kr-grey-80). 3.36:1 on kr-white: below 4.5:1 for text under 24px; source value kept. */
+  --kr-fg-inverse: var(--kr-white); /* Text on dark surfaces (kr-blue-dark). */
+  --kr-fg-link: var(--kr-grey-100); /* Link text — grey 100, never coral. */
+  --kr-fg-on-dark: var(--kr-white); /* Text on kr-bg-dark. */
+  --kr-bg: var(--kr-white); /* White surface: cards, tables, lists, panels, the sidebar, the top bar, modals, and marketing pages. */
+  --kr-bg-app: var(--kr-grey-20); /* Web app screen background (White Smoke #fafafa) — the page behind white cards, tables and panels (Rule 13). */
+  --kr-bg-subtle: var(--kr-concrete-gray); /* Subtle surface (→ kr-grey-40). */
+  --kr-bg-muted: var(--kr-white-smoke); /* Muted surface (→ kr-grey-20). */
+  --kr-bg-dark: var(--kr-blue-dark); /* Dark section surface (navy). */
+  --kr-bg-card: var(--kr-white); /* Card surface. */
+  --kr-bg-card-soft: var(--kr-violet-water); /* Soft card surface (→ kr-background). */
+  --kr-border: var(--kr-gray-200); /* Default border (→ kr-grey-60). */
+  --kr-border-strong: var(--kr-gray-light); /* Strong border (→ kr-grey-60). */
+  --kr-border-focus: var(--kr-grey-100); /* Focus border (→ kr-grey-100, Charcoal), as on a focused input. */
+  --kr-focus-ring-dark: 0 0 0 3px rgba(63, 63, 63, 0.35); /* Neutral #3f3f3f focus ring on every button variant. About 1.9:1 against kr-white, below 3:1 for a focus ring; source value kept. */
+  --kr-focus-ring-coral: 0 0 0 3px rgba(63, 63, 63, 0.35); /* Coral rings are retired: the same neutral ring as kr-focus-ring-dark (White, Dark Blue and gradient outlines). */
+  --kr-focus-ring-gray: 0 0 0 3px rgba(63, 63, 63, 0.35); /* Neutral focus ring (Coral outline). */
+  --kr-shadow-dropdown: 1px 2px 10px 0 rgba(0, 0, 0, 0.1); /* Dropdown elevation — menus, popovers, small floating UI; a card on :hover (no lift). */
+  --kr-shadow-modal: 1px 2px 20px 0 rgba(0, 0, 0, 0.1); /* Modals and dialogs. */
+  --kr-shadow-search-cv: 0 8px 20px 0 rgba(140, 140, 140, 0.18); /* Resume and search preview surfaces. */
+  --kr-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 14px rgba(0, 0, 0, 0.06); /* Card shadow as named in the source; the baseline card is a kr-grey-60 border with no shadow. */
+  --kr-shadow-premium-light: 1px 2px 6px 0 rgba(156, 62, 255, 0.3), 1px 2px 16px 0 rgba(83, 69, 255, 0.3); /* Purple + blue glow at rest — reserved for the upgrade / premium CTA (Gradient-Glow, AI Writer). */
+}
+:root {
+  --kr-space-1: 4px; /* The minimum gap — only within buttons and smaller elements. */
+  --kr-space-2: 8px; /* Minimum gap between elements; the icon-to-text gap in lists. */
+  --kr-space-3: 12px; /* Off the 8px grid: not for gaps. Heading bottom margins in .kr-typography. */
+  --kr-space-4: 16px; /* Grid gaps (testimonial grid, builder form grid); the gap between buttons in a button group. */
+  --kr-space-5: 24px; /* Container side padding; testimonial card padding. */
+  --kr-space-6: 32px; /* Footer column gap; Forbes card vertical padding. */
+  --kr-space-7: 48px; /* Hero top padding; gap between rating items. */
+  --kr-space-8: 64px; /* Footer top padding. */
+  --kr-space-9: 96px; /* Upper end of desktop section padding (80–96px). */
+  --kr-space-10: 128px; /* Largest step. */
+  --kr-radius-sm: 2px; /* Not used in components (Rule 14 has no 2px role). */
+  --kr-radius-xs: 4px; /* Rule 14 · small marks: checkboxes, tooltips, skeleton lines, small tags (the top bar NEW, the Premium and ATS flags), resume page thumbnails, focus rings around links and tabs. */
+  --kr-radius-thumb: 8px; /* Rule 14 · photos and image thumbnails that are not avatars (the sidebar account photo). */
+  --kr-radius-card: 16px; /* Rule 14 · cards and card-level containers: cards, lists, tables, accordions, modals, banners. */
+  --kr-radius: 12px; /* Rule 14 · smaller containers: alerts, toasts, menus, toolbars, panels, the premium banner; the 48px icon box. */
+  --kr-radius-md: 16px; /* Rule 14 · marketing pages: large feature blocks and their images (the same value as kr-radius-card). */
+  --kr-radius-lg: 24px; /* Rule 14 · marketing pages only: hero-size blocks. */
+  --kr-radius-xl: 32px; /* Rule 14 · marketing pages only: the largest blocks. */
+  --kr-radius-btn: 10px; /* Rule 14 · every control you press, type into or pick from: all buttons, inputs, selects, textareas, status dropdowns, filter chips, the segmented control, pagination, nav items; the 40px icon box. */
+  --kr-radius-pill: 999px; /* Rule 14 · labels and indicators you never press (badges, counts, the New / Updated / Custom flags, progress bars, stepper lines) and two-state switching controls (the switch and the toggle). Circles use 50%. */
+  --kr-gap-tight: 4px; /* Parts of one element: a title and its one-line description, a number and its caption, icon and label inside a tag or chip. */
+  --kr-gap-related: 8px; /* Elements of one group: eyebrow, headline and subline; buttons in a button group; tags or chips in a row; a label and its count. */
+  --kr-gap-items: 16px; /* Siblings of the same kind: cards or tiles in a grid, columns of a list row, controls in a toolbar, stacked panels of one block; a list row's vertical padding. */
+  --kr-gap-inset: 24px; /* Padding inside smaller containers (panel, tile, alert) and the page's side gutter. Cards use kr-card-padding. */
+  --kr-card-padding: 32px; /* Padding inside a card-level container — card, modal, banner, and the side padding of list, accordion and table-tool rows. 24px under 768px (set in core styles). */
+  --kr-gap-group: 32px; /* Between groups inside one section — a page header and the content under it, a stats row and the list below it. */
+  --kr-gap-section: 48px; /* Between sections of a page, and above the first one. */
+  --kr-gap-page: 64px; /* The page's bottom padding and major marketing bands. */
+  --kr-fw-regular: 400; /* Body copy and Henk-Work display text. */
+  --kr-fw-medium: 500; /* The codebase's $font-weight-bold is 500: h4/h5, labels, buttons, strong. */
+  --kr-fw-semibold: 600; /* Available in Graphik Web; body and UI use 400 and 500 only for now. */
+  --kr-fw-bold: 700; /* Sticker badges (bold italic) and Henk-Work bold; not for Graphik Web body or UI for now. */
+  --kr-fs-base: 16px; /* Body size. */
+  --kr-fs-small: 14px; /* Smaller UI text; every button label. */
+  --kr-fs-xs: 12px; /* Small text — badges, fine print. */
+  --kr-fs-h1: 48px; /* h1 — Henk-Work. */
+  --kr-fs-h2: 32px; /* h2 — Graphik Web. */
+  --kr-fs-h3: 28px; /* h3 — Graphik Web. */
+  --kr-fs-h4: 24px; /* h4 — Graphik Web 500. */
+  --kr-fs-h5: 18px; /* h5 — Graphik Web 500. */
+  --kr-fs-ai-headline: 64px; /* The AI landing page's main headline (.ai-main-headline). */
+  --kr-fs-stat: 36px; /* Stat numbers — Graphik Web. */
+  --kr-fs-mini-headline: 16px; /* The eyebrow (mini-headline). */
+  --kr-lh-tight: 1.05; /* Display headline leading (h1 in .kr-typography). */
+  --kr-lh-snug: 1.2; /* h2 and h3 leading in .kr-typography. */
+  --kr-lh-normal: 1.5; /* Body leading. */
+  --kr-tracking-display: -1.4px; /* h1 at desktop (lg and up). */
+  --kr-tracking-h2: -1px; /* h2 and h3. */
+  --kr-tracking-body: 0.06px; /* Body copy. */
+  --kr-tracking-small: 0.16px; /* Smaller text (14px). */
+  --kr-btn-padding-y: 11px; /* Button padding, vertical (md). */
+  --kr-btn-padding-x: 16px; /* Button padding, horizontal (md, the default, 34–40px tall). The icon side is 4px tighter (kr-btn-icon-trim). */
+  --kr-btn-font-size: 14px; /* Every button label: 14px, weight 500. */
+  --kr-btn-line-height: 20px; /* Button label line height. */
+  --kr-btn-padding-y-sm: 9px; /* Button padding, vertical (sm). */
+  --kr-btn-padding-x-sm: 12px; /* Button padding, horizontal (sm) — compact buttons in rows, tables and top bars. */
+  --kr-btn-padding-y-lg: 13px; /* Button padding, vertical (lg). */
+  --kr-btn-padding-x-lg: 24px; /* Button padding, horizontal (lg) — buttons 48px or taller (hero CTAs, the builder's Download and AI Writer). */
+  --kr-btn-icon-trim: 4px; /* Taken off the padding on the side that holds an icon, so icon and label look evenly inset. */
+  --kr-thumb-size: 128px; /* Width of a document thumbnail in pickers and galleries (A4, height follows). Steps with the viewport, never scales fluidly: 128px from 1280px up, 112px below (set in core styles). Rows wrap instead of shrinking. */
+  --kr-thumb-size-lg: 200px; /* Width of a featured document preview (the resume in a "Continue where you left off" card). Steps: 200px from 1280px up, 168px from 768px, 112px on mobile (set in core styles). */
+  --kr-icon-stroke: 1px; /* Line-icon stroke as drawn on screen, at every icon size (strokes don't scale with the icon). Default 1px (Rule 11). */
+  --kr-icon-stroke-max: 1.66px; /* The heaviest an icon stroke may ever render — e.g. a 12px icon that needs more weight to read. Never thicker (Rule 11). */
+  --kr-glass-blur: 16px; /* Background blur behind a glass surface on a light background (kr-glass). */
+  --kr-glass-blur-sm: 8px; /* Background blur behind small glass: the glass badge and the glass tile on a colored fill. */
+  --kr-check-size: 20px; /* Checkbox and radio box size; also the indent that lines text up past a checkbox or a 20px leading icon (kr-check-size + gap). */
+  --kr-input-padding-y: 13px; /* Input padding, vertical. */
+  --kr-input-padding-x: 20px; /* Input padding, horizontal. */
+  --kr-navbar-height: 77px; /* Marketing navbar height, desktop. */
+  --kr-navbar-height-mobile: 74px; /* Marketing navbar height, mobile. */
+  --kr-container-xxl: 1366px; /* Wide container (xxl) — the marketing page width. */
+  --kr-container-xl: 1140px; /* Container (xl). */
+  --font-sans: "Graphik Web", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Henk-Work", "Graphik Web", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --text-h1: 400 48px/56px var(--font-display); /* Hero and page headlines (h1) — Henk-Work regular, the only text set in Henk-Work; tracking goes negative at large sizes. */
+  --text-page-title: 500 24px/32px var(--font-sans); /* App page title (the h1 of a web app screen, `.kr-page-head__title`) — Graphik Web Medium. Henk-Work stays on marketing pages. */
+  --text-h2: 400 32px/40px var(--font-sans); /* Section headlines (h2) — Graphik Web: Henk-Work is for h1 only. */
+  --text-h3: 400 28px/32px var(--font-sans); /* Smaller headings (h3) — Graphik Web. */
+  --text-h4: 500 24px/28px var(--font-sans); /* Sub-heading (h4) — Graphik Web 500. */
+  --text-h5: 500 18px/24px var(--font-sans); /* Small sub-heading (h5) — Graphik Web 500. */
+  --text-blockquote: 400 24px/32px var(--font-sans); /* Blockquotes and pull-quotes, such as the Forbes quote — Graphik Web. */
+  --text-display: 500 56px/60px var(--font-sans); /* The one primary number of a screen (the large score gauge) — Graphik Medium, like every big number. At most one per view. */
+  --text-stat: 500 36px/40px var(--font-sans); /* The largest stat numbers — Graphik Medium, never Henk-Work: numbers carry weight. */
+  --text-body: 400 16px/24px var(--font-sans); /* Most text: body copy, long-form paragraphs. */
+  --text-medium: 400 14px/20px var(--font-sans); /* Captions, secondary labels, helper text; the default size on mobile. */
+  --text-small: 400 12px/1.5 var(--font-sans); /* Only for badges and complementary information. */
+  --text-label-16: 500 16px/21px var(--font-sans); /* Label 16/500 — the eyebrow (mini-headline) above a section title. */
+  --text-label-14: 500 14px/20px var(--font-sans); /* Label 14/500 — form labels, emphasized UI text, and every button label. */
+  --text-label-12: 500 12px/1.5 var(--font-sans); /* Label 12/500 — badges, counts, step numbers, table heads, menu group labels, small avatars' initials. Never for content people need to read. */
+  --text-sticker: italic 700 44px/1 var(--font-sans); /* PREMIUM / FREE sticker badges only — the one place the system uses bold italic. */
+}
+.h1 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 400;
+  letter-spacing: -1.4px;
+}
+.page-title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+.h2 {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.h3 {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.h4 {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+.h5 {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+.blockquote {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: -0.04rem;
+}
+.display {
+  font-family: var(--font-sans);
+  font-size: 56px;
+  line-height: 60px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+.stat {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0.06px;
+}
+.medium {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+}
+.small {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+.label-16 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+.label-14 {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+.label-12 {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+.sticker {
+  font-family: var(--font-sans);
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Graphik Web";
+  src: url("fonts/Graphik-Regular-Web.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik Web";
+  src: url("fonts/Graphik-Medium-Web.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik Web";
+  src: url("fonts/Graphik-Semibold-Web.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik Web";
+  src: url("fonts/Graphik-Bold-Web.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Henk-Work";
+  src: url("fonts/Henk-Work-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Henk-Work";
+  src: url("fonts/Henk-Work-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Henk-Work";
+  src: url("fonts/Henk-Work-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Henk-Work";
+  src: url("fonts/Henk-Work-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
