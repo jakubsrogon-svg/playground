@@ -5,404 +5,394 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy &amp; Security at Kickresume</title>
 <meta name="description" content="We’re a European company, built under some of the world’s strictest privacy laws. So here’s everything we do to keep your data private and secure, without the legal jargon.">
-<!-- Kickresume Design System: tokens, fonts and the landing kit (inlined by build.py) -->
+<!-- Kickresume Design System: tokens, fonts and component styles (inlined by build.py) -->
 <style>{{css:tokens.css}}</style>
 <style>{{css:components/bundle.css}}</style>
 <style>
-/* Page layout only. Every look comes from the design system's landing kit
-   (.kr-lp-* sections: hero, trust, features, bento, faq) and its core classes
-   (.kr-iconbox, .kr-list). Values below are the kit's own. */
+/* The draft's structure and layout, styled with the design system:
+   tokens (--kr-*, --text-*), the landing kit's title and buttons (.kr-lp-*),
+   and core components (.kr-iconbox, .kr-list). */
 html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-body { margin: 0; background: #fff; }
-.kr-lp a:not(.kr-lp-btn):not(.kr-list__row) { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-.kr-lp a:not(.kr-lp-btn):not(.kr-list__row):hover { color: var(--kr-hover); }
-.kr-lp a:focus-visible { outline: none; box-shadow: var(--kr-focus-ring-dark); border-radius: 4px; }
-.kr-lp :target { scroll-margin-top: 24px; }
+body { margin: 0; background: var(--kr-white); }
+.pp { width: 100%; font-family: var(--kr-font-sans); color: var(--kr-grey-100); -webkit-font-smoothing: antialiased; }
+.pp *, .pp *::before, .pp *::after { box-sizing: border-box; }
+.pp a:not(.kr-lp-btn):not(.kr-list__row) { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.pp a:not(.kr-lp-btn):not(.kr-list__row):hover { color: var(--kr-hover); }
+.pp a:focus-visible, .pp summary:focus-visible { outline: none; box-shadow: var(--kr-focus-ring-dark); }
+.pp [id] { scroll-margin-top: 24px; }
 
-/* Hero: head only, the sub keeps its two lines */
-.pp-hero { padding-bottom: 96px; }
-.pp-hero .kr-lp-hero__blur--desktop { top: 40px; -webkit-mask-image: linear-gradient(180deg, #000 200px, transparent 330px); mask-image: linear-gradient(180deg, #000 200px, transparent 330px); }
-.pp-hero .kr-lp-sub { max-width: 900px; }
+.pp-section { width: 100%; padding: 112px 24px; background: var(--kr-white); }
+.pp-section--tint { background: var(--kr-background); }
+.pp-wrap { max-width: 1140px; margin: 0 auto; }
+.pp-title { margin: 0; font: var(--text-h1); color: var(--kr-grey-100); }
+.pp-lead { margin: 0; font: var(--text-body); color: var(--kr-grey-100); }
 
-/* Six ways: left head with the policy link on its right; six trust columns, 3 → 2 → 1 */
+/* Numbered label: 01 / Private by default */
+.pp-label { margin: 0; font: var(--text-label-14); letter-spacing: .16px; text-transform: uppercase; color: var(--kr-grey-100); }
+.pp-label > span { color: var(--kr-grey-80); }
+
+/* Image placeholder */
+.pp-ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--kr-grey-100); text-align: center; }
+.pp-ph > svg { width: 20px; height: 20px; color: var(--kr-grey-80); }
+.pp-ph > span { font: var(--text-label-14); }
+
+/* ---------- Hero ---------- */
+.pp-hero { padding: 128px 24px 112px; }
+.pp-hero__inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 960px; margin: 0 auto; text-align: center; }
+.pp-pill { display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 8px 16px 8px 12px; border-radius: var(--kr-radius-pill);
+  background: var(--kr-glass); box-shadow: inset 0 0 0 1px var(--kr-glass-line); -webkit-backdrop-filter: blur(var(--kr-glass-blur-sm)); backdrop-filter: blur(var(--kr-glass-blur-sm));
+  font: var(--text-label-14); color: var(--kr-grey-100); }
+.pp-pill > svg { width: 16px; height: 16px; flex: none; }
+
+/* ---------- Six ways ---------- */
+.pp-ways__inner { display: flex; flex-direction: column; gap: 48px; }
 .pp-ways__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; }
-.pp-ways__head .kr-lp-head { max-width: 640px; }
+.pp-ways__titles { display: flex; flex-direction: column; gap: 16px; max-width: 640px; }
 .pp-ways__head .kr-lp-btn { padding-left: 0; padding-right: 0; }
-.pp-ways .kr-lp-trust__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 37px; margin: 0; padding: 0; list-style: none; }
-.pp-ways .kr-lp-trust__strip { align-items: center; }
-.pp-ways .kr-lp-trust__titles { gap: 0; }
-@media (max-width: 1023px) { .pp-ways .kr-lp-trust__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pp-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.pp-tile { display: grid; grid-template-columns: 48px 1fr; align-content: start; align-items: center; gap: 16px; padding: 32px; border-radius: var(--kr-radius-card); background: var(--kr-background); }
+.pp-tile > p { grid-column: 1 / -1; margin: 0; font: var(--text-body); color: var(--kr-grey-100); }
+.pp-tile .kr-iconbox, .pp-detail__label .kr-iconbox { background: var(--kr-white); color: var(--kr-grey-100); }
 
-/* Detail rows: the features pattern, panels grow with the copy so the column stays joined */
-.pp-detail .kr-lp-features__panel { align-self: stretch; height: auto; min-height: 500px; display: flex; }
-.pp-visual { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 24px; color: var(--kr-grey-100); text-align: center; }
-.pp-visual > svg { width: 20px; height: 20px; color: var(--kr-grey-80); }
-.pp-visual > span { font: var(--text-label-14); }
+/* ---------- Detail sections: text + visual, the visual first on every second one ---------- */
+.pp-detail__inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 64px; }
+.pp-detail__text { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.pp-detail__label { display: flex; align-items: center; gap: 16px; }
+.pp-section:not(.pp-section--tint) .pp-detail__label .kr-iconbox { background: var(--kr-background); }
 .pp-checks { display: flex; flex-direction: column; width: 100%; margin: 8px 0 0; padding: 0; list-style: none; }
-.pp-checks > li { display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--kr-grey-60); }
+.pp-checks > li { display: flex; gap: 16px; padding: 24px 0; border-top: 1px solid var(--kr-grey-60); }
 .pp-checks > li:last-child { border-bottom: 1px solid var(--kr-grey-60); }
-.pp-checks > li > svg { flex: none; width: 20px; height: 20px; margin-top: 2px; color: var(--lp-ink); }
+.pp-checks__mark { display: grid; place-items: center; flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--kr-white); color: var(--kr-grey-100); }
+.pp-section:not(.pp-section--tint) .pp-checks__mark { background: var(--kr-background); }
+.pp-checks__mark > svg { width: 16px; height: 16px; }
 .pp-checks p { margin: 0; font: var(--text-body); color: var(--kr-grey-100); }
 .pp-checks strong { font-weight: 500; }
-.pp-detail .kr-lp-features__tag b { font-weight: 500; }
-.pp-detail .kr-lp-features__body { padding: 64px 0; }
-.pp-detail.kr-lp-features--top .kr-lp-features__body { padding-top: 48px; }
-.pp-detail.kr-lp-features--bottom .kr-lp-features__body { padding-bottom: 48px; }
-.pp-detail .kr-lp-features__line { top: 124.7px; bottom: 64px; height: auto; }
-.pp-detail.kr-lp-features--top .kr-lp-features__line { top: 108.7px; }
-.pp-detail.kr-lp-features--bottom .kr-lp-features__line { bottom: 48px; }
+.pp-visual { width: 100%; aspect-ratio: 5 / 4; border-radius: var(--kr-radius-lg); background: var(--kr-white); }
+.pp-section:not(.pp-section--tint) .pp-visual { background: var(--kr-background); }
+@media (min-width: 768px) { .pp-visual-first { order: -1; } }
 
-/* TL;DR: one list card at reading width */
-.pp-tldr { background: var(--kr-background); }
-.pp-tldr .kr-lp-container { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+/* ---------- TL;DR ---------- */
+.pp-tldr__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+.pp-tldr__inner > .pp-title { text-align: center; }
 .pp-tldr .kr-list { width: 100%; max-width: 760px; }
 .pp-tldr .kr-list > li + li { border-top: 1px solid var(--kr-border); }
-.pp-tldr .kr-lp-head, .kr-lp-bento__head { max-width: 1000px; }
-.pp-tldr .kr-list__row { justify-content: space-between; min-height: 64px; color: var(--kr-grey-100); text-decoration: none; }
+.pp-tldr .kr-list__row { justify-content: space-between; gap: 24px; min-height: 64px; color: var(--kr-grey-100); text-decoration: none; }
 .pp-tldr .kr-list__row > span { font: var(--text-label-16); }
-.pp-tldr .kr-list__row:focus-visible { outline: none; box-shadow: inset var(--kr-focus-ring-dark); }
+.pp-tldr .kr-list__row:focus-visible { box-shadow: inset var(--kr-focus-ring-dark); }
 
-/* Risk-free: three bento tiles, the first spans both rows */
-.pp-bento { display: grid; grid-template-columns: 668fr 568fr; grid-template-rows: minmax(288px, auto) minmax(288px, auto); gap: 24px; margin-top: 48px; }
-.pp-bento .kr-lp-bento__tile:first-child { grid-row: span 2; }
-.pp-bento .kr-lp-bento__body { position: static; justify-content: flex-start; }
-.pp-tile--blue { --lp-bento-tint: linear-gradient(167.69deg, rgba(169, 225, 235, .75) -29.73%, rgba(169, 225, 235, .15) 87.98%); }
-.pp-tile--yellow { --lp-bento-tint: linear-gradient(154.94deg, rgba(255, 222, 180, .15) 0%, #ffdeb4 100%); }
-.pp-tile--green { --lp-bento-tint: linear-gradient(309.75deg, rgba(72, 173, 67, .05) .1%, rgba(72, 173, 67, .4) 99.94%); }
-.pp-tile--tall { display: flex; flex-direction: column; gap: 24px; padding: 40px 48px 0; }
-.pp-tile--row { display: grid; grid-template-columns: minmax(0, 1fr) 160px; align-items: center; gap: 24px; padding: 40px 48px; }
-.pp-tile .kr-lp-bento__text { font: var(--text-body); max-width: 440px; }
-.pp-shot { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px; text-align: center; color: var(--kr-grey-100);
-  background: var(--kr-glass); box-shadow: inset 0 0 0 1px var(--kr-glass-line); -webkit-backdrop-filter: blur(var(--kr-glass-blur)); backdrop-filter: blur(var(--kr-glass-blur)); }
-.pp-shot > svg { width: 20px; height: 20px; color: var(--kr-grey-80); }
-.pp-shot > span { font: var(--text-label-14); }
-.pp-tile--tall .pp-shot { flex: 1; min-height: 260px; border-radius: 16px 16px 0 0; }
-.pp-tile--row .pp-shot { width: 160px; height: 160px; border-radius: 16px; }
+/* ---------- Risk-free bento ---------- */
+.pp-risk { padding-bottom: 24px; }
+.pp-risk__inner { display: flex; flex-direction: column; gap: 56px; }
+.pp-risk__head { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.pp-risk__head .pp-lead { max-width: 680px; }
+.pp-bento { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+.pp-bento > :first-child { grid-row: span 2; }
+.pp-card { display: flex; flex-direction: column; gap: 16px; overflow: hidden; border-radius: var(--kr-radius-lg); background: var(--lp-bento-tint), var(--kr-white); }
+.pp-card--blue { --lp-bento-tint: linear-gradient(150deg, rgba(169, 225, 235, .75) 0%, rgba(169, 225, 235, .15) 100%); min-height: 560px; padding: 40px 40px 0; }
+.pp-card--yellow { --lp-bento-tint: linear-gradient(120deg, #ffdeb4 0%, rgba(255, 222, 180, .15) 100%); }
+.pp-card--green { --lp-bento-tint: linear-gradient(120deg, rgba(72, 173, 67, .4) 0%, rgba(72, 173, 67, .05) 100%); }
+.pp-card--row { display: grid; grid-template-columns: 1fr 160px; align-items: center; gap: 24px; padding: 40px; }
+.pp-card__text { display: flex; flex-direction: column; gap: 8px; }
+.pp-card h3 { margin: 0; font: var(--text-h4); color: var(--kr-grey-100); }
+.pp-card p { margin: 0; font: var(--text-body); color: var(--kr-grey-100); }
+.pp-card--blue > p { max-width: 440px; }
+.pp-card .kr-lp-btn { align-self: flex-start; padding-left: 0; padding-right: 0; }
+.pp-shot { background: var(--kr-glass); box-shadow: inset 0 0 0 1px var(--kr-glass-line); -webkit-backdrop-filter: blur(var(--kr-glass-blur)); backdrop-filter: blur(var(--kr-glass-blur)); }
+.pp-card--blue > .pp-shot { flex: 1; min-height: 260px; margin-top: 16px; border-radius: var(--kr-radius-card) var(--kr-radius-card) 0 0; }
+.pp-card--row > .pp-shot { width: 160px; height: 160px; padding: 16px; border-radius: var(--kr-radius-card); }
 
-@media (max-width: 1259px) {
-  .pp-detail .kr-lp-features__wrap { gap: 48px; }
-  .pp-detail .kr-lp-features__body { flex: 1 1 0; width: auto; min-width: 0; }
-  .pp-detail .kr-lp-features__panel { flex: 1 1 0; width: auto; }
-}
-@media (max-width: 1099px) {
-  .pp-detail, .pp-detail.kr-lp-features--top, .pp-detail.kr-lp-features--bottom { padding: 40px 48px; }
-  .pp-detail.kr-lp-features--top { padding-top: 80px; }
-  .pp-detail.kr-lp-features--bottom { padding-bottom: 80px; }
-  .pp-detail .kr-lp-features__wrap { flex-direction: column; align-items: stretch; gap: 32px; min-height: 0; }
-  .pp-detail .kr-lp-features__line { display: none; }
-  .pp-detail .kr-lp-features__body, .pp-detail.kr-lp-features--top .kr-lp-features__body, .pp-detail.kr-lp-features--bottom .kr-lp-features__body { flex: none; width: 100%; max-width: 720px; padding: 0; }
-  .pp-detail .kr-lp-features__content { padding-left: 0; }
-  .pp-detail .kr-lp-features__panel, .pp-detail.kr-lp-features--top .kr-lp-features__panel, .pp-detail.kr-lp-features--bottom .kr-lp-features__panel { flex: none; width: 100%; min-height: 360px; border-radius: 24px; }
-  .pp-bento { grid-template-columns: 1fr; grid-template-rows: none; }
-  .pp-bento .kr-lp-bento__tile:first-child { grid-row: auto; }
+/* ---------- FAQ ---------- */
+.pp-faq { padding: 96px 24px 112px; }
+.pp-faq__inner { display: flex; flex-direction: column; gap: 40px; }
+.pp-faq__inner > .pp-title { text-align: center; }
+.pp-faq__panel { padding: 8px; border-radius: var(--kr-radius-lg); background: var(--kr-background); }
+.pp-faq__item + .pp-faq__item { border-top: 1px solid var(--kr-grey-60); }
+.pp-faq__q { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; padding: 24px 32px; border-radius: var(--kr-radius); cursor: pointer; list-style: none; transition: background-color .15s; }
+.pp-faq__q::-webkit-details-marker { display: none; }
+.pp-faq__q::marker { content: ""; }
+.pp-faq__q:hover { background: var(--kr-white); }
+.pp-faq__q > h3 { margin: 0; font: var(--text-h5); color: var(--kr-grey-100); }
+.pp-faq__q > svg { flex: none; width: 20px; height: 20px; color: var(--kr-grey-100); }
+.pp-faq__q .pp-minus, .pp-faq__item[open] .pp-plus { display: none; }
+.pp-faq__item[open] .pp-minus { display: block; }
+.pp-faq__a { max-width: 720px; margin: 0; padding: 8px 32px 24px; font: var(--text-body); color: var(--kr-grey-100); }
+
+@media (max-width: 860px) {
+  .pp-bento { grid-template-columns: 1fr; }
+  .pp-bento > :first-child { grid-row: auto; }
 }
 @media (max-width: 767px) {
-  .pp-hero { padding-bottom: 48px; }
-  .pp-ways .kr-lp-trust__cols { grid-template-columns: 1fr; }
-  .pp-detail .kr-lp-features__wrap { gap: 24px; }
-  .pp-detail .kr-lp-features__body, .pp-detail.kr-lp-features--top .kr-lp-features__body, .pp-detail.kr-lp-features--bottom .kr-lp-features__body { padding: 0; }
-  .pp-detail, .pp-detail.kr-lp-features--top, .pp-detail.kr-lp-features--bottom { padding: 32px 16px; }
-  .pp-detail.kr-lp-features--top { padding-top: 40px; }
-  .pp-detail.kr-lp-features--bottom { padding-bottom: 40px; }
-  .pp-detail .kr-lp-features__panel, .pp-detail.kr-lp-features--top .kr-lp-features__panel, .pp-detail.kr-lp-features--bottom .kr-lp-features__panel { min-height: 250px; border-radius: 16px; }
-  .pp-tldr .kr-lp-container { gap: 32px; }
+  .pp-section { padding: 64px 16px; }
+  .pp-hero { padding: 80px 16px 64px; }
+  .pp-risk { padding-bottom: 16px; }
+  .pp-faq { padding: 64px 16px; }
+  .pp-title { font-size: 36px; line-height: 44px; }
+  .pp-ways__inner, .pp-tldr__inner { gap: 32px; }
+  .pp-tiles { grid-template-columns: 1fr; gap: 16px; }
+  .pp-tile { padding: 24px; }
+  .pp-detail__inner { grid-template-columns: 1fr; gap: 32px; }
   .pp-tldr .kr-list__row { padding: 16px 24px; }
-  .pp-bento { margin-top: 32px; gap: 16px; }
-  .pp-tile--tall { padding: 32px 24px 0; }
-  .pp-tile--tall .pp-shot { min-height: 200px; }
-  .pp-tile--row { grid-template-columns: 1fr; padding: 32px 24px; }
-  .pp-bento .kr-lp-bento__tile { height: auto; border-radius: 24px; }
-  .pp-bento .kr-lp-bento__btn { display: inline-flex; }
-  .pp-tile .kr-lp-bento__title { font-size: 24px; line-height: 28px; }
-  .pp-tile .kr-lp-bento__text { font: var(--text-body); }
+  .pp-card--blue { min-height: 0; padding: 32px 24px 0; }
+  .pp-card--row { grid-template-columns: 1fr; padding: 32px 24px; }
+  .pp-faq__q { padding: 16px 24px; }
+  .pp-faq__a { padding: 8px 24px 24px; }
 }
 </style>
 </head>
 <body>
-<main class="kr-lp">
+<main class="pp">
 
-<!-- ============ Hero (landing kit: hero head) ============ -->
-<section class="kr-lp-section kr-lp-hero pp-hero" aria-labelledby="pp-hero-title">
-  <img class="kr-lp-hero__blur kr-lp-hero__blur--desktop" src="{{asset:landing/hero-decorations-blur.svg}}" alt="" aria-hidden="true">
-  <img class="kr-lp-hero__blur kr-lp-hero__blur--mobile" src="{{asset:landing/hero/hero-decorations-blur-mobile.svg}}" alt="" aria-hidden="true">
-  <div class="kr-lp-hero__inner">
-    <header class="kr-lp-head kr-lp-hero__head">
-      <div class="kr-lp-head__titles">
-        <p class="kr-lp-eyebrow">Privacy &amp; Security at Kickresume</p>
-        <h1 class="kr-lp-title" id="pp-hero-title">Your career is personal.<br>We treat it that way.</h1>
-      </div>
-      <p class="kr-lp-sub">We’re a European company, built under some of the world’s strictest privacy laws.<br>So here’s everything we do to keep your data private and secure, without the legal jargon.</p>
-    </header>
+<!-- Hero -->
+<section class="pp-section pp-section--tint pp-hero" aria-labelledby="pp-hero-title">
+  <div class="pp-hero__inner">
+    <p class="pp-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Privacy &amp; Security at Kickresume</span></p>
+    <h1 class="pp-title" id="pp-hero-title">Your career is personal.<br>We treat it that way.</h1>
+    <p class="pp-lead">We’re a European company, built under some of the world’s strictest privacy laws.<br>So here’s everything we do to keep your data private and secure, without the legal jargon.</p>
   </div>
 </section>
 
-<!-- ============ Six ways (landing kit: trust) ============ -->
-<section class="kr-lp-section kr-lp-trust pp-ways" aria-labelledby="pp-ways-title">
-  <div class="kr-lp-container kr-lp-trust__wrap">
+<!-- Six ways we protect your data -->
+<section class="pp-section" aria-labelledby="pp-ways-title">
+  <div class="pp-wrap pp-ways__inner">
     <div class="pp-ways__head">
-      <header class="kr-lp-head kr-lp-head--left">
-        <h2 class="kr-lp-title" id="pp-ways-title">Six ways we protect your data.</h2>
-        <p class="kr-lp-sub">Here’s the short version of what we do with your data, and what we never will.</p>
-      </header>
-      <a class="kr-lp-btn kr-lp-btn--text" href="https://www.kickresume.com/privacy/">Read the Full Privacy Policy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <div class="pp-ways__titles">
+        <h2 class="pp-title" id="pp-ways-title">Six ways we protect your data.</h2>
+        <p class="pp-lead">Here’s the short version of what we do with your data, and what we never will.</p>
+      </div>
+      <a class="kr-lp-btn kr-lp-btn--text" href="https://www.kickresume.com/privacy/">Read the Full Privacy Policy<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
-    <ul class="kr-lp-trust__cols">
-      <li class="kr-lp-trust__col">
-        <div class="kr-lp-trust__strip">
-          <span class="kr-iconbox kr-iconbox--48 kr-iconbox--raised"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg></span>
-          <h3 class="kr-lp-trust__titles"><span class="kr-lp-trust__kicker">01</span><span class="kr-lp-trust__title">Private by default</span></h3>
-        </div>
-        <p class="kr-lp-trust__body">Your documents are visible only to you, until you choose to export &amp; share them.</p>
+    <ul class="pp-tiles">
+      <li class="pp-tile">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg></span>
+        <h3 class="pp-label"><span>01</span><span aria-hidden="true"> / </span>Private by default</h3>
+        <p>Your documents are visible only to you, until you choose to export &amp; share them.</p>
       </li>
-      <li class="kr-lp-trust__col">
-        <div class="kr-lp-trust__strip">
-          <span class="kr-iconbox kr-iconbox--48 kr-iconbox--raised"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/></svg></span>
-          <h3 class="kr-lp-trust__titles"><span class="kr-lp-trust__kicker">02</span><span class="kr-lp-trust__title">Protected by EU law</span></h3>
-        </div>
-        <p class="kr-lp-trust__body">We’re an EU company under GDPR. Questions? Our data protection officer answers at <a href="mailto:gdpr@kickresume.com">gdpr@kickresume.com</a>.</p>
+      <li class="pp-tile">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/></svg></span>
+        <h3 class="pp-label"><span>02</span><span aria-hidden="true"> / </span>Protected by EU law</h3>
+        <p>We’re an EU company under GDPR. Questions? Our data protection officer answers at <a href="mailto:gdpr@kickresume.com">gdpr@kickresume.com</a>.</p>
       </li>
-      <li class="kr-lp-trust__col">
-        <div class="kr-lp-trust__strip">
-          <span class="kr-iconbox kr-iconbox--48 kr-iconbox--raised"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/></svg></span>
-          <h3 class="kr-lp-trust__titles"><span class="kr-lp-trust__kicker">03</span><span class="kr-lp-trust__title">Secure on every level</span></h3>
-        </div>
-        <p class="kr-lp-trust__body">We get our security checked every year and host your data on certified servers.</p>
+      <li class="pp-tile">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/></svg></span>
+        <h3 class="pp-label"><span>03</span><span aria-hidden="true"> / </span>Secure on every level</h3>
+        <p>We get our security checked every year and host your data on certified servers.</p>
       </li>
-      <li class="kr-lp-trust__col">
-        <div class="kr-lp-trust__strip">
-          <span class="kr-iconbox kr-iconbox--48 kr-iconbox--raised"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M19 9h3M19 15h3M2 9h3M2 15h3"/></svg></span>
-          <h3 class="kr-lp-trust__titles"><span class="kr-lp-trust__kicker">04</span><span class="kr-lp-trust__title">Never used to train AI</span></h3>
-        </div>
-        <p class="kr-lp-trust__body">Our AI providers, OpenAI and Anthropic, don’t use your data to train their models.</p>
+      <li class="pp-tile">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M19 9h3M19 15h3M2 9h3M2 15h3"/></svg></span>
+        <h3 class="pp-label"><span>04</span><span aria-hidden="true"> / </span>Never used to train AI</h3>
+        <p>Our AI providers, OpenAI and Anthropic, don’t use your data to train their models.</p>
       </li>
-      <li class="kr-lp-trust__col">
-        <div class="kr-lp-trust__strip">
-          <span class="kr-iconbox kr-iconbox--48 kr-iconbox--raised"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
-          <h3 class="kr-lp-trust__titles"><span class="kr-lp-trust__kicker">05</span><span class="kr-lp-trust__title">Data never sold</span></h3>
-        </div>
-        <p class="kr-lp-trust__body">We don’t sell your personal data. Not to advertisers, not to data brokers, not to anyone.</p>
+      <li class="pp-tile">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
+        <h3 class="pp-label"><span>05</span><span aria-hidden="true"> / </span>Data never sold</h3>
+        <p>We don’t sell your personal data. Not to advertisers, not to data brokers, not to anyone.</p>
       </li>
-      <li class="kr-lp-trust__col">
-        <div class="kr-lp-trust__strip">
-          <span class="kr-iconbox kr-iconbox--48 kr-iconbox--raised"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span>
-          <h3 class="kr-lp-trust__titles"><span class="kr-lp-trust__kicker">06</span><span class="kr-lp-trust__title">Deleted within 30 days</span></h3>
-        </div>
-        <p class="kr-lp-trust__body">Close your account and we delete your account data after a 30-day grace period.</p>
+      <li class="pp-tile">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span>
+        <h3 class="pp-label"><span>06</span><span aria-hidden="true"> / </span>deleted within 30 days</h3>
+        <p>Close your account and we delete your account data after a 30-day grace period.</p>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- ============ Detail rows (landing kit: features, two joined columns of three) ============ -->
-<section id="private-by-default" class="kr-lp-section kr-lp-features kr-lp-features--top kr-lp--blue pp-detail" aria-labelledby="pp-d1">
-  <div class="kr-lp-container kr-lp-features__wrap">
-    <span class="kr-lp-features__line" aria-hidden="true"></span>
-    <div class="kr-lp-features__body">
-      <p class="kr-lp-features__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg><b>01</b> / Private by default</p>
-      <div class="kr-lp-features__content">
-        <h2 class="kr-lp-title kr-lp-features__title" id="pp-d1">Your job search stays your business.</h2>
-        <p class="kr-lp-features__text">Looking for a new job while you still have one? We get it. Your resumes and other career documents aren’t publicly accessible, listed in a recruiter database, or passed on to employers.</p>
-        <ul class="pp-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>No recruiter database.</strong> We don’t collect resumes for employers to browse, and we don’t share yours with hiring companies.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Access-controlled by default.</strong> Your documents are tied to your account and can’t be opened without signing in.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Link sharing you control.</strong> Your personal website stays private until you enable link sharing. You can disable it anytime.</p></li>
-        </ul>
+<!-- 01 Private by default -->
+<section id="private-by-default" class="pp-section pp-section--tint" aria-labelledby="pp-d1">
+  <div class="pp-wrap pp-detail__inner">
+    <div class="pp-detail__text">
+      <div class="pp-detail__label">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="M2 2l20 20"/></svg></span>
+        <p class="pp-label"><span>01</span><span aria-hidden="true"> / </span>Private by default</p>
       </div>
+      <h2 class="pp-title" id="pp-d1">Your job search stays your business.</h2>
+      <p class="pp-lead">Looking for a new job while you still have one? We get it. Your resumes and other career documents aren’t publicly accessible, listed in a recruiter database, or passed on to employers.</p>
+      <ul class="pp-checks">
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>No recruiter database.</strong> We don’t collect resumes for employers to browse, and we don’t share yours with hiring companies.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Access-controlled by default.</strong> Your documents are tied to your account and can’t be opened without signing in.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Link sharing you control.</strong> Your personal website stays private until you enable link sharing. You can disable it anytime.</p></li>
+      </ul>
     </div>
-    <div class="kr-lp-features__panel">
-      <div class="pp-visual" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Private by default]</span></div>
-    </div>
+    <div class="pp-visual pp-ph" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Private by default]</span></div>
   </div>
 </section>
 
-<section id="protected-by-eu-law" class="kr-lp-section kr-lp-features kr-lp--yellow pp-detail" aria-labelledby="pp-d2">
-  <div class="kr-lp-container kr-lp-features__wrap">
-    <span class="kr-lp-features__line" aria-hidden="true"></span>
-    <div class="kr-lp-features__body">
-      <p class="kr-lp-features__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/></svg><b>02</b> / Protected by EU law</p>
-      <div class="kr-lp-features__content">
-        <h2 class="kr-lp-title kr-lp-features__title" id="pp-d2">The EU takes privacy seriously. We do too.</h2>
-        <p class="kr-lp-features__text">As a company based in Europe, we’re bound by the <a href="https://gdpr-info.eu/">GDPR</a>, one of the strictest privacy laws in the world. That protection covers every Kickresume user, wherever they live.</p>
-        <ul class="pp-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Full control over your data.</strong> Want a copy? A correction? Everything deleted? It’s your right, and we’ll make it happen.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Real person, real answers.</strong> Our data protection officer handles every privacy question at <a href="mailto:gdpr@kickresume.com">gdpr@kickresume.com</a>.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>EU-level protection, worldwide.</strong> So even if you’re in the US, how we collect, use and protect your data meets EU standards.</p></li>
-        </ul>
+<!-- 02 Protected by EU law -->
+<section id="protected-by-eu-law" class="pp-section" aria-labelledby="pp-d2">
+  <div class="pp-wrap pp-detail__inner">
+    <div class="pp-detail__text">
+      <div class="pp-detail__label">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/></svg></span>
+        <p class="pp-label"><span>02</span><span aria-hidden="true"> / </span>Protected by EU law</p>
       </div>
+      <h2 class="pp-title" id="pp-d2">The EU takes privacy seriously. We do too.</h2>
+      <p class="pp-lead">As a company based in Europe, we’re bound by the <a href="https://gdpr-info.eu/">GDPR</a>, one of the strictest privacy laws in the world. That protection covers every Kickresume user, wherever they live.</p>
+      <ul class="pp-checks">
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Full control over your data.</strong> Want a copy? A correction? Everything deleted? It’s your right, and we’ll make it happen.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Real person, real answers.</strong> Our data protection officer handles every privacy question at <a href="mailto:gdpr@kickresume.com">gdpr@kickresume.com</a>.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>EU-level protection, worldwide.</strong> So even if you’re in the US, how we collect, use and protect your data meets EU standards.</p></li>
+      </ul>
     </div>
-    <div class="kr-lp-features__panel">
-      <div class="pp-visual" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Protected by EU law]</span></div>
-    </div>
+    <div class="pp-visual pp-visual-first pp-ph" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Protected by EU law]</span></div>
   </div>
 </section>
 
-<section id="security-on-every-level" class="kr-lp-section kr-lp-features kr-lp-features--bottom kr-lp--green pp-detail" aria-labelledby="pp-d3">
-  <div class="kr-lp-container kr-lp-features__wrap">
-    <span class="kr-lp-features__line" aria-hidden="true"></span>
-    <div class="kr-lp-features__body">
-      <p class="kr-lp-features__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/></svg><b>03</b> / Security on every level</p>
-      <div class="kr-lp-features__content">
-        <h2 class="kr-lp-title kr-lp-features__title" id="pp-d3">Our security gets a yearly check-up.</h2>
-        <p class="kr-lp-features__text">Independent security experts test our systems for vulnerabilities yearly. We host your data on certified servers and limit team access to those whose work requires it.</p>
-        <ul class="pp-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Annual pen tests and audits.</strong> Independent experts probe our systems to uncover weak spots before they can be exploited.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Certified hosting.</strong> Our servers run on AWS and Akamai infrastructure, certified to standards like ISO 27001 and SOC 2.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Restricted team access.</strong> Not everyone at Kickresume can see your data. Only the people who need it for their work.</p></li>
-        </ul>
+<!-- 03 Security on every level -->
+<section id="security-on-every-level" class="pp-section pp-section--tint" aria-labelledby="pp-d3">
+  <div class="pp-wrap pp-detail__inner">
+    <div class="pp-detail__text">
+      <div class="pp-detail__label">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9.5a2 2 0 0 1 4 0V11"/></svg></span>
+        <p class="pp-label"><span>03</span><span aria-hidden="true"> / </span>Security on every level</p>
       </div>
+      <h2 class="pp-title" id="pp-d3">Our security gets a yearly check-up.</h2>
+      <p class="pp-lead">Independent security experts test our systems for vulnerabilities yearly. We host your data on certified servers and limit team access to those whose work requires it.</p>
+      <ul class="pp-checks">
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Annual pen tests and audits.</strong> Independent experts probe our systems to uncover weak spots before they can be exploited.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Certified hosting.</strong> Our servers run on AWS and Akamai infrastructure, certified to standards like ISO 27001 and SOC 2.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Restricted team access.</strong> Not everyone at Kickresume can see your data. Only the people who need it for their work.</p></li>
+      </ul>
     </div>
-    <div class="kr-lp-features__panel">
-      <div class="pp-visual" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Security on every level]</span></div>
-    </div>
+    <div class="pp-visual pp-ph" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Security on every level]</span></div>
   </div>
 </section>
 
-<section id="never-used-to-train-ai" class="kr-lp-section kr-lp-features kr-lp-features--top kr-lp--blue pp-detail" aria-labelledby="pp-d4">
-  <div class="kr-lp-container kr-lp-features__wrap">
-    <span class="kr-lp-features__line" aria-hidden="true"></span>
-    <div class="kr-lp-features__body">
-      <p class="kr-lp-features__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M19 9h3M19 15h3M2 9h3M2 15h3"/></svg><b>04</b> / Never used to train AI</p>
-      <div class="kr-lp-features__content">
-        <h2 class="kr-lp-title kr-lp-features__title" id="pp-d4">Your resume isn’t training data. Ever.</h2>
-        <p class="kr-lp-features__text">Our AI tools help you write a better resume, but your documents never become training material. We don’t train AI on them, and neither do our providers, OpenAI and Anthropic.</p>
-        <ul class="pp-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>OpenAI.</strong> We explicitly opted out, so OpenAI doesn’t use your data to train its models.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Anthropic.</strong> The policy is not to train on business data, so your documents stay out of its models.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Kickresume.</strong> The data we build and test with is synthetic and isn’t linked to any real person.</p></li>
-        </ul>
+<!-- 04 Never used to train AI -->
+<section id="never-used-to-train-ai" class="pp-section" aria-labelledby="pp-d4">
+  <div class="pp-wrap pp-detail__inner">
+    <div class="pp-detail__text">
+      <div class="pp-detail__label">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M19 9h3M19 15h3M2 9h3M2 15h3"/></svg></span>
+        <p class="pp-label"><span>04</span><span aria-hidden="true"> / </span>Never used to train AI</p>
       </div>
+      <h2 class="pp-title" id="pp-d4">Your resume isn’t training data. Ever.</h2>
+      <p class="pp-lead">Our AI tools help you write a better resume, but your documents never become training material. We don’t train AI on them, and neither do our providers, OpenAI and Anthropic.</p>
+      <ul class="pp-checks">
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>OpenAI.</strong> We explicitly opted out, so OpenAI doesn’t use your data to train its models.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Anthropic.</strong> The policy is not to train on business data, so your documents stay out of its models.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Kickresume.</strong> The data we build and test with is synthetic and isn’t linked to any real person.</p></li>
+      </ul>
     </div>
-    <div class="kr-lp-features__panel">
-      <div class="pp-visual" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Never used to train AI]</span></div>
-    </div>
+    <div class="pp-visual pp-visual-first pp-ph" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Never used to train AI]</span></div>
   </div>
 </section>
 
-<section id="data-never-sold" class="kr-lp-section kr-lp-features kr-lp--yellow pp-detail" aria-labelledby="pp-d5">
-  <div class="kr-lp-container kr-lp-features__wrap">
-    <span class="kr-lp-features__line" aria-hidden="true"></span>
-    <div class="kr-lp-features__body">
-      <p class="kr-lp-features__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><b>05</b> / Data never sold</p>
-      <div class="kr-lp-features__content">
-        <h2 class="kr-lp-title kr-lp-features__title" id="pp-d5">We sell subscriptions, not your data.</h2>
-        <p class="kr-lp-features__text">Some companies make money from your data. We don’t. We never sell it to advertisers or data brokers, and never share it with recruiters or companies for their own use.</p>
-        <ul class="pp-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Never shared with employers.</strong> Not now, not ever. Your resume has never been passed to recruiters or hiring companies.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Data processing.</strong> Providers that help run Kickresume handle your data strictly on our instructions. They’re named in our <a href="https://www.kickresume.com/privacy/">privacy policy</a>.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Legally required only.</strong> Beyond our service providers, we disclose data only when legally required, for example by a court order.</p></li>
-        </ul>
+<!-- 05 Data never sold -->
+<section id="data-never-sold" class="pp-section pp-section--tint" aria-labelledby="pp-d5">
+  <div class="pp-wrap pp-detail__inner">
+    <div class="pp-detail__text">
+      <div class="pp-detail__label">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
+        <p class="pp-label"><span>05</span><span aria-hidden="true"> / </span>Data never sold</p>
       </div>
+      <h2 class="pp-title" id="pp-d5">We sell subscriptions, not your data.</h2>
+      <p class="pp-lead">Some companies make money from your data. We don’t. We never sell it to advertisers or data brokers, and never share it with recruiters or companies for their own use.</p>
+      <ul class="pp-checks">
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Never shared with employers.</strong> Not now, not ever. Your resume has never been passed to recruiters or hiring companies.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Data processing.</strong> Providers that help run Kickresume handle your data strictly on our instructions. They’re named in our <a href="https://www.kickresume.com/privacy/">privacy policy</a>.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Legally required only.</strong> Beyond our service providers, we disclose data only when legally required, for example by a court order.</p></li>
+      </ul>
     </div>
-    <div class="kr-lp-features__panel">
-      <div class="pp-visual" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Data never sold]</span></div>
-    </div>
+    <div class="pp-visual pp-ph" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Data never sold]</span></div>
   </div>
 </section>
 
-<section id="deleted-within-30-days" class="kr-lp-section kr-lp-features kr-lp-features--bottom kr-lp--green pp-detail" aria-labelledby="pp-d6">
-  <div class="kr-lp-container kr-lp-features__wrap">
-    <span class="kr-lp-features__line" aria-hidden="true"></span>
-    <div class="kr-lp-features__body">
-      <p class="kr-lp-features__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg><b>06</b> / Deleted within 30 days</p>
-      <div class="kr-lp-features__content">
-        <h2 class="kr-lp-title kr-lp-features__title" id="pp-d6">When you leave, your data leaves too.</h2>
-        <p class="kr-lp-features__text">Close your account anytime and your account data is deleted after 30 days. Inactive accounts are cleaned up after 5 years, and your card details are never stored at all.</p>
-        <ul class="pp-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>30 days.</strong> You can delete your account whenever you like. After 30 days, everything in it is permanently erased.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>5 years.</strong> Many services keep inactive accounts forever. We don’t. Stop logging in, we’ll email you, then delete your account.</p></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><p><strong>Card details never stored.</strong> Payments are handled entirely by our payment provider.</p></li>
-        </ul>
+<!-- 06 Deleted within 30 days -->
+<section id="deleted-within-30-days" class="pp-section" aria-labelledby="pp-d6">
+  <div class="pp-wrap pp-detail__inner">
+    <div class="pp-detail__text">
+      <div class="pp-detail__label">
+        <span class="kr-iconbox kr-iconbox--48"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></svg></span>
+        <p class="pp-label"><span>06</span><span aria-hidden="true"> / </span>Deleted within 30 days</p>
       </div>
+      <h2 class="pp-title" id="pp-d6">When you leave, your data leaves too.</h2>
+      <p class="pp-lead">Close your account anytime and your account data is deleted after 30 days. Inactive accounts are cleaned up after 5 years, and your card details are never stored at all.</p>
+      <ul class="pp-checks">
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>30 days.</strong> You can delete your account whenever you like. After 30 days, everything in it is permanently erased.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>5 years.</strong> Many services keep inactive accounts forever. We don’t. Stop logging in, we’ll email you, then delete your account.</p></li>
+        <li><span class="pp-checks__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><p><strong>Card details never stored.</strong> Payments are handled entirely by our payment provider.</p></li>
+      </ul>
     </div>
-    <div class="kr-lp-features__panel">
-      <div class="pp-visual" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Deleted within 30 days]</span></div>
-    </div>
+    <div class="pp-visual pp-visual-first pp-ph" role="img" aria-label="Visual placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[VISUAL: Deleted within 30 days]</span></div>
   </div>
 </section>
 
-<!-- ============ TL;DR (core: list card with interactive rows) ============ -->
-<section id="tldr" class="kr-lp-section pp-tldr" aria-labelledby="tldr-heading">
-  <div class="kr-lp-container">
-    <header class="kr-lp-head">
-      <h2 class="kr-lp-title" id="tldr-heading">TL;DR: here's why your data is in good hands.</h2>
-    </header>
+<!-- TL;DR -->
+<section id="tldr" class="pp-section pp-section--tint pp-tldr" aria-labelledby="tldr-heading">
+  <div class="pp-wrap pp-tldr__inner">
+    <h2 class="pp-title" id="tldr-heading">TL;DR: here's why your data is in good hands.</h2>
     <ul class="kr-list" aria-labelledby="tldr-heading">
-      <li><a class="kr-list__row kr-list__row--interactive" href="#protected-by-eu-law"><span>GDPR protection for every user, worldwide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#private-by-default"><span>Documents private by default</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#data-never-sold"><span>Never shared with employers or recruiters</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#data-never-sold"><span>Personal data never sold</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#never-used-to-train-ai"><span>No AI training on your documents</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#security-on-every-level"><span>Yearly independent security testing</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#security-on-every-level"><span>ISO 27001 and SOC 2 certified hosting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#deleted-within-30-days"><span>Card details never stored</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#deleted-within-30-days"><span>Account data deleted 30 days after you leave</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#deleted-within-30-days"><span>Inactive accounts deleted after 5 years</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
-      <li><a class="kr-list__row kr-list__row--interactive" href="#protected-by-eu-law"><span>A data protection officer you can email</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#protected-by-eu-law"><span>GDPR protection for every user, worldwide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#private-by-default"><span>Documents private by default</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#data-never-sold"><span>Never shared with employers or recruiters</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#data-never-sold"><span>Personal data never sold</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#never-used-to-train-ai"><span>No AI training on your documents</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#security-on-every-level"><span>Yearly independent security testing</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#security-on-every-level"><span>ISO 27001 and SOC 2 certified hosting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#deleted-within-30-days"><span>Card details never stored</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#deleted-within-30-days"><span>Account data deleted 30 days after you leave</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#deleted-within-30-days"><span>Inactive accounts deleted after 5 years</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
+      <li><a class="kr-list__row kr-list__row--interactive" href="#protected-by-eu-law"><span>A data protection officer you can email</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></a></li>
     </ul>
   </div>
 </section>
 
-<!-- ============ Risk-free (landing kit: bento tiles) ============ -->
-<section id="risk-free" class="kr-lp-section kr-lp-bento" aria-labelledby="pp-risk-title">
-  <div class="kr-lp-container">
-    <header class="kr-lp-head kr-lp-bento__head">
-      <div class="kr-lp-head__titles"><h2 class="kr-lp-title" id="pp-risk-title">Transparent with your data and your wallet.</h2></div>
-      <p class="kr-lp-sub">We’ve told you exactly what happens to your data. We respect your money just as much, so we’ve made trying Kickresume risk-free.</p>
-    </header>
+<!-- Transparent with your data and your wallet -->
+<section id="risk-free" class="pp-section pp-risk" aria-labelledby="pp-risk-title">
+  <div class="pp-wrap pp-risk__inner">
+    <div class="pp-risk__head">
+      <h2 class="pp-title" id="pp-risk-title">Transparent with your data and your wallet.</h2>
+      <p class="pp-lead">We’ve told you exactly what happens to your data. We respect your money just as much, so we’ve made trying Kickresume risk-free.</p>
+    </div>
     <div class="pp-bento">
-      <article class="kr-lp-bento__tile pp-tile pp-tile--tall pp-tile--blue">
-        <div class="kr-lp-bento__body">
-          <h3 class="kr-lp-bento__title">Transparent pricing</h3>
-          <p class="kr-lp-bento__text">Know exactly what’s free and what’s paid before you start, so you know what you’re paying for.</p>
-          <a class="kr-lp-btn kr-lp-btn--glass kr-lp-bento__btn" href="#compare-plans">Compare plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-        </div>
-        <div class="pp-shot" role="img" aria-label="Image placeholder: pricing page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[IMAGE: Pricing page]</span></div>
+      <article class="pp-card pp-card--blue">
+        <h3>Transparent pricing</h3>
+        <p>Know exactly what’s free and what’s paid before you start, so you know what you’re paying for.</p>
+        <a class="kr-lp-btn kr-lp-btn--text" href="#compare-plans">Compare plans<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <div class="pp-shot pp-ph" role="img" aria-label="Image placeholder: pricing page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[IMAGE: Pricing page]</span></div>
       </article>
-      <article class="kr-lp-bento__tile pp-tile pp-tile--row pp-tile--yellow">
-        <div class="kr-lp-bento__body">
-          <h3 class="kr-lp-bento__title">14-day money-back guarantee</h3>
-          <p class="kr-lp-bento__text">Not happy with your first subscription? Let us know within 14 days and get your money back.</p>
+      <article class="pp-card pp-card--row pp-card--yellow">
+        <div class="pp-card__text">
+          <h3>14-day money-back guarantee</h3>
+          <p>Not happy with your first subscription? Let us know within 14 days and get your money back.</p>
         </div>
-        <div class="pp-shot" role="img" aria-label="Image placeholder: money-back guarantee page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[IMAGE: Money-back]</span></div>
+        <div class="pp-shot pp-ph" role="img" aria-label="Image placeholder: money-back guarantee page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[IMAGE: Money-back]</span></div>
       </article>
-      <article class="kr-lp-bento__tile pp-tile pp-tile--row pp-tile--green">
-        <div class="kr-lp-bento__body">
-          <h3 class="kr-lp-bento__title">Free for students and teachers</h3>
-          <p class="kr-lp-bento__text">Get Kickresume Premium for free. Just verify your status with ISIC, ITIC or UNiDAYS.</p>
-          <a class="kr-lp-btn kr-lp-btn--glass kr-lp-bento__btn" href="#free-premium">Get free Premium <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      <article class="pp-card pp-card--row pp-card--green">
+        <div class="pp-card__text">
+          <h3>Free for students and teachers</h3>
+          <p>Get Kickresume Premium for free. Just verify your status with ISIC, ITIC or UNiDAYS.</p>
+          <a class="kr-lp-btn kr-lp-btn--text" href="#free-premium">Get free Premium<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
-        <div class="pp-shot" role="img" aria-label="Image placeholder: students and teachers page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[IMAGE: Students]</span></div>
+        <div class="pp-shot pp-ph" role="img" aria-label="Image placeholder: students and teachers page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span>[IMAGE: Students]</span></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ FAQ (landing kit: faq, <details> so no script) ============ -->
-<section id="faq" class="kr-lp-section kr-lp-faq" aria-labelledby="pp-faq-title">
-  <div class="kr-lp-faq__wrap">
-    <header class="kr-lp-head kr-lp-faq__head">
-      <h2 class="kr-lp-title" id="pp-faq-title">Frequently asked questions</h2>
-    </header>
-    <div class="kr-lp-faq__list">
-      <details class="kr-lp-faq__item">
-        <summary class="kr-lp-faq__q"><span>Is Kickresume safe to use?</span><svg class="kr-lp-faq__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="kr-lp-faq__a"><p>Yes. Kickresume is an EU-based company, so it’s bound by the GDPR, one of the strictest privacy laws in the world. Our systems get independent penetration tests every year, your data is hosted on ISO 27001 and SOC 2 certified infrastructure, and access to your data is limited to team members who need it for their work.</p></div>
+<!-- FAQ -->
+<section id="faq" class="pp-section pp-faq" aria-labelledby="pp-faq-title">
+  <div class="pp-wrap pp-faq__inner">
+    <h2 class="pp-title" id="pp-faq-title">Frequently asked questions</h2>
+    <div class="pp-faq__panel">
+      <details class="pp-faq__item">
+        <summary class="pp-faq__q"><h3>Is Kickresume safe to use?</h3><svg class="pp-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><svg class="pp-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></summary>
+        <p class="pp-faq__a">Yes. Kickresume is an EU-based company, so it’s bound by the GDPR, one of the strictest privacy laws in the world. Our systems get independent penetration tests every year, your data is hosted on ISO 27001 and SOC 2 certified infrastructure, and access to your data is limited to team members who need it for their work.</p>
       </details>
-      <details class="kr-lp-faq__item">
-        <summary class="kr-lp-faq__q"><span>Does Kickresume sell my data or share my resume with employers?</span><svg class="kr-lp-faq__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="kr-lp-faq__a"><p>No. Kickresume doesn’t sell your personal data to advertisers, data brokers or anyone else. We’ve never shared resumes with employers or recruiters. Your documents stay private in your account until you choose to share them yourself.</p></div>
+      <details class="pp-faq__item">
+        <summary class="pp-faq__q"><h3>Does Kickresume sell my data or share my resume with employers?</h3><svg class="pp-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><svg class="pp-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></summary>
+        <p class="pp-faq__a">No. Kickresume doesn’t sell your personal data to advertisers, data brokers or anyone else. We’ve never shared resumes with employers or recruiters. Your documents stay private in your account until you choose to share them yourself.</p>
       </details>
-      <details class="kr-lp-faq__item">
-        <summary class="kr-lp-faq__q"><span>Will my current employer find out I’m using Kickresume?</span><svg class="kr-lp-faq__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="kr-lp-faq__a"><p>Not from us. Your resumes and cover letters aren’t public, aren’t listed in any database for recruiters to search, and aren’t passed on to employers. Your personal website only goes live if you turn on link sharing, and you can switch it off anytime.</p></div>
+      <details class="pp-faq__item">
+        <summary class="pp-faq__q"><h3>Will my current employer find out I’m using Kickresume?</h3><svg class="pp-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><svg class="pp-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></summary>
+        <p class="pp-faq__a">Not from us. Your resumes and cover letters aren’t public, aren’t listed in any database for recruiters to search, and aren’t passed on to employers. Your personal website only goes live if you turn on link sharing, and you can switch it off anytime.</p>
       </details>
-      <details class="kr-lp-faq__item">
-        <summary class="kr-lp-faq__q"><span>Does Kickresume use my resume to train AI?</span><svg class="kr-lp-faq__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="kr-lp-faq__a"><p>No. Kickresume doesn’t train AI on your documents. Our AI providers don’t either: we’ve opted out of training with OpenAI, and Anthropic doesn’t train on business customers’ data by default.</p></div>
+      <details class="pp-faq__item">
+        <summary class="pp-faq__q"><h3>Does Kickresume use my resume to train AI?</h3><svg class="pp-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><svg class="pp-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></summary>
+        <p class="pp-faq__a">No. Kickresume doesn’t train AI on your documents. Our AI providers don’t either: we’ve opted out of training with OpenAI, and Anthropic doesn’t train on business customers’ data by default.</p>
       </details>
-      <details class="kr-lp-faq__item">
-        <summary class="kr-lp-faq__q"><span>How do I delete my Kickresume account and data?</span><svg class="kr-lp-faq__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="kr-lp-faq__a"><p>You can delete your account anytime in your settings, on the web or in the mobile app. Once you do, everything in your account is permanently deleted after a 30-day grace period. Accounts that stay inactive for 5 years are deleted automatically, after an email warning.</p></div>
+      <details class="pp-faq__item">
+        <summary class="pp-faq__q"><h3>How do I delete my Kickresume account and data?</h3><svg class="pp-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg><svg class="pp-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg></summary>
+        <p class="pp-faq__a">You can delete your account anytime in your settings, on the web or in the mobile app. Once you do, everything in your account is permanently deleted after a 30-day grace period. Accounts that stay inactive for 5 years are deleted automatically, after an email warning.</p>
       </details>
     </div>
   </div>
